@@ -121,6 +121,10 @@ img {
     display: block;
 }
 
+button{
+    font-family: var(--font-main);
+}
+
 /* Container */
 .container {
     max-width: var(--container-width);
@@ -524,7 +528,7 @@ img {
 
 .secondary-nav-content {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     min-width: min-content;
 }
 
