@@ -208,6 +208,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
+    // Trust Bar Scroll Indicator
+    // =========================================
+    const trustBar = document.querySelector('.trust-bar');
+    const trustBarContent = document.querySelector('.secondary-nav-content');
+    const trustScrollIndicator = document.querySelector('.trust-scroll-indicator');
+    const trustScrollProgress = document.querySelector('.trust-scroll-progress');
+
+    if (trustBar && trustBarContent && trustScrollIndicator && trustScrollProgress) {
+        let trustScrollTimeout;
+        let trustHasScrolled = false;
+
+        const updateTrustScrollIndicator = (isInitial = false) => {
+            // Show indicator
+            trustScrollIndicator.classList.add('visible');
+
+            // Calculate progress for moving thumb
+            const thumbWidth = 80; // Match CSS
+            const containerWidth = trustBar.clientWidth;
+            const scrollWidth = trustBar.scrollWidth;
+            const maxScrollLeft = scrollWidth - containerWidth;
+            
+            // Set indicator track width to match scroll width
+            trustScrollIndicator.style.width = scrollWidth + 'px';
+            
+            // Calculate position (even if not scrollable, show at start)
+            const maxTranslate = Math.max(scrollWidth - thumbWidth - 32, 0); // Full scroll width minus thumb
+            const scrollWithOffset = trustBar.scrollLeft < 0 ? 0 : trustBar.scrollLeft;
+            const percentage = maxScrollLeft > 0 ? scrollWithOffset / maxScrollLeft : 0;
+            const translateX = Math.max(0, Math.min(percentage * maxTranslate, maxTranslate));
+            
+            // Update thumb position
+            trustScrollProgress.style.transform = `translateX(${translateX}px)`;
+
+            // Visibility Logic
+            if (!isInitial) {
+                trustHasScrolled = true;
+            }
+
+            if (isInitial && !trustHasScrolled) {
+                // Keep visible indefinitely until scroll happens
+                return;
+            }
+
+            // Hide after timeout
+            clearTimeout(trustScrollTimeout);
+            trustScrollTimeout = setTimeout(() => {
+                trustScrollIndicator.classList.remove('visible');
+            }, 1000);
+        };
+
+        trustBar.addEventListener('scroll', () => updateTrustScrollIndicator(false));
+        
+        // Show on load (initial trigger) - always show since we have 6 items
+        setTimeout(() => {
+            updateTrustScrollIndicator(true);
+        }, 500);
+    }
+
+    // =========================================
     // Card Click Redirection
     // =========================================
     const clickableCards = document.querySelectorAll('.trip-card[data-link]');

@@ -530,6 +530,7 @@ button{
     display: flex;
     gap: var(--spacing-sm);
     min-width: min-content;
+    padding: 0 1rem; /* Add padding since no container wrapper */
 }
 
 .sec-nav-item {
@@ -543,6 +544,39 @@ button{
     color: var(--color-text);
     cursor: pointer;
     gap: var(--spacing-xs);
+}
+
+/* Trust Bar Scroll Indicator */
+.trust-bar {
+    position: relative;
+}
+
+.trust-scroll-indicator {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    /* width set dynamically by JS to match scrollWidth */
+    height: 3px; /* Slightly taller */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 2px;
+    padding: 0 1rem; /* Add padding inside instead */
+    box-sizing: border-box;
+}
+
+.trust-scroll-indicator.visible {
+    opacity: 1;
+}
+
+.trust-scroll-progress {
+    height: 100%;
+    background: var(--color-primary);
+    width: 65px; /* Larger thumb for visibility */
+    border-radius: 4px;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.1s ease-out; /* Smooth movement */
 }
 
 /* Section Spacing Base */
