@@ -88,6 +88,126 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
+    // Sticky Tabs Filtering & Scroll Indicator
+    // =========================================
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tripCards = document.querySelectorAll('.trip-card');
+    const tabsContainer = document.querySelector('.trips-tabs');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const scrollProgress = document.querySelector('.scroll-progress');
+    const tabsContainerElement = document.querySelector('.trips-tabs-container');
+
+    // Detect when tabs become sticky
+    if (tabsContainerElement) {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // When the element is NOT intersecting (i.e., it's stuck), add the class
+                if (!entry.isIntersecting) {
+                    tabsContainerElement.classList.add('is-stuck');
+                } else {
+                    tabsContainerElement.classList.remove('is-stuck');
+                }
+            },
+            { threshold: [1], rootMargin: '-56px 0px 0px 0px' } // Adjust rootMargin based on sticky top value
+        );
+
+        observer.observe(tabsContainerElement);
+    }
+
+    if (tabBtns.length > 0) {
+        // Tab Filtering
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Scroll active button into view centered
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+                const category = btn.getAttribute('data-tab');
+
+                // Filter cards
+                tripCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    if (category === 'all' || cardCategory === category) {
+                        card.classList.remove('hide');
+                        // Reset animation
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            card.classList.add('hide');
+                        }, 300); // Wait for transition
+                    }
+                });
+            });
+        });
+
+        // Custom Scroll Indicator Logic
+        if (tabsContainer && scrollIndicator && scrollProgress) {
+            let scrollTimeout;
+            let hasScrolled = false;
+
+        const updateScrollIndicator = (isInitial = false) => {
+            // Show indicator
+            scrollIndicator.classList.add('visible');
+
+            // Calculate progress for moving thumb
+            const thumbWidth = 60; // Must match CSS
+            const containerWidth = tabsContainer.clientWidth;
+            const scrollWidth = tabsContainer.scrollWidth;
+            const maxScrollLeft = scrollWidth - containerWidth;
+            
+            // Only show if scrollable
+            if (maxScrollLeft <= 0) {
+                scrollIndicator.style.opacity = '0';
+                return;
+            }
+
+            const maxTranslate = containerWidth - thumbWidth;
+            const scrollWithOffset = tabsContainer.scrollLeft < 0 ? 0 : tabsContainer.scrollLeft; // Safari safety
+            const percentage = scrollWithOffset / maxScrollLeft;
+            const translateX = Math.max(0, Math.min(percentage * maxTranslate, maxTranslate)); // Clamp
+            
+            // Update thumb position
+            scrollProgress.style.transform = `translateX(${translateX}px)`;
+
+            // Visibility Logic
+            if (!isInitial) {
+                hasScrolled = true;
+            }
+
+            if (isInitial && !hasScrolled) {
+                // Keep visible indefinitely until scroll happens
+                return;
+            }
+
+            // Hide after timeout
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                scrollIndicator.classList.remove('visible');
+            }, 1000); 
+        };
+
+        tabsContainer.addEventListener('scroll', () => updateScrollIndicator(false));
+        
+        // Show on load (initial trigger)
+        setTimeout(() => {
+            if (tabsContainer.scrollWidth > tabsContainer.clientWidth) {
+                updateScrollIndicator(true);
+            }
+        }, 500);
+        }
+    }
+
+    // =========================================
     // Card Click Redirection
     // =========================================
     const clickableCards = document.querySelectorAll('.trip-card[data-link]');

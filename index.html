@@ -102,9 +102,23 @@
                 <h2 class="section-title">Popular Adventure Trips</h2>
                 <p class="section-subtitle">Discover Nepal's most breathtaking trekking routes</p>
 
+                <!-- Sticky Tabs Navigation -->
+                <div class="trips-tabs-container">
+                    <div class="trips-tabs">
+                        <button class="tab-btn active" data-tab="trekking">Trekking</button>
+                        <button class="tab-btn" data-tab="association">Association</button>
+                        <button class="tab-btn" data-tab="safari">Safari & Nature</button>
+                        <button class="tab-btn" data-tab="complete-nepal">Complete Nepal</button>
+                    </div>
+                    <!-- Custom Scroll Indicator -->
+                    <div class="scroll-indicator">
+                        <div class="scroll-progress"></div>
+                    </div>
+                </div>
+
                 <div class="trips-grid">
                     <!-- Trip Card 1 -->
-                    <div class="trip-card" data-link="treks/trek-detail-everest-gokyo.html">
+                    <div class="trip-card" data-category="trekking" data-link="treks/trek-detail-everest-gokyo.html">
                         <div class="trip-image card-slider-container">
                             <div class="card-slides">
                                 <img src="assets/images/Everest Base Camp/Everest Base Camp-1.jpeg" alt="Everest Base Camp 1" class="card-slide active">
@@ -139,7 +153,7 @@
                     </div>
 
                     <!-- Trip Card 2 -->
-                    <div class="trip-card" data-link="treks/trek-detail-mardi-himal.html">
+                    <div class="trip-card" data-category="trekking" data-link="treks/trek-detail-mardi-himal.html">
                         <div class="trip-image card-slider-container">
                             <div class="card-slides">
                                 <img src="assets/images/Mardi Himal/Mardi Himal-1.jpeg" alt="Mardi Himal 1" class="card-slide active">
@@ -174,26 +188,112 @@
                     </div>
 
                     <!-- Trip Card 3 -->
-                    <div class="trip-card">
-                        <div class="trip-image">
-                            <img src="C:/Users/Hp/.gemini/antigravity/brain/70ac96c7-4a44-4a82-bf21-ac2de0446864/langtang_trek_1766420605451.png"
-                                alt="Langtang Valley Trek">
+                    <div class="trip-card" data-category="trekking" data-link="treks/trek-detail-three-passes.html">
+                        <div class="trip-image card-slider-container">
+                            <div class="card-slides">
+                                <img src="assets/images/Three Passes/Three Passes-1.jpeg" alt="Three Passes Trek 1" class="card-slide active">
+                                <img src="assets/images/Three Passes/Three Passes-2.jpeg" alt="Three Passes Trek 2" class="card-slide">
+                                <img src="assets/images/Three Passes/Three Passes-3.jpeg" alt="Three Passes Trek 3" class="card-slide">
+                            </div>
+                            <span class="trip-badge">Challenging</span>
+                            <div class="card-indicators">
+                                <span class="card-indicator active"></span>
+                                <span class="card-indicator"></span>
+                                <span class="card-indicator"></span>
+                            </div>
                         </div>
                         <div class="trip-content">
-                            <h3 class="trip-title">Langtang Valley Trek</h3>
-                            <p class="trip-description">Explore pristine valleys and traditional Tamang villages close
-                                to Kathmandu.</p>
+                            <h3 class="trip-title">Three Passes Trek</h3>
+                            <p class="trip-description">Spectacular high-altitude adventure crossing Renjo La, Cho La, and Kongma La.</p>
                             <div class="trip-details">
                                 <span class="trip-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <strong>Duration:</strong> 18 Days
+                                </span>
+                                <span class="trip-detail">
                                     <i class="fas fa-mountain"></i>
-                                    <strong>Difficulty:</strong> Easy-Moderate
+                                    <strong>Max Alt:</strong> 5,545m
+                                </span>                        
+                            </div>
+                            <a href="tel:+1234567890" class="trip-btn">
+                                <i class="fas fa-phone-alt"></i>
+                                Call for Inquiry
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Association Card (Placeholder) -->
+                    <div class="trip-card" data-category="association" data-link="#">
+                        <div class="trip-image">
+                            <img src="assets/images/photo-1.jpeg" alt="Community Project">
+                            <span class="trip-badge">Community</span>
+                        </div>
+                        <div class="trip-content">
+                            <h3 class="trip-title">Help Rural Villages</h3>
+                            <p class="trip-description">Join our association projects to build schools and support local communities.</p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                    <strong>Impact:</strong> High
                                 </span>
                                 <span class="trip-detail">
                                     <i class="fas fa-clock"></i>
-                                    <strong>Duration:</strong> 7-10 Days
+                                    <strong>Duration:</strong> Flexible
                                 </span>
                             </div>
-                            <a href="tel:+1234567890" class="trip-btn">
+                            <a href="tel:+97714412345" class="trip-btn">
+                                <i class="fas fa-phone-alt"></i>
+                                Inquire Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Safari Card (Placeholder) -->
+                    <div class="trip-card" data-category="safari" data-link="#">
+                        <div class="trip-image">
+                            <img src="assets/images/banner.jpeg" alt="Chitwan Safari">
+                            <span class="trip-badge">Wildlife</span>
+                        </div>
+                        <div class="trip-content">
+                            <h3 class="trip-title">Chitwan Jungle Safari</h3>
+                            <p class="trip-description">Explore the dense jungles of Chitwan National Park and spot rhinos, elephants, and tigers.</p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-paw"></i>
+                                    <strong>Wildlife:</strong> Diverse
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <strong>Duration:</strong> 3-4 Days
+                                </span>
+                            </div>
+                            <a href="tel:+97714412345" class="trip-btn">
+                                <i class="fas fa-phone-alt"></i>
+                                Call for Inquiry
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Complete Nepal Card (Placeholder) -->
+                    <div class="trip-card" data-category="complete-nepal" data-link="#">
+                        <div class="trip-image">
+                            <img src="assets/images/Everest Base Camp/Everest Base Camp-4.jpeg" alt="Best of Nepal">
+                            <span class="trip-badge">Tour</span>
+                        </div>
+                        <div class="trip-content">
+                            <h3 class="trip-title">Best of Nepal Tour</h3>
+                            <p class="trip-description">A complete journey covering Kathmandu, Pokhara, Chitwan, and Lumbini.</p>
+                            <div class="trip-details">
+                                <span class="trip-detail">
+                                    <i class="fas fa-bus"></i>
+                                    <strong>Travel:</strong> Luxury Bus
+                                </span>
+                                <span class="trip-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <strong>Duration:</strong> 12 Days
+                                </span>
+                            </div>
+                            <a href="tel:+97714412345" class="trip-btn">
                                 <i class="fas fa-phone-alt"></i>
                                 Call for Inquiry
                             </a>
