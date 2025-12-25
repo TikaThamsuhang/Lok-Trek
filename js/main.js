@@ -120,6 +120,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (tabBtns.length > 0) {
+        // Helper function for filtering
+        const filterCards = (category) => {
+             tripCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hide');
+                    // Reset animation
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        card.classList.add('hide');
+                    }, 300); // Wait for transition
+                }
+            });
+        };
+
         // Tab Filtering
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -132,28 +154,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
                 const category = btn.getAttribute('data-tab');
-
-                // Filter cards
-                tripCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    
-                    if (category === 'all' || cardCategory === category) {
-                        card.classList.remove('hide');
-                        // Reset animation
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.9)';
-                        setTimeout(() => {
-                            card.classList.add('hide');
-                        }, 300); // Wait for transition
-                    }
-                });
+                filterCards(category);
             });
         });
+
+        // Initialize filter on load based on active tab
+        const activeTab = document.querySelector('.tab-btn.active');
+        if (activeTab) {
+            const category = activeTab.getAttribute('data-tab');
+            // Run immediately without animation delay if possible, or just run the same logic
+            // For initial load, we might want to suppress the hide animation delay, but consistency is fine
+            // To prevent "flashing" of wrong content, we should force correct state immediately if possible.
+            // But reuse of function is cleaner.
+             tripCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hide');
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                } else {
+                   card.classList.add('hide');
+                   card.style.opacity = '0';
+                   card.style.transform = 'scale(0.9)';
+                }
+            });
+        }
 
         // Custom Scroll Indicator Logic
         if (tabsContainer && scrollIndicator && scrollProgress) {
