@@ -1,5 +1,13 @@
 function renderFooter(containerId, options = { rootPath: './' }) {
     const root = options.rootPath;
+    
+    // Active link logic helper (duplicate from header for standalone usage)
+    const isActive = (path) => {
+        const currentPath = window.location.pathname;
+        const currentFile = currentPath.split('/').pop() || 'index.html';
+        return currentFile === path;
+    };
+
     const html = `
     <footer class="site-footer">
         <div class="container">
@@ -23,11 +31,12 @@ function renderFooter(containerId, options = { rootPath: './' }) {
                     <div class="footer-widget">
                         <h3>Quick Links</h3>
                         <ul class="footer-links">
-                            <li><a href="${root}index.html">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+
+                            <li><a href="${root}index.html" class="${isActive('index.html') ? 'highlight-text' : ''}">Home</a></li>
+                            <li><a href="${root}who-we-are.html" class="${isActive('who-we-are.html') ? 'highlight-text' : ''}">About Us</a></li>
+                            <li><a href="${root}team.html" class="${isActive('team.html') ? 'highlight-text' : ''}">Our Team</a></li>
+                            <li><a href="${root}blog.html" class="${isActive('blog.html') ? 'highlight-text' : ''}">Blog</a></li>
+                            <li><a href="${root}contact.html" class="${isActive('contact.html') ? 'highlight-text' : ''}">Contact</a></li>
                         </ul>
                     </div>
 

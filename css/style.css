@@ -296,6 +296,94 @@ button{
     color: var(--color-primary);
 }
 
+/* Dropdown Menu Styles */
+.dropdown-item-parent {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-white);
+    min-width: 220px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-item-parent:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-link:hover {
+    background-color: #f9f9f9;
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    padding-left: 25px;
+}
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown-menu {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.mobile-dropdown-parent.active .mobile-dropdown-menu {
+    height: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-dropdown-parent.active .rotate-icon {
+    transform: rotate(90deg);
+    color: var(--color-primary);
+}
+
+.mobile-dropdown-link {
+    display: block;
+    padding: 10px 20px 10px 30px; /* Indented */
+    color: var(--color-text);
+    font-size: 0.9rem;
+    border-left: 2px solid transparent;
+}
+
+.mobile-dropdown-link:hover {
+    color: var(--color-primary);
+    background-color: #f0f0f0;
+    border-left-color: var(--color-primary);
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+    width: 20px;
+    text-align: center;
+}
+
 .skiptranslate {
     /* visibility: hidden !important; */
     display: none !important;

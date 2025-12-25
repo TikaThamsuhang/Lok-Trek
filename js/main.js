@@ -24,7 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close on link click
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', () => {
+             // Don't close if it's a dropdown toggle
+             if (!link.classList.contains('mobile-dropdown-toggle')) {
+                 closeMenu();
+             }
+        });
     });
 
     // Show More Functionality
