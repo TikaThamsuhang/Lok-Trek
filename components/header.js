@@ -34,7 +34,7 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_association">Association <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                         <ul class="dropdown-menu">
                              <li><a href="#" class="dropdown-link">Partners</a></li>
-                             <li><a href="#" class="dropdown-link">Members</a></li>
+                             <li><a href="#" class="dropdown-link">Member</a></li>
                         </ul>
                     </li>
 
