@@ -125,6 +125,11 @@ button{
     font-family: var(--font-main);
 }
 
+/* Add padding to body when white header is used to prevent overlap */
+main {
+    padding-top: 66px; /* Height of header */
+}
+
 /* Container */
 .container {
     max-width: var(--container-width);
@@ -191,7 +196,6 @@ button{
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--color-white);
     /* width: 40px;
     height: 40px; */
     /* border-radius: 50%; */

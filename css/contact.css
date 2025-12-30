@@ -1,0 +1,329 @@
+/* Contact Page - Premium Design */
+
+/* Hero Adjustments */
+.hero {
+    height: 60vh; /* Taller hero */
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Add a subtle parallax effect if not already handled globally */
+    background-attachment: fixed;
+}
+
+.hero-content h1 {
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Contact Section */
+.hero-breadcrumbs .breadcrumb-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.contact-section {
+    padding: var(--section-padding-y) 0;
+    /* Subtle gradient background for premium feel */
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background elements */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(252, 182, 0, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Info smaller than form */
+    gap: var(--spacing-xl);
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact Info Cards (Left Side) */
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-lg); /* More padding */
+    border-radius: 16px; /* Squircles */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Softer, deeper shadow */
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.contact-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-color: rgba(252, 182, 0, 0.3); /* Gold border reveal */
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fff 0%, #fcfcfc 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover .info-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 8px 20px rgba(252, 182, 0, 0.25);
+}
+
+.info-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    letter-spacing: -0.5px;
+}
+
+.info-content p, .info-content a {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.info-content a:hover {
+    color: var(--color-primary);
+}
+
+/* Contact Form (Right Side) */
+.contact-form-wrapper {
+    background: var(--color-white);
+    padding: 3rem; /* Luxurious padding */
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top colored line */
+.contact-form-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-primary), #feda75);
+}
+
+.form-heading {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.form-heading h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--color-text) 0%, #666 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.intro-text {
+    color: #666;
+    font-size: 1.05rem;
+    max-width: 90%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 18px 25px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #f8f9fa;
+    color: var(--color-text);
+}
+
+.form-control::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.form-control:hover {
+    background-color: #f2f2f2;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+textarea.form-control {
+    min-height: 180px;
+    resize: vertical;
+}
+
+/* Floating label effect attempt purely via CSS inputs? 
+   Sticking to clean placeholder for now to match HTML structure, 
+   but added focus transform for interaction. */
+
+/* Button Styling */
+.btn-submit {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #ebb200 100%);
+    color: var(--color-black); /* Better contrast on yellow */
+    font-weight: 700;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(252, 182, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit i {
+    transition: transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(252, 182, 0, 0.4);
+}
+
+.btn-submit:hover i {
+    transform: translateX(5px) rotate(-10deg);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(252, 182, 0, 0.2);
+}
+
+/* Map Section */
+.map-section {
+    width: 100%;
+    height: 500px; /* Taller map */
+    position: relative;
+    overflow: hidden;
+}
+
+.map-section::after {
+    /* Top shadow for depth */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+    pointer-events: none;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(100%);
+    transition: filter 0.6s ease-in-out;
+}
+
+.map-section:hover .map-frame {
+    filter: grayscale(0%);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-info-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .contact-form-wrapper {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .contact-section {
+        padding: 3rem 0;
+    }
+
+    .form-heading h2 {
+        font-size: 1.75rem;
+    }
+    
+    .contact-info-card {
+        padding: 1.5rem;
+    }
+    
+    .btn-submit {
+        width: 100%; /* Full width button on mobile */
+        justify-content: center;
+    }
+}

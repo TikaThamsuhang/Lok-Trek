@@ -33,8 +33,7 @@ function renderFooter(containerId, options = { rootPath: './' }) {
                         <ul class="footer-links">
 
                             <li><a href="${root}index.html" class="${isActive('index.html') ? 'highlight-text' : ''}">Home</a></li>
-                            <li><a href="${root}who-we-are.html" class="${isActive('who-we-are.html') ? 'highlight-text' : ''}">About Us</a></li>
-                            <li><a href="${root}team.html" class="${isActive('team.html') ? 'highlight-text' : ''}">Our Team</a></li>
+                            <li><a href="${root}who-we-are.html" class="${isActive('who-we-are.html') ? 'highlight-text' : ''}">Who We Are</a></li>
                             <li><a href="${root}blog.html" class="${isActive('blog.html') ? 'highlight-text' : ''}">Blog</a></li>
                             <li><a href="${root}contact.html" class="${isActive('contact.html') ? 'highlight-text' : ''}">Contact</a></li>
                         </ul>

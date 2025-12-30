@@ -23,10 +23,10 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                     <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                         <ul class="dropdown-menu">
-                             <li><a href="#" class="dropdown-link">Everest Region</a></li>
-                             <li><a href="#" class="dropdown-link">Annapurna Region</a></li>
-                             <li><a href="#" class="dropdown-link">Langtang Region</a></li>
-                             <li><a href="#" class="dropdown-link">Manaslu Region</a></li>
+                             <li><a href="treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
+                             <li><a href="treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
+                             <li><a href="treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
+                             <li><a href="treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
                         </ul>
                     </li>
 
