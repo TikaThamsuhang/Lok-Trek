@@ -24,6 +24,7 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                         <ul class="dropdown-menu">
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
+                             <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
@@ -105,6 +106,7 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>
                     <ul class="mobile-dropdown-menu">
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
+                             <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
