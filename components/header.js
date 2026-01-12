@@ -1,14 +1,14 @@
-function renderHeader(containerId, options = { rootPath: './' }) {
-    const root = options.rootPath;
+function renderHeader(containerId, options = { rootPath: "./" }) {
+  const root = options.rootPath;
 
-    // Active link logic helper
-    const isActive = (path) => {
-        const currentPath = window.location.pathname;
-        const currentFile = currentPath.split('/').pop() || 'index.html';
-        return currentFile === path ? 'highlight' : '';
-    };
+  // Active link logic helper
+  const isActive = (path) => {
+    const currentPath = window.location.pathname;
+    const currentFile = currentPath.split("/").pop() || "index.html";
+    return currentFile === path ? "highlight" : "";
+  };
 
-    const html = `
+  const html = `
     <header class="header header-white">
         <div class="container header-container">
             <a href="${root}index.html" class="logo">
@@ -18,7 +18,9 @@ function renderHeader(containerId, options = { rootPath: './' }) {
             <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <ul class="desktop-nav-list">
-                    <li><a href="${root}index.html" class="nav-link ${isActive('index.html')}" data-i18n="nav_home">Home</a></li>
+                    <li><a href="${root}index.html" class="nav-link ${isActive(
+    "index.html"
+  )}" data-i18n="nav_home">Home</a></li>
                     
                     <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
@@ -26,6 +28,7 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
                              <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
                              <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
+                             <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
@@ -60,9 +63,15 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                         </ul>
                     </li>
 
-                    <li><a href="${root}who-we-are.html" class="nav-link ${isActive('who-we-are.html')}" data-i18n="nav_who_we_are">Who We Are</a></li>
-                    <li><a href="${root}blog.html" class="nav-link ${isActive('blog.html')}" data-i18n="nav_blogs">Blogs</a></li>
-                    <li><a href="${root}contact.html" class="nav-link ${isActive('contact.html')}" data-i18n="nav_contacts">Contacts</a></li>
+                    <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
+    "who-we-are.html"
+  )}" data-i18n="nav_who_we_are">Who We Are</a></li>
+                    <li><a href="${root}blog.html" class="nav-link ${isActive(
+    "blog.html"
+  )}" data-i18n="nav_blogs">Blogs</a></li>
+                    <li><a href="${root}contact.html" class="nav-link ${isActive(
+    "contact.html"
+  )}" data-i18n="nav_contacts">Contacts</a></li>
                 </ul>
             </nav>
 
@@ -103,7 +112,9 @@ function renderHeader(containerId, options = { rootPath: './' }) {
         <div class="nav-content">
             <ul class="nav-list">
                 <!-- Mobile nav items -->
-                <li><a href="${root}index.html" class="nav-link ${isActive('index.html')}" data-i18n="nav_home">Home <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="${root}index.html" class="nav-link ${isActive(
+    "index.html"
+  )}" data-i18n="nav_home">Home <i class="fas fa-chevron-right"></i></a></li>
                 
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>
@@ -111,6 +122,7 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
                              <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
                              <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
+                             <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
@@ -145,41 +157,51 @@ function renderHeader(containerId, options = { rootPath: './' }) {
                     </ul>
                 </li>
                 
-                <li><a href="${root}who-we-are.html" class="nav-link ${isActive('who-we-are.html')}" data-i18n="nav_who_we_are">Who We Are <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="${root}blog.html" class="nav-link ${isActive('blog.html')}" data-i18n="nav_blogs">Blogs <i class="fas fa-chevron-right"></i></a></li>
-                <li><a href="${root}contact.html" class="nav-link ${isActive('contact.html')}" data-i18n="nav_contacts">Contacts <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
+    "who-we-are.html"
+  )}" data-i18n="nav_who_we_are">Who We Are <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="${root}blog.html" class="nav-link ${isActive(
+    "blog.html"
+  )}" data-i18n="nav_blogs">Blogs <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="${root}contact.html" class="nav-link ${isActive(
+    "contact.html"
+  )}" data-i18n="nav_contacts">Contacts <i class="fas fa-chevron-right"></i></a></li>
             </ul>
         </div>
     </div>
     `;
 
-    document.getElementById(containerId).innerHTML = html;
+  document.getElementById(containerId).innerHTML = html;
 
-    // Mobile Menu Dropdown Logic
-    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-    mobileDropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            const parent = toggle.closest('.mobile-dropdown-parent');
-            
-            // Close other open menus
-            document.querySelectorAll('.mobile-dropdown-parent.active').forEach(item => {
-                if (item !== parent) {
-                    item.classList.remove('active');
-                }
-            });
+  // Mobile Menu Dropdown Logic
+  const mobileDropdownToggles = document.querySelectorAll(
+    ".mobile-dropdown-toggle"
+  );
+  mobileDropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      const parent = toggle.closest(".mobile-dropdown-parent");
 
-            parent.classList.toggle('active');
+      // Close other open menus
+      document
+        .querySelectorAll(".mobile-dropdown-parent.active")
+        .forEach((item) => {
+          if (item !== parent) {
+            item.classList.remove("active");
+          }
         });
-    });
 
-    // Re-run highlighting script
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && (href === currentPath || href === './' + currentPath)) {
-             link.classList.add('highlight');
-        }
+      parent.classList.toggle("active");
     });
+  });
+
+  // Re-run highlighting script
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const navLinks = document.querySelectorAll(".nav-link");
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && (href === currentPath || href === "./" + currentPath)) {
+      link.classList.add("highlight");
+    }
+  });
 }
