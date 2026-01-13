@@ -27,8 +27,10 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                         <ul class="dropdown-menu">
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
                              <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
+                             <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>
                              <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
                              <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
+                             <li><a href="../treks/trek-detail-kanchenjunga.html" class="dropdown-link">Kanchenjunga</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
@@ -121,8 +123,10 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                     <ul class="mobile-dropdown-menu">
                              <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
                              <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
+                             <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>
                              <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
                              <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
+                             <li><a href="../treks/trek-detail-kanchenjunga.html" class="dropdown-link">Kanchenjunga</a></li>
                              <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
