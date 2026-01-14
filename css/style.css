@@ -858,6 +858,12 @@ main {
     padding: var(--spacing-md);
 }
 
+.tab-btn.active,
+.filter-btn.active {
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    border-bottom-color: var(--color-primary);
+}
 .trip-title {
     font-size: var(--font-size-h3);
     font-weight: var(--font-weight-bold);
@@ -1427,7 +1433,8 @@ main {
     scrollbar-width: none;
 }
 
-.tab-btn {
+.tab-btn,
+.filter-btn {
     background: transparent;
     border: 1px solid #eee;
     padding: 0.7rem 1.4rem;
@@ -1441,13 +1448,15 @@ main {
     white-space: nowrap;
 }
 
-.tab-btn:hover {
+.tab-btn:hover,
+.filter-btn:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
     background: rgba(252, 182, 0, 0.05);
 }
 
-.tab-btn.active {
+.tab-btn.active,
+.filter-btn.active {
     background: var(--color-primary);
     color: var(--color-text); /* Black/Dark text on yellow */
     border-color: var(--color-primary);
