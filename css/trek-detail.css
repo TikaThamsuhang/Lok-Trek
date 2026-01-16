@@ -1046,21 +1046,25 @@
 
 .info-list li {
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.8rem;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
 .info-list li::before {
-    content: '';
+    font-family: "Font Awesome 6 Free";
     color: var(--color-primary);
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     position: absolute;
     left: 0;
-    top: -0.2rem;
+    top: 0;
 }
-
+.info-list li:nth-child(1)::before { content: '\f017'; }
+.info-list li:nth-child(2)::before { content: '\f6ec'; }
+.info-list li:nth-child(3)::before { content: '\f1ad'; }
+.info-list li:nth-child(4)::before { content: '\f0c0'; }
+.info-list li:nth-child(5)::before { content: '\f70c'; }
 .info-card.perfect-for {
     background: #f8fbff; /* Very light blue tint */
     border-color: #dbeafe;

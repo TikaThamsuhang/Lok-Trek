@@ -53,7 +53,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_safari">Safari & Nature <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                         <ul class="dropdown-menu">
                              <li><a href="${root}safari/chitwan-jungle-safari.html" class="dropdown-link">Chitwan National Park</a></li>
-                             <li><a href="#" class="dropdown-link">Bardiya National Park</a></li>
+                             <li><a href="${root}safari/bardia-national-park-safari.html" class="dropdown-link">Bardiya National Park</a></li>
                         </ul>
                     </li>
 
