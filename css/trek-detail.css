@@ -929,3 +929,152 @@
     font-weight: 600;
     width: auto;
 }
+/* Safari Redesign */
+
+/* Access Grid */
+.safari-access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.access-card {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.access-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: var(--color-primary);
+}
+
+.access-icon {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.access-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.access-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+/* Season Highlight */
+.season-highlight {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
+    border-left: 5px solid var(--color-primary);
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+.season-icon {
+    font-size: 1.5rem;
+    color: #eab308; /* Darker yellow/sun color */
+    flex-shrink: 0;
+}
+
+.season-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.season-content p {
+    margin: 0;
+    color: var(--color-text);
+}
+
+/* Info Cards Grid (Replaces Pricing Grid for Safari) */
+.safari-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .safari-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.8rem;
+    height: 100%;
+}
+
+.info-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+}
+
+.info-card h3 i {
+    color: var(--color-primary);
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.info-list li::before {
+    content: '';
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+.info-card.perfect-for {
+    background: #f8fbff; /* Very light blue tint */
+    border-color: #dbeafe;
+}
+
+.info-card.perfect-for h3 i {
+    color: #3b82f6; /* Blue heart/icon */
+}
+
+.info-card.perfect-for .info-list li::before {
+    color: #3b82f6;
+    content: '\f00c'; /* Checkmark */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1rem;
+    top: 0.3rem;
+}
