@@ -45,6 +45,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                      <a href="javascript:void(0)" class="nav-link" data-i18n="nav_association">Association <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                      <ul class="dropdown-menu">
                          <li><a href="${root}association/island-peak.html" class="dropdown-link">Island Peak</a></li>
+                         <li><a href="${root}association/mera-peak.html" class="dropdown-link">Mera Peak</a></li>
                          <li><a href="${root}about.html" class="dropdown-link">About Us</a></li>
                          <li><a href="${root}contact.html" class="dropdown-link">Contact</a></li>
                      </ul>
@@ -142,6 +143,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                      <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_association">Association <i class="fas fa-chevron-right rotate-icon"></i></a>
                      <ul class="mobile-dropdown-menu">
                          <li><a href="${root}association/island-peak.html" class="dropdown-link">Island Peak</a></li>
+                         <li><a href="${root}association/mera-peak.html" class="dropdown-link">Mera Peak</a></li>
                          <li><a href="${root}about.html" class="dropdown-link">About Us</a></li>
                          <li><a href="${root}contact.html" class="dropdown-link">Contact</a></li>
                      </ul>
