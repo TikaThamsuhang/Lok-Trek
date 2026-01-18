@@ -19,8 +19,8 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
             <nav class="desktop-nav">
                 <ul class="desktop-nav-list">
                     <li><a href="${root}index.html" class="nav-link ${isActive(
-    "index.html"
-  )}" data-i18n="nav_home">Home</a></li>
+                      "index.html",
+                    )}" data-i18n="nav_home">Home</a></li>
                     
                     <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
@@ -60,20 +60,19 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                     <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_complete_nepal">Complete Nepal <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                          <ul class="dropdown-menu">
-                             <li><a href="#" class="dropdown-link">Tours</a></li>
-                             <li><a href="#" class="dropdown-link">Adventure</a></li>
+                             <li><a href="${root}tours/complete-nepal-tour.html" class="dropdown-link">Complete Nepal Tour</a></li>
                         </ul>
                     </li>
 
                     <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
-    "who-we-are.html"
-  )}" data-i18n="nav_who_we_are">Who We Are</a></li>
+                      "who-we-are.html",
+                    )}" data-i18n="nav_who_we_are">Who We Are</a></li>
                     <li><a href="${root}blog.html" class="nav-link ${isActive(
-    "blog.html"
-  )}" data-i18n="nav_blogs">Blogs</a></li>
+                      "blog.html",
+                    )}" data-i18n="nav_blogs">Blogs</a></li>
                     <li><a href="${root}contact.html" class="nav-link ${isActive(
-    "contact.html"
-  )}" data-i18n="nav_contacts">Contacts</a></li>
+                      "contact.html",
+                    )}" data-i18n="nav_contacts">Contacts</a></li>
                 </ul>
             </nav>
 
@@ -115,8 +114,8 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
             <ul class="nav-list">
                 <!-- Mobile nav items -->
                 <li><a href="${root}index.html" class="nav-link ${isActive(
-    "index.html"
-  )}" data-i18n="nav_home">Home <i class="fas fa-chevron-right"></i></a></li>
+                  "index.html",
+                )}" data-i18n="nav_home">Home <i class="fas fa-chevron-right"></i></a></li>
                 
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>
@@ -156,20 +155,19 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_complete_nepal">Complete Nepal <i class="fas fa-chevron-right rotate-icon"></i></a>
                     <ul class="mobile-dropdown-menu">
-                         <li><a href="#" class="mobile-dropdown-link">Tours</a></li>
-                         <li><a href="#" class="mobile-dropdown-link">Adventure</a></li>
+                         <li><a href="${root}tours/complete-nepal-tour.html" class="mobile-dropdown-link">Complete Nepal Tour</a></li>
                     </ul>
                 </li>
                 
                 <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
-    "who-we-are.html"
-  )}" data-i18n="nav_who_we_are">Who We Are <i class="fas fa-chevron-right"></i></a></li>
+                  "who-we-are.html",
+                )}" data-i18n="nav_who_we_are">Who We Are <i class="fas fa-chevron-right"></i></a></li>
                 <li><a href="${root}blog.html" class="nav-link ${isActive(
-    "blog.html"
-  )}" data-i18n="nav_blogs">Blogs <i class="fas fa-chevron-right"></i></a></li>
+                  "blog.html",
+                )}" data-i18n="nav_blogs">Blogs <i class="fas fa-chevron-right"></i></a></li>
                 <li><a href="${root}contact.html" class="nav-link ${isActive(
-    "contact.html"
-  )}" data-i18n="nav_contacts">Contacts <i class="fas fa-chevron-right"></i></a></li>
+                  "contact.html",
+                )}" data-i18n="nav_contacts">Contacts <i class="fas fa-chevron-right"></i></a></li>
             </ul>
         </div>
     </div>
@@ -179,7 +177,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
 
   // Mobile Menu Dropdown Logic
   const mobileDropdownToggles = document.querySelectorAll(
-    ".mobile-dropdown-toggle"
+    ".mobile-dropdown-toggle",
   );
   mobileDropdownToggles.forEach((toggle) => {
     toggle.addEventListener("click", (e) => {

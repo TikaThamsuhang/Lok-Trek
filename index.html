@@ -153,7 +153,7 @@
           </p>
 
           <!-- Sticky Tabs Navigation -->
-          <div class="trips-tabs-container">
+          <div class="trips-tabs-container" id="tripCardsSection">
             <div class="trips-tabs">
               <button class="tab-btn active" data-tab="all">All Trips</button>
               <button class="tab-btn" data-tab="trekking">Trekking</button>
@@ -1090,29 +1090,51 @@
               </div>
             </div>
 
-            <!-- Complete Nepal Card (Placeholder) -->
-            <div class="trip-card" data-category="complete-nepal" data-link="#">
-              <div class="trip-image">
-                <img
-                  src="assets/images/Everest Base Camp/Everest Base Camp-4.jpeg"
-                  alt="Best of Nepal"
-                />
-                <span class="trip-badge">Tour</span>
+            <!-- Trip Card: Complete Nepal Tour -->
+            <div
+              class="trip-card"
+              data-category="complete-nepal"
+              data-link="tours/complete-nepal-tour.html"
+            >
+              <div class="trip-image card-slider-container">
+                <div class="card-slides">
+                  <img
+                    src="assets/images/Complete Nepal/Complete Nepal Tour-1.jpeg"
+                    alt="Complete Nepal Tour 1"
+                    class="card-slide active"
+                  />
+                  <img
+                    src="assets/images/Complete Nepal/Complete Nepal Tour-2.jpeg"
+                    alt="Complete Nepal Tour 2"
+                    class="card-slide"
+                  />
+                  <img
+                    src="assets/images/Complete Nepal/Complete Nepal Tour-3.jpeg"
+                    alt="Complete Nepal Tour 3"
+                    class="card-slide"
+                  />
+                </div>
+                <span class="trip-badge">Best Seller</span>
+                <div class="card-indicators">
+                  <span class="card-indicator active"></span>
+                  <span class="card-indicator"></span>
+                  <span class="card-indicator"></span>
+                </div>
               </div>
               <div class="trip-content">
-                <h3 class="trip-title">Best of Nepal Tour</h3>
+                <h3 class="trip-title">Complete Nepal Tour</h3>
                 <p class="trip-description">
-                  A complete journey covering Kathmandu, Pokhara, Chitwan, and
-                  Lumbini.
+                  A unique immersion combining gentle trekking, culture, nature,
+                  adventure, and spirituality.
                 </p>
                 <div class="trip-details">
                   <span class="trip-detail">
-                    <i class="fas fa-bus"></i>
-                    <strong>Travel:</strong> Luxury Bus
-                  </span>
-                  <span class="trip-detail">
                     <i class="fas fa-clock"></i>
                     <strong>Duration:</strong> 12 Days
+                  </span>
+                  <span class="trip-detail">
+                    <i class="fas fa-mountain"></i>
+                    <strong>Max Alt:</strong> 2,195m
                   </span>
                 </div>
                 <a href="tel:+97714412345" class="trip-btn">
