@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tabsContainerElement.classList.remove("is-stuck");
         }
       },
-      { threshold: [1], rootMargin: "-56px 0px 0px 0px" } // Adjust rootMargin based on sticky top value
+      { threshold: [1], rootMargin: "-1px 0px 0px 0px" } // Adjust rootMargin based on sticky top value
     );
 
     observer.observe(tabsContainerElement);
