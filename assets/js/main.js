@@ -159,6 +159,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const category = btn.getAttribute("data-tab");
         filterCards(category);
+
+        // Always scroll to the trips grid area when tab is clicked (only if tabs are sticky)
+        const tabsContainerElement = document.querySelector(
+          ".trips-tabs-container",
+        );
+        const tripsGrid = document.querySelector(".trips-grid");
+
+        if (
+          tripsGrid &&
+          tabsContainerElement &&
+          tabsContainerElement.classList.contains("is-stuck")
+        ) {
+          const headerHeight = 70; // Header height
+          const tabsHeight = 30; // Tabs container height when sticky
+          const offset = headerHeight + tabsHeight;
+          const gridTop =
+            tripsGrid.getBoundingClientRect().top + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: gridTop,
+            behavior: "smooth",
+          });
+        }
       });
     });
 

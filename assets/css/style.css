@@ -1501,7 +1501,7 @@ main {
         top: 0; 
         margin: 0 -1rem 2rem -1rem; /* Full width */
         padding: 1rem 1rem;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid #e8e8e8;
     }
     
     .trips-tabs {
