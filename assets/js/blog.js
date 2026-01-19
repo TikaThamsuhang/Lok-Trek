@@ -19,6 +19,33 @@ const blogPosts = [
     featured: true,
     image: "assets/images/Blog-1/blog-1.jpeg",
   },
+  {
+    id: "blog-2",
+    title:
+      "The Three Passes Trek in Nepal: Difficulty, Itinerary, Budget & Complete Guide 🏔️",
+    slug: "three-passes-trek-nepal-guide",
+    excerpt:
+      "The Three Passes Trek is considered one of the most beautiful and complete treks in Nepal. It crosses spectacular landscapes, authentic Sherpa villages, and iconic locations such as Gokyo Lake, Everest Base Camp, and Kala Patthar.",
+    author: "Lok Treks Nepal",
+    date: "2026-01-20",
+    readTime: "12 min read",
+    category: "Trekking Guides",
+    featured: true,
+    image: "assets/images/Blog-2/blog-1.jpeg",
+  },
+  {
+    id: "blog-3",
+    title: "Short Treks in Nepal: Perfect Adventures for 4–7 Days",
+    slug: "short-treks-nepal-guide",
+    excerpt:
+      "Nepal is world-famous for legendary treks such as Everest Base Camp or the Annapurna Circuit. However, many travelers do not have the time—or the desire—to commit to long expeditions. Short treks of 4 to 7 days offer the perfect solution.",
+    author: "Lok Treks Nepal",
+    date: "2026-01-22",
+    readTime: "15 min read",
+    category: "Trekking Guides",
+    featured: true,
+    image: "assets/images/Blog-3/blog-1.jpeg",
+  },
 ];
 
 function loadBlogPosts() {

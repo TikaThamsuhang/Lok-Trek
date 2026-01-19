@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tabsContainerElement.classList.remove("is-stuck");
         }
       },
-      { threshold: [1], rootMargin: "-1px 0px 0px 0px" } // Adjust rootMargin based on sticky top value
+      { threshold: [1], rootMargin: "-1px 0px 0px 0px" }, // Adjust rootMargin based on sticky top value
     );
 
     observer.observe(tabsContainerElement);
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize filter on load based on active tab
     const activeTab = document.querySelector(
-      ".tab-btn.active, .filter-btn.active"
+      ".tab-btn.active, .filter-btn.active",
     );
     if (activeTab) {
       const category = activeTab.getAttribute("data-tab");
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const percentage = scrollWithOffset / maxScrollLeft;
         const translateX = Math.max(
           0,
-          Math.min(percentage * maxTranslate, maxTranslate)
+          Math.min(percentage * maxTranslate, maxTranslate),
         ); // Clamp
 
         // Update thumb position
@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       tabsContainer.addEventListener("scroll", () =>
-        updateScrollIndicator(false)
+        updateScrollIndicator(false),
       );
 
       // Show on load (initial trigger)
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const trustBar = document.querySelector(".trust-bar");
   const trustBarContent = document.querySelector(".secondary-nav-content");
   const trustScrollIndicator = document.querySelector(
-    ".trust-scroll-indicator"
+    ".trust-scroll-indicator",
   );
   const trustScrollProgress = document.querySelector(".trust-scroll-progress");
 
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
         maxScrollLeft > 0 ? scrollWithOffset / maxScrollLeft : 0;
       const translateX = Math.max(
         0,
-        Math.min(percentage * maxTranslate, maxTranslate)
+        Math.min(percentage * maxTranslate, maxTranslate),
       );
 
       // Update thumb position
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     trustBar.addEventListener("scroll", () =>
-      updateTrustScrollIndicator(false)
+      updateTrustScrollIndicator(false),
     );
 
     // Show on load (initial trigger) - always show since we have 6 items
@@ -462,43 +462,72 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================
   // Load Blog Cards on Home Page
   // =========================================
-  const homeBlogGrid = document.getElementById('homeBlogGrid');
-  
+  const homeBlogGrid = document.getElementById("homeBlogGrid");
+
   if (homeBlogGrid) {
     // Blog data for home page preview
     const blogPosts = [
       {
-        id: 'blog-1',
-        title: 'The Trek to Everest Base Camp: A Glorified Myth or an Adventure Full of Untold Secrets?',
-        slug: 'everest-base-camp-untold-secrets',
-        excerpt: 'When people talk about trekking to a base camp—especially Everest Base Camp—images immediately come to mind: breathtaking landscapes, prayer flags fluttering in the wind, smiling adventurers standing before snow-covered peaks. But is the reality really as perfect as it sounds?',
-        author: 'Lok Treks Nepal',
-        date: '2026-01-15',
-        readTime: '8 min read',
-        category: 'Trekking Insights',
+        id: "blog-1",
+        title:
+          "The Trek to Everest Base Camp: A Glorified Myth or an Adventure Full of Untold Secrets?",
+        slug: "everest-base-camp-untold-secrets",
+        excerpt:
+          "When people talk about trekking to a base camp—especially Everest Base Camp—images immediately come to mind: breathtaking landscapes, prayer flags fluttering in the wind, smiling adventurers standing before snow-covered peaks. But is the reality really as perfect as it sounds?",
+        author: "Lok Treks Nepal",
+        date: "2026-01-15",
+        readTime: "8 min read",
+        category: "Trekking Insights",
         featured: true,
-        image: 'assets/images/Blog-1/blog-1.jpeg'
-      }
+        image: "assets/images/Blog-1/blog-1.jpeg",
+      },
+      {
+        id: "blog-2",
+        title:
+          "The Three Passes Trek in Nepal: Difficulty, Itinerary, Budget & Complete Guide 🏔️",
+        slug: "three-passes-trek-nepal-guide",
+        excerpt:
+          "The Three Passes Trek is considered one of the most beautiful and complete treks in Nepal. It crosses spectacular landscapes, authentic Sherpa villages, and iconic locations such as Gokyo Lake, Everest Base Camp, and Kala Patthar.",
+        author: "Lok Treks Nepal",
+        date: "2026-01-20",
+        readTime: "12 min read",
+        category: "Trekking Guides",
+        featured: true,
+        image: "assets/images/Blog-2/blog-1.jpeg",
+      },
+      {
+        id: "blog-3",
+        title: "Short Treks in Nepal: Perfect Adventures for 4–7 Days",
+        slug: "short-treks-nepal-guide",
+        excerpt:
+          "Nepal is world-famous for legendary treks such as Everest Base Camp or the Annapurna Circuit. However, many travelers do not have the time—or the desire—to commit to long expeditions. Short treks of 4 to 7 days offer the perfect solution.",
+        author: "Lok Treks Nepal",
+        date: "2026-01-22",
+        readTime: "15 min read",
+        category: "Trekking Guides",
+        featured: true,
+        image: "assets/images/Blog-3/blog-1.jpeg",
+      },
     ];
 
     function formatDate(dateString) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const options = { year: "numeric", month: "long", day: "numeric" };
       const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', options);
+      return date.toLocaleDateString("en-US", options);
     }
 
     function createBlogCard(post) {
-      const card = document.createElement('div');
-      card.className = 'blog-card';
+      const card = document.createElement("div");
+      card.className = "blog-card";
       card.onclick = () => {
         window.location.href = `blogs/blog-detail.html?id=${post.id}`;
       };
-      
+
       card.innerHTML = `
         <div class="blog-card-image">
           <img src="${post.image}" alt="${post.title}" loading="lazy" />
           <span class="blog-category">${post.category}</span>
-          ${post.featured ? '<div class="blog-featured-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
+          ${post.featured ? '<div class="blog-featured-badge"><i class="fas fa-star"></i> Featured</div>' : ""}
         </div>
         <div class="blog-card-content">
           <div class="blog-card-meta">
@@ -519,12 +548,12 @@ document.addEventListener("DOMContentLoaded", () => {
           </a>
         </div>
       `;
-      
+
       return card;
     }
 
     // Load blog cards
-    blogPosts.forEach(post => {
+    blogPosts.forEach((post) => {
       const blogCard = createBlogCard(post);
       homeBlogGrid.appendChild(blogCard);
     });
@@ -540,6 +569,6 @@ function googleTranslateElementInit() {
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false,
     },
-    "google_translate_element"
+    "google_translate_element",
   );
 }

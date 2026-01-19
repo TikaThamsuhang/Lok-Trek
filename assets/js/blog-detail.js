@@ -145,6 +145,95 @@ const blogData = {
       },
     ],
   },
+  "blog-3": {
+    id: "blog-3",
+    title: "Short Treks in Nepal: Perfect Adventures for 4–7 Days",
+    slug: "short-treks-nepal-guide",
+    author: "Lok Treks Nepal",
+    date: "2026-01-22",
+    readTime: "15 min read",
+    category: "Trekking Guides",
+    featured: true,
+    images: [
+      "../assets/images/Blog-3/blog-1.jpeg",
+      "../assets/images/Blog-3/blog-2.jpeg",
+      "../assets/images/Blog-3/blog-3.jpeg",
+      "../assets/images/Blog-3/blog-4.jpeg",
+      "../assets/images/Blog-3/blog-5.jpeg",
+      "../assets/images/Blog-3/blog-6.jpeg",
+    ],
+    content: [
+      {
+        type: "intro",
+        text: "Nepal is world-famous for legendary treks such as Everest Base Camp or the Annapurna Circuit, often associated with several weeks of walking and a high physical challenge. However, many travelers do not have the time—or the desire—to commit to long and demanding expeditions.\n\nThis is exactly where short treks of 4 to 7 days make perfect sense. They allow you to discover Himalayan landscapes, experience lodge (tea house) trekking, and meet local communities—all without extreme time, budget, or altitude constraints.",
+      },
+      {
+        type: "section",
+        heading: "🏔️ Why Choose a Short Trek in Nepal?",
+        text: "**1. Exceptional Accessibility**\n\nUnlike many trekking destinations, Nepal offers well-maintained trails, regular accommodation along the routes, and a population deeply accustomed to welcoming travelers. Even with only one week in Nepal, it is possible to enjoy a true Himalayan adventure.\n\n**2. More Reasonable Altitude**\n\nShort treks usually stay below 3,500 meters, which significantly reduces the risk of acute mountain sickness, makes them ideal for beginners, and allows a more comfortable and enjoyable pace.\n\n**3. Great Diversity in a Short Distance**\n\nIn just a few days, trekkers pass through terraced rice fields, rhododendron forests, Gurung or Tamang villages, and spectacular viewpoints over snow-capped peaks.",
+      },
+      {
+        type: "section",
+        heading: "🌸 Best Seasons for Short Treks",
+        text: "**🌸 Spring (March–May)**\n- Blooming rhododendrons\n- Mild temperatures\n- Excellent visibility\n\n**🍂 Autumn (September–November)**\n- Most popular season\n- Clear skies\n- Stable weather\n\n**⚠️ Summer (June–August):** Monsoon season, slippery trails, but still possible\n\n**❄️ Winter (December–February):** Cold at altitude, but suitable for lower treks",
+      },
+      {
+        type: "section",
+        heading: "⛰️ Best Short Treks in Nepal (4–7 Days)",
+        text: "**1. Ghorepani – Poon Hill Trek (4–6 Days)**\n\nLocated in the Annapurna region, this trek is often considered the best first trek in Nepal.\n\n**Why is it so popular?**\n- Easy access from Pokhara\n- Excellent infrastructure\n- Spectacular sunrise views from Poon Hill (3,210 m)\n\n**Experience on the trail:** The trek alternates between steady climbs (the Ulleri stone steps) and peaceful forests. At dawn, the Annapurna and Dhaulagiri ranges gradually light up—a moment often described as one of the highlights of a Nepal trip.\n\n**2. Everest View / Peaky Peak Trek (4–6–10 Days)**\n\nThis trek is a gentler and shorter version of the classic Everest region routes.\n- Moderate altitude\n- Traditional villages such as Tamang settlements\n- Continuous views of Everest, Lhotse, Gaurishankar, Numbur, and sometimes Kanchenjunga\n\n👉 Ideal for families, senior travelers, or those looking for a relaxed pace.\n\n**3. Langtang Valley Trek (5–7 Days)**\n\nLocated north of Kathmandu, this trek is often underestimated.\n\n**What makes it unique?**\n- Strong Tibetan cultural influence\n- Spectacular glacial valley\n- Less crowded than Annapurna or Everest\n\nIt offers a wild and peaceful atmosphere while remaining very accessible.\n\n**4. Sarangkot & Pokhara Surroundings (2–5 Days)**\n\nNot a demanding trek, but a perfect panoramic hike for travelers with limited time, those who want to combine nature and relaxation, and a first introduction to Nepal.\n\n**Bonus:** sunrise views, paragliding, Phewa Lake.\n\n**5. Cultural Trek in the Kathmandu Valley (4–7 Days)**\n\nNot all travelers seek altitude. This trek focuses on UNESCO World Heritage sites, Newari culture, and hills surrounding the Kathmandu Valley.\n\n👉 Perfect for a slow and cultural discovery of Nepal.",
+      },
+      {
+        type: "section",
+        heading: "🛡️ Is Nepal Safe for Trekking?",
+        text: "👉 **Yes.** Nepal is known for the hospitality of its people. Serious problems on trekking trails are rare.",
+      },
+      {
+        type: "section",
+        heading: "🧭 Do You Need a Guide?",
+        text: "👉 Not always mandatory, but **strongly recommended** for:\n- Safety\n- Cultural understanding\n- Supporting the local economy\n\nLok Treks Nepal offers both French- and English-speaking guides.",
+      },
+      {
+        type: "section",
+        heading: "💊 Health & Altitude",
+        text: "Key principles:\n- Slow progression\n- Good hydration\n- Listening to your body\n\nShort treks carry low medical risk, and your guide constantly monitors your condition.",
+      },
+      {
+        type: "section",
+        heading: "🎒 Practical Tips for a Successful Trek",
+        text: "- Light backpack (max 10 kg)\n- Well-broken-in hiking boots\n- Layered clothing\n- Respect local customs\n- Travel insurance covering trekking\n\n👉 Most equipment can be rented or bought in Kathmandu or Pokhara.",
+      },
+      {
+        type: "section",
+        heading: "🏃 Do You Need to Be Athletic for a Short Trek?",
+        text: "👉 **No.** Most short treks are accessible to people in good health who are used to walking.\n\nWith Lok Treks Nepal, the trek is adapted to your pace:\n- 4–6 hours of walking per day\n- Relaxed rhythm\n- Frequent breaks\n\n👉 No high-mountain experience required.",
+      },
+      {
+        type: "section",
+        heading: "⛰️ Is There an Altitude Risk?",
+        text: "Short treks generally range between 2,000 and 3,500 meters. The risk of altitude sickness is low with proper acclimatization and a suitable pace.\n\nYour guide monitors you throughout the trek.",
+      },
+      {
+        type: "section",
+        heading: "🏠 Comfort Level During the Trek",
+        text: "**Lodge (tea house) accommodation:**\n- Simple but clean rooms\n- Hot meals\n- Hot showers (sometimes extra charge)\n- Electricity and Wi-Fi (depending on location)\n\nComfort is basic but friendly and welcoming.",
+      },
+      {
+        type: "section",
+        heading: "💰 Budget for a Short Trek",
+        text: "👉 **On average: €40–70 per day**, depending on the program\n\n**Including:**\n- Guide\n- Porter\n- Accommodation\n- Meals\n- Permits\n- Transportation",
+      },
+      {
+        type: "section",
+        heading: "🚐 Where Do Short Treks Start?",
+        text: "**From Pokhara** (Annapurna region)\n**From Kathmandu** (Langtang, Everest View / Peaky Peak treks)\n\nTransfers are arranged by private vehicle or local bus.",
+      },
+      {
+        type: "conclusion",
+        heading: "✨ Conclusion",
+        text: "Short treks in Nepal offer the perfect balance between adventure and accessibility. Whether you have 4 days or a full week, you can experience the magic of the Himalayas without the extreme commitment of longer expeditions.\n\n👉 With Lok Treks Nepal, every trek is tailored to your pace, interests, and comfort level.",
+      },
+    ],
+  },
 };
 
 function loadBlogDetail() {

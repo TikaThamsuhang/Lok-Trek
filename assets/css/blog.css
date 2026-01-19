@@ -295,7 +295,6 @@
   max-width: 850px;
   margin: 0 auto;
   background: white;
-  border-radius: 24px 24px 0 0;
   padding: 2rem 1.25rem;
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.08),
@@ -318,7 +317,6 @@
     #ffd700 50%,
     var(--color-primary) 100%
   );
-  border-radius: 32px 32px 0 0;
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }
@@ -350,7 +348,7 @@
   top: 10px;
   left: 10px;
   font-size: 3rem;
-  color: rgba(252, 182, 0, 0.15);
+  color: rgba(252, 181, 0, 0.5);
   font-family: Georgia, serif;
   line-height: 1;
 }
@@ -369,13 +367,10 @@
 .blog-content-section:nth-child(5) { --section-index: 5; }
 
 .blog-content-section h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
   color: var(--color-text);
   margin-bottom: 1.5rem;
-  line-height: 1.4;
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
 }
 
 .blog-content-section h2::before {
@@ -411,7 +406,6 @@
 /* Inline Images Between Sections */
 .blog-inline-image {
   margin: 3rem 0;
-  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -461,7 +455,7 @@
 
 /* Add spacing variation for visual rhythm */
 .blog-inline-image:nth-of-type(odd) {
-  margin: 3.5rem 0;
+  margin: 3rem 0;
 }
 
 .blog-inline-image:nth-of-type(even) {
@@ -471,7 +465,6 @@
 @media (min-width: 768px) {
   .blog-inline-image {
     margin: 4rem 0;
-    border-radius: 24px;
     height: 500px; /* Taller on larger screens */
   }
   
@@ -524,8 +517,9 @@
   background: linear-gradient(135deg, #fff9e6 0%, #fef5d4 50%, #fff9e6 100%);
   border: 2px solid rgba(252, 182, 0, 0.3);
   border-radius: 20px;
-  padding: 2.5rem 2rem;
-  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
   animation: fadeInUp 0.8s ease-out 1.2s both;

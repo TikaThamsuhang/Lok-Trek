@@ -48,7 +48,7 @@
     --container-padding: 1rem;
 
     /* Layout */
-    --container-width: 1200px;
+    --container-width: 1250px;
     --header-height: 70px;
     --border-radius: 4px;
     --transition-speed: 0.3s;
@@ -1112,7 +1112,7 @@ main {
     color: #e0e0e0;
     padding-top: 4rem;
     font-size: 0.95rem;
-    margin-top: 0; /* Removing default section margin if any */
+    margin-top: 2rem; /* Removing default section margin if any */
 }
 
 .footer-top {
