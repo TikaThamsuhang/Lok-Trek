@@ -61,9 +61,9 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                                 <span>Budhanilkantha-11, Kathmandu, Nepal</span>
                             </li>
                             <li>
-                                <a href="tel:+97714412345" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
+                                <a href="tel:+9779811345073" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
                                     <i class="fas fa-phone-alt"></i>
-                                    <span>+977 1 4412345</span>
+                                    <span>+977 981-1345073</span>
                                 </a>
                             </li>
                             <li>
