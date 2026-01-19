@@ -115,7 +115,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 <!-- Mobile nav items -->
                 <li><a href="${root}index.html" class="nav-link ${isActive(
                   "index.html",
-                )}" data-i18n="nav_home">Home <i class="fas fa-chevron-right"></i></a></li>
+                )}" data-i18n="nav_home">Home </a></li>
                 
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>
@@ -161,13 +161,13 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 
                 <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
                   "who-we-are.html",
-                )}" data-i18n="nav_who_we_are">Who We Are <i class="fas fa-chevron-right"></i></a></li>
+                )}" data-i18n="nav_who_we_are">Who We Are </a></li>
                 <li><a href="${root}blog.html" class="nav-link ${isActive(
                   "blog.html",
-                )}" data-i18n="nav_blogs">Blogs <i class="fas fa-chevron-right"></i></a></li>
+                )}" data-i18n="nav_blogs">Blogs </a></li>
                 <li><a href="${root}contact.html" class="nav-link ${isActive(
                   "contact.html",
-                )}" data-i18n="nav_contacts">Contacts <i class="fas fa-chevron-right"></i></a></li>
+                )}" data-i18n="nav_contacts">Contact Us </a></li>
             </ul>
         </div>
     </div>

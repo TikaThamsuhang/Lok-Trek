@@ -1,14 +1,14 @@
-function renderFooter(containerId, options = { rootPath: './' }) {
-    const root = options.rootPath;
-    
-    // Active link logic helper (duplicate from header for standalone usage)
-    const isActive = (path) => {
-        const currentPath = window.location.pathname;
-        const currentFile = currentPath.split('/').pop() || 'index.html';
-        return currentFile === path;
-    };
+function renderFooter(containerId, options = { rootPath: "./" }) {
+  const root = options.rootPath;
 
-    const html = `
+  // Active link logic helper (duplicate from header for standalone usage)
+  const isActive = (path) => {
+    const currentPath = window.location.pathname;
+    const currentFile = currentPath.split("/").pop() || "index.html";
+    return currentFile === path;
+  };
+
+  const html = `
     <footer class="site-footer">
         <div class="container">
             <div class="footer-top">
@@ -32,10 +32,10 @@ function renderFooter(containerId, options = { rootPath: './' }) {
                         <h3>Quick Links</h3>
                         <ul class="footer-links">
 
-                            <li><a href="${root}index.html" class="${isActive('index.html') ? 'highlight-text' : ''}">Home</a></li>
-                            <li><a href="${root}who-we-are.html" class="${isActive('who-we-are.html') ? 'highlight-text' : ''}">Who We Are</a></li>
-                            <li><a href="${root}blog.html" class="${isActive('blog.html') ? 'highlight-text' : ''}">Blog</a></li>
-                            <li><a href="${root}contact.html" class="${isActive('contact.html') ? 'highlight-text' : ''}">Contact</a></li>
+                            <li><a href="${root}index.html" class="${isActive("index.html") ? "highlight-text" : ""}">Home</a></li>
+                            <li><a href="${root}who-we-are.html" class="${isActive("who-we-are.html") ? "highlight-text" : ""}">Who We Are</a></li>
+                            <li><a href="${root}blog.html" class="${isActive("blog.html") ? "highlight-text" : ""}">Blog</a></li>
+                            <li><a href="${root}contact.html" class="${isActive("contact.html") ? "highlight-text" : ""}">Contact</a></li>
                         </ul>
                     </div>
 
@@ -44,10 +44,11 @@ function renderFooter(containerId, options = { rootPath: './' }) {
                         <h3>Popular Treks</h3>
                         <ul class="footer-links">
                             <li><a href="${root}treks/trek-detail-everest-gokyo.html">Everest Base Camp</a></li>
-                            <li><a href="#">Annapurna Circuit</a></li>
-                            <li><a href="#">Manaslu Circuit</a></li>
-                            <li><a href="#">Langtang Valley</a></li>
-                            <li><a href="#">Upper Mustang</a></li>
+                            <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html">Annapurna Circuit</a></li>
+                            <li><a href="${root}treks/trek-detail-manaslu.html">Manaslu Circuit</a></li>
+                            <li><a href="${root}treks/trek-detail-langtang-valley.html">Langtang Valley</a></li>
+                            <li><a href="${root}treks/trek-detail-mustang.html">Upper Mustang</a></li>
+                            <li><a href="${root}treks/trek-detail-three-passes.html">Three Passes Trek</a></li>
                         </ul>
                     </div>
 
@@ -57,7 +58,7 @@ function renderFooter(containerId, options = { rootPath: './' }) {
                         <ul class="contact-info">
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Thamel, Kathmandu, Nepal</span>
+                                <span>Budhanilkantha-11, Kathmandu, Nepal</span>
                             </li>
                             <li>
                                 <a href="tel:+97714412345" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
@@ -81,6 +82,6 @@ function renderFooter(containerId, options = { rootPath: './' }) {
         </div>
     </footer>
     `;
-    
-    document.getElementById(containerId).innerHTML = html;
+
+  document.getElementById(containerId).innerHTML = html;
 }
