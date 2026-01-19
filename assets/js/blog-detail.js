@@ -406,3 +406,27 @@ function formatDate(dateString) {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", options);
 }
+
+// Scroll to Top Button Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  if (scrollToTopBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", function () {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+});
