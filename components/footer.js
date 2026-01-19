@@ -20,9 +20,9 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                         </a>
                         <p class="footer-desc">Your trusted partner for Himalayan adventures. We specialize in authentic trekking experiences, safety, and cultural immersion.</p>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/lok.guidee.francophone/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/lok_guide_fracophone/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://np.linkedin.com/in/lok-guidee-francophone-a569992b2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/lok.guidee.francophone/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/lok_guide_fracophone/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://np.linkedin.com/in/lok-guidee-francophone-a569992b2" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
 
