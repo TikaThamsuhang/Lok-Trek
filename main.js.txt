@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tabsContainerElement.classList.remove("is-stuck");
         }
       },
-      { threshold: [1], rootMargin: "-1px 0px 0px 0px" } // Adjust rootMargin based on sticky top value
+      { threshold: [1], rootMargin: "-1px 0px 0px 0px" }, // Adjust rootMargin based on sticky top value
     );
 
     observer.observe(tabsContainerElement);
@@ -150,21 +150,57 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add active class to clicked button
         btn.classList.add("active");
 
-        // Scroll active button into view centered
-        btn.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
+        // 1. Center the button HORIZONTALLY only (avoid affecting vertical scroll)
+        const tabsContainer = document.querySelector(".trips-tabs-container");
+        if (tabsContainer) {
+          const containerRect = tabsContainer.getBoundingClientRect();
+          const btnRect = btn.getBoundingClientRect();
+          // Calculate center position
+          const scrollLeft =
+            btn.offsetLeft -
+            tabsContainer.clientWidth / 2 +
+            btn.clientWidth / 2;
+          // Use scrollLeft on the scrolling container (trips-tabs)
+          const scrollableTabs = document.querySelector(".trips-tabs");
+          if (scrollableTabs) {
+            scrollableTabs.scrollTo({ left: scrollLeft, behavior: "smooth" });
+          }
+        }
 
+        // 2. Filter cards
         const category = btn.getAttribute("data-tab");
+        // We filter *before* scrolling to modify layout? Or after?
+        // If we filter, height changes.
+        // Let's filter first so height is correct? No, animation removes it later.
         filterCards(category);
+
+        // 3. AUTO SCROLL TO TOP OF SECTION (Double-Scroll Strategy)
+        const cardsSection = document.getElementById("tripCardsSection");
+        const stickyOffset = 120; // adjust based on header + sticky tabs height
+
+        if (cardsSection) {
+          // Use getBoundingClientRect for accurate position calculation
+          // offsetTop becomes unreliable when element has sticky positioning
+          const rect = cardsSection.getBoundingClientRect();
+          const y = rect.top + window.scrollY - stickyOffset;
+
+          // Always scroll to top of section when tab is clicked
+          window.scrollTo({ top: y, behavior: "auto" });
+
+          // Second scroll after animation completes (300ms + buffer)
+          // This handles cases where layout collapses during filtering
+          setTimeout(() => {
+            const rect2 = cardsSection.getBoundingClientRect();
+            const y2 = rect2.top + window.scrollY - stickyOffset;
+            window.scrollTo({ top: y2, behavior: "auto" });
+          }, 320);
+        }
       });
     });
 
     // Initialize filter on load based on active tab
     const activeTab = document.querySelector(
-      ".tab-btn.active, .filter-btn.active"
+      ".tab-btn.active, .filter-btn.active",
     );
     if (activeTab) {
       const category = activeTab.getAttribute("data-tab");
@@ -213,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const percentage = scrollWithOffset / maxScrollLeft;
         const translateX = Math.max(
           0,
-          Math.min(percentage * maxTranslate, maxTranslate)
+          Math.min(percentage * maxTranslate, maxTranslate),
         ); // Clamp
 
         // Update thumb position
@@ -237,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       tabsContainer.addEventListener("scroll", () =>
-        updateScrollIndicator(false)
+        updateScrollIndicator(false),
       );
 
       // Show on load (initial trigger)
@@ -255,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const trustBar = document.querySelector(".trust-bar");
   const trustBarContent = document.querySelector(".secondary-nav-content");
   const trustScrollIndicator = document.querySelector(
-    ".trust-scroll-indicator"
+    ".trust-scroll-indicator",
   );
   const trustScrollProgress = document.querySelector(".trust-scroll-progress");
 
@@ -289,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
         maxScrollLeft > 0 ? scrollWithOffset / maxScrollLeft : 0;
       const translateX = Math.max(
         0,
-        Math.min(percentage * maxTranslate, maxTranslate)
+        Math.min(percentage * maxTranslate, maxTranslate),
       );
 
       // Update thumb position
@@ -313,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     trustBar.addEventListener("scroll", () =>
-      updateTrustScrollIndicator(false)
+      updateTrustScrollIndicator(false),
     );
 
     // Show on load (initial trigger) - always show since we have 6 items
@@ -458,77 +494,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 100);
     });
   }
-
-  // =========================================
-  // Load Blog Cards on Home Page
-  // =========================================
-  const homeBlogGrid = document.getElementById('homeBlogGrid');
-  
-  if (homeBlogGrid) {
-    // Blog data for home page preview
-    const blogPosts = [
-      {
-        id: 'blog-1',
-        title: 'The Trek to Everest Base Camp: A Glorified Myth or an Adventure Full of Untold Secrets?',
-        slug: 'everest-base-camp-untold-secrets',
-        excerpt: 'When people talk about trekking to a base camp—especially Everest Base Camp—images immediately come to mind: breathtaking landscapes, prayer flags fluttering in the wind, smiling adventurers standing before snow-covered peaks. But is the reality really as perfect as it sounds?',
-        author: 'Lok Treks Nepal',
-        date: '2026-01-15',
-        readTime: '8 min read',
-        category: 'Trekking Insights',
-        featured: true,
-        image: 'assets/images/Blog-1/blog-1.jpeg'
-      }
-    ];
-
-    function formatDate(dateString) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', options);
-    }
-
-    function createBlogCard(post) {
-      const card = document.createElement('div');
-      card.className = 'blog-card';
-      card.onclick = () => {
-        window.location.href = `blogs/blog-detail.html?id=${post.id}`;
-      };
-      
-      card.innerHTML = `
-        <div class="blog-card-image">
-          <img src="${post.image}" alt="${post.title}" loading="lazy" />
-          <span class="blog-category">${post.category}</span>
-          ${post.featured ? '<div class="blog-featured-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
-        </div>
-        <div class="blog-card-content">
-          <div class="blog-card-meta">
-            <div class="blog-meta-item">
-              <i class="far fa-calendar"></i>
-              <span>${formatDate(post.date)}</span>
-            </div>
-            <div class="blog-meta-item">
-              <i class="far fa-clock"></i>
-              <span>${post.readTime}</span>
-            </div>
-          </div>
-          <h3 class="blog-card-title">${post.title}</h3>
-          <p class="blog-card-excerpt">${post.excerpt}</p>
-          <a href="blogs/blog-detail.html?id=${post.id}" class="blog-read-more">
-            Read Full Story
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      `;
-      
-      return card;
-    }
-
-    // Load blog cards
-    blogPosts.forEach(post => {
-      const blogCard = createBlogCard(post);
-      homeBlogGrid.appendChild(blogCard);
-    });
-  }
 });
 
 // Global function for Google Translate Script
@@ -540,6 +505,6 @@ function googleTranslateElementInit() {
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false,
     },
-    "google_translate_element"
+    "google_translate_element",
   );
 }

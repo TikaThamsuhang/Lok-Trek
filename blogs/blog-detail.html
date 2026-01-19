@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="blog-title">Blog Post | Lok Treks Nepal</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/blog.css" />
+    <link rel="stylesheet" href="../assets/css/blog-enhancements.css" />
+  </head>
+
+  <body>
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display: none"></div>
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero blog-detail-hero">
+        <div class="hero-bg">
+          <img
+            id="hero-image"
+            src="../assets/images/Blog-1/blog-1.jpeg"
+            alt="Blog Post"
+            class="hero-img"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+          <h1 id="blog-detail-title">Loading...</h1>
+
+          <div class="blog-detail-meta" id="blog-meta">
+            <!-- Meta will be loaded by JavaScript -->
+          </div>
+
+          <div class="hero-breadcrumbs">
+            <span><a href="../index.html" style="color: inherit">Home</a></span>
+            /
+            <span><a href="../blog.html" style="color: inherit">Blog</a></span>
+            /
+            <span>Article</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Content Section -->
+      <section class="section blog-content-wrapper">
+        <div class="container">
+          <div class="blog-content-container">
+            <div class="blog-content" id="blog-content">
+              <!-- Content and images will be loaded by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest Posts Section -->
+      <section class="section latest-posts-section">
+        <div class="container">
+          <h2 class="section-title">Continue Reading</h2>
+          <p class="section-subtitle">
+            Explore more stories from the Himalayas
+          </p>
+
+          <div class="latest-posts-grid" id="latestPostsGrid">
+            <!-- Latest posts will be loaded by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+    <script>
+      renderHeader("header-container", { rootPath: "../" });
+      renderFooter("footer-container", { rootPath: "../" });
+    </script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/blog-detail.js"></script>
+  </body>
+</html>
