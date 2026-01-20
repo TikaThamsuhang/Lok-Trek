@@ -345,7 +345,7 @@ main {
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.dropdown-item-parent:hover .dropdown-menu {
+.dropdown-item-parent:hover > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -369,6 +369,32 @@ main {
     padding-left: 25px;
 }
 
+/* Nested Dropdown Styles (Desktop) */
+.dropdown-submenu {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: -10px;        /* Align top with parent item */
+    left: 100%;        /* Fly out to the right */
+    margin-top: 0;
+    margin-left: 0;    /* Remove gap to prevent mouse-leave */
+}
+
+/* Ensure sub-menu stays visible on hover */
+.dropdown-submenu:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Arrow rotation for desktop submenu */
+.dropdown-submenu:hover > a .fa-chevron-right {
+    transform: rotate(90deg); /* Optional: rotate if desired, or keep right */
+    transition: transform 0.2s;
+}
+
 /* Mobile Dropdown Styles */
 .mobile-dropdown-menu {
     height: 0;
@@ -377,23 +403,31 @@ main {
     background-color: #f9f9f9;
 }
 
-.mobile-dropdown-parent.active .mobile-dropdown-menu {
+.mobile-dropdown-parent.active > .mobile-dropdown-menu {
     height: auto;
     padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
-.mobile-dropdown-parent.active .rotate-icon {
+.mobile-dropdown-parent.active > a .rotate-icon {
     transform: rotate(90deg);
     color: var(--color-primary);
 }
 
 .mobile-dropdown-link {
-    display: block;
-    padding: 10px 20px 10px 30px; /* Indented */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 10px 30px; /* Level 1 Indent */
     color: var(--color-text);
     font-size: 0.9rem;
     border-left: 2px solid transparent;
+}
+
+/* Level 2 Indent (Nested items) */
+.mobile-dropdown-menu .mobile-dropdown-menu .mobile-dropdown-link {
+    padding-left: 50px; 
+    font-size: 0.85rem;
 }
 
 .mobile-dropdown-link:hover {

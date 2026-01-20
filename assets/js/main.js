@@ -299,28 +299,57 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Initialize filter on load based on active tab
-    const activeTab = document.querySelector(
-      ".tab-btn.active, .filter-btn.active",
-    );
-    if (activeTab) {
-      const category = activeTab.getAttribute("data-tab");
-      // Run immediately without animation delay if possible, or just run the same logic
-      // For initial load, we might want to suppress the hide animation delay, but consistency is fine
-      // To prevent "flashing" of wrong content, we should force correct state immediately if possible.
-      // But reuse of function is cleaner.
-      tripCards.forEach((card) => {
-        const cardCategory = card.getAttribute("data-category");
-        if (category === "all" || cardCategory === category) {
-          card.classList.remove("hide");
-          card.style.opacity = "1";
-          card.style.transform = "scale(1)";
-        } else {
-          card.classList.add("hide");
-          card.style.opacity = "0";
-          card.style.transform = "scale(0.9)";
-        }
-      });
+    // Initialize filter on load based on active tab or URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get("tab");
+
+    // Check URL param first
+    if (tabParam) {
+      // Find matching dropdown item or tab button
+      const dropdownItem = document.querySelector(
+        `.tab-dropdown-item[data-tab="${tabParam}"]`,
+      );
+      const standardTab = document.querySelector(
+        `.tab-btn[data-tab="${tabParam}"]`,
+      );
+
+      if (dropdownItem) {
+        // It's a dropdown item (Short/Long Treks)
+        // Clear existing active
+        tabBtns.forEach((b) => b.classList.remove("active"));
+        dropdownItems.forEach((i) => i.classList.remove("active"));
+
+        // Activate
+        dropdownItem.classList.add("active");
+        dropdownBtn.classList.add("active");
+
+        // Filter
+        filterCards(tabParam);
+        scrollToGrid();
+      } else if (standardTab) {
+        // It's a standard tab
+        standardTab.click(); // Reuse click handler
+      }
+    } else {
+      // Fallback to default active tab (All Trips)
+      const activeTab = document.querySelector(
+        ".tab-btn.active, .filter-btn.active",
+      );
+      if (activeTab) {
+        const category = activeTab.getAttribute("data-tab");
+        tripCards.forEach((card) => {
+          const cardCategory = card.getAttribute("data-category");
+          if (category === "all" || cardCategory === category) {
+            card.classList.remove("hide");
+            card.style.opacity = "1";
+            card.style.transform = "scale(1)";
+          } else {
+            card.classList.add("hide");
+            card.style.opacity = "0";
+            card.style.transform = "scale(0.9)";
+          }
+        });
+      }
     }
 
     // Custom Scroll Indicator Logic

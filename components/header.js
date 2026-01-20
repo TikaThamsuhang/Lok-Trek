@@ -22,22 +22,41 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                       "index.html",
                     )}" data-i18n="nav_home">Home</a></li>
                     
-                    <li class="dropdown-item-parent">
+                     <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
                         <ul class="dropdown-menu">
-                             <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
-                             <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
-                             <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>
-                             <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
-                             <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
-                             <li><a href="../treks/trek-detail-kanchenjunga.html" class="dropdown-link">Kanchenjunga</a></li>
-                             <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
-                             <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
-                             <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
-                             <li><a href="../treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
-                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak Trek</a></li>
-                             <li><a href="../treks/trek-detail-poon-hill-abc.html" class="dropdown-link">Poon Hill & ABC</a></li>
-                             <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
+                             <!-- Short Treks Submenu -->
+                             <li class="dropdown-submenu">
+                                <a href="javascript:void(0)" class="dropdown-link d-flex justify-content-between align-items-center">
+                                    Short Treks (≤ 8 Days) <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
+                                </a>
+                                <ul class="dropdown-menu submenu-right">
+                                    <li><a href="${root}index.html?tab=short-treks" class="dropdown-link" style="font-weight: 600; color: var(--color-primary);">All Short Treks</a></li>
+                                    <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
+                                    <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak</a></li>
+                                    <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
+                                    <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
+                                </ul>
+                             </li>
+
+                             <!-- Long Treks Submenu -->
+                             <li class="dropdown-submenu">
+                                <a href="javascript:void(0)" class="dropdown-link d-flex justify-content-between align-items-center">
+                                    Long Treks (> 8 Days) <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
+                                </a>
+                                <ul class="dropdown-menu submenu-right">
+                                    <li><a href="${root}index.html?tab=long-treks" class="dropdown-link" style="font-weight: 600; color: var(--color-primary);">All Long Treks</a></li>
+                                    <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
+                                    <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
+                                    <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>
+                                    <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
+                                    <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
+                                    <li><a href="../treks/trek-detail-kanchenjunga.html" class="dropdown-link">Kanchenjunga</a></li>
+                                    <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
+                                    <li><a href="../treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
+                                    <li><a href="../treks/trek-detail-poon-hill-abc.html" class="dropdown-link">Poon Hill & ABC</a></li>
+                                </ul>
+                             </li>
                         </ul>
                     </li>
 
@@ -121,19 +140,32 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>
                     <ul class="mobile-dropdown-menu">
-                             <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
-                             <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
-                             <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>
-                             <li><a href="../treks/trek-detail-mustang.html" class="dropdown-link">Upper Mustang</a></li>
-                             <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="dropdown-link">Gosaikunda & Langtang</a></li>
-                             <li><a href="../treks/trek-detail-kanchenjunga.html" class="dropdown-link">Kanchenjunga</a></li>
-                             <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
-                             <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
-                             <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
-                             <li><a href="../treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
-                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak Trek</a></li>
-                             <li><a href="../treks/trek-detail-poon-hill-abc.html" class="dropdown-link">Poon Hill & ABC</a></li>
-                             <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
+                             <!-- Short Treks Mobile -->
+                             <li class="mobile-dropdown-parent">
+                                <a href="javascript:void(0)" class="mobile-dropdown-link mobile-dropdown-toggle" style="font-weight: 600;">Short Treks <i class="fas fa-chevron-right rotate-icon"></i></a>
+                                <ul class="mobile-dropdown-menu">
+                                    <li><a href="../treks/trek-detail-langtang-valley.html" class="mobile-dropdown-link">Langtang Valley</a></li>
+                                    <li><a href="../treks/trek-detail-pikey-peak.html" class="mobile-dropdown-link">Pikey Everest View</a></li>
+                                    <li><a href="../treks/trek-detail-mardi-himal.html" class="mobile-dropdown-link">Mardi Himal</a></li>
+                                    <li><a href="../treks/trek-detail-poon-hill.html" class="mobile-dropdown-link">Poon Hill</a></li>
+                                </ul>
+                             </li>
+
+                             <!-- Long Treks Mobile -->
+                             <li class="mobile-dropdown-parent">
+                                <a href="javascript:void(0)" class="mobile-dropdown-link mobile-dropdown-toggle" style="font-weight: 600;">Long Treks <i class="fas fa-chevron-right rotate-icon"></i></a>
+                                <ul class="mobile-dropdown-menu">
+                                    <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="mobile-dropdown-link">Annapurna Circuit & Tilicho</a></li>
+                                    <li><a href="../treks/trek-detail-manaslu.html" class="mobile-dropdown-link">Manaslu Trek</a></li>
+                                    <li><a href="../treks/trek-detail-manaslu-tsum.html" class="mobile-dropdown-link">Manaslu & Tsum Valley</a></li>
+                                    <li><a href="../treks/trek-detail-mustang.html" class="mobile-dropdown-link">Upper Mustang</a></li>
+                                    <li><a href="../treks/trek-detail-gosaikunda-langtang.html" class="mobile-dropdown-link">Gosaikunda & Langtang</a></li>
+                                    <li><a href="../treks/trek-detail-kanchenjunga.html" class="mobile-dropdown-link">Kanchenjunga</a></li>
+                                    <li><a href="../treks/trek-detail-everest-gokyo.html" class="mobile-dropdown-link">Everest Base Camp</a></li>
+                                    <li><a href="../treks/trek-detail-three-passes.html" class="mobile-dropdown-link">Three Passes</a></li>
+                                    <li><a href="../treks/trek-detail-poon-hill-abc.html" class="mobile-dropdown-link">Poon Hill & ABC</a></li>
+                                </ul>
+                             </li>
                         </ul>
                 </li>
 
@@ -184,16 +216,21 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
   mobileDropdownToggles.forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); // Prevent bubbling to parent toggles
       const parent = toggle.closest(".mobile-dropdown-parent");
 
-      // Close other open menus
-      document
-        .querySelectorAll(".mobile-dropdown-parent.active")
-        .forEach((item) => {
-          if (item !== parent) {
-            item.classList.remove("active");
-          }
-        });
+      // Close siblings only
+      // Find the closest common container to avoid closing everything
+      const closestList = parent.parentElement;
+      if (closestList) {
+        closestList
+          .querySelectorAll(":scope > .mobile-dropdown-parent.active")
+          .forEach((item) => {
+            if (item !== parent) {
+              item.classList.remove("active");
+            }
+          });
+      }
 
       parent.classList.toggle("active");
     });
