@@ -124,8 +124,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterCards = (category) => {
       tripCards.forEach((card) => {
         const cardCategory = card.getAttribute("data-category");
+        const cardDays = parseInt(card.getAttribute("data-days") || "0");
 
-        if (category === "all" || cardCategory === category) {
+        let shouldShow = false;
+
+        if (category === "all") {
+          shouldShow = true;
+        } else if (category === "short-treks") {
+          shouldShow = cardCategory === "trekking" && cardDays <= 8;
+        } else if (category === "long-treks") {
+          shouldShow = cardCategory === "trekking" && cardDays > 8;
+        } else {
+          shouldShow = cardCategory === category;
+        }
+
+        if (shouldShow) {
           card.classList.remove("hide");
           // Reset animation
           setTimeout(() => {
@@ -142,11 +155,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
+    const scrollToGrid = () => {
+      const tabsContainerElement = document.querySelector(
+        ".trips-tabs-container",
+      );
+      const tripsGrid = document.querySelector(".trips-grid");
+
+      if (
+        tripsGrid &&
+        tabsContainerElement &&
+        tabsContainerElement.classList.contains("is-stuck")
+      ) {
+        const headerHeight = 70;
+        const tabsHeight = 30;
+        const offset = headerHeight + tabsHeight;
+        const gridTop =
+          tripsGrid.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: gridTop,
+          behavior: "smooth",
+        });
+      }
+    };
+
     // Tab Filtering
     tabBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        // If this is the dropdown toggle button, don't run standard filtering
+        if (btn.id === "trekkingDropdownBtn") return;
+
         // Remove active class from all buttons
         tabBtns.forEach((b) => b.classList.remove("active"));
+        // Remove active from dropdown items
+        document
+          .querySelectorAll(".tab-dropdown-item")
+          .forEach((i) => i.classList.remove("active"));
+
         // Add active class to clicked button
         btn.classList.add("active");
 
@@ -159,31 +204,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const category = btn.getAttribute("data-tab");
         filterCards(category);
-
-        // Always scroll to the trips grid area when tab is clicked (only if tabs are sticky)
-        const tabsContainerElement = document.querySelector(
-          ".trips-tabs-container",
-        );
-        const tripsGrid = document.querySelector(".trips-grid");
-
-        if (
-          tripsGrid &&
-          tabsContainerElement &&
-          tabsContainerElement.classList.contains("is-stuck")
-        ) {
-          const headerHeight = 70; // Header height
-          const tabsHeight = 30; // Tabs container height when sticky
-          const offset = headerHeight + tabsHeight;
-          const gridTop =
-            tripsGrid.getBoundingClientRect().top + window.pageYOffset - offset;
-
-          window.scrollTo({
-            top: gridTop,
-            behavior: "smooth",
-          });
-        }
+        scrollToGrid();
       });
     });
+
+    // Dropdown Logic
+    const dropdownBtn = document.getElementById("trekkingDropdownBtn");
+    const dropdownMenu = document.getElementById("trekkingDropdownMenu");
+    const dropdownItems = document.querySelectorAll(".tab-dropdown-item");
+
+    if (dropdownBtn && dropdownMenu) {
+      // Move dropdown to body to avoid clipping by scroll container
+      document.body.appendChild(dropdownMenu);
+
+      const closeDropdown = () => {
+        dropdownMenu.classList.remove("active");
+        dropdownBtn.classList.remove("dropdown-open");
+      };
+
+      const updatePosition = () => {
+        if (!dropdownMenu.classList.contains("active")) return;
+        const rect = dropdownBtn.getBoundingClientRect();
+        dropdownMenu.style.position = "fixed";
+        dropdownMenu.style.top = rect.bottom + 10 + "px";
+        dropdownMenu.style.left = rect.left + rect.width / 2 + "px";
+        // Width auto or min-width handled by CSS
+      };
+
+      // Toggle Dropdown
+      dropdownBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownMenu.classList.contains("active");
+
+        if (isOpen) {
+          closeDropdown();
+        } else {
+          dropdownMenu.classList.add("active");
+          updatePosition();
+          dropdownBtn.classList.add("dropdown-open");
+        }
+      });
+
+      // Handle Dropdown Item Click
+      dropdownItems.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const category = item.getAttribute("data-tab");
+
+          // Update Active States
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          dropdownItems.forEach((i) => i.classList.remove("active"));
+
+          item.classList.add("active");
+          dropdownBtn.classList.add("active"); // Set parent button active
+
+          // Filter
+          filterCards(category);
+
+          // Close Dropdown
+          closeDropdown();
+
+          scrollToGrid();
+        });
+      });
+
+      // Close Dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !dropdownBtn.contains(e.target) &&
+          !dropdownMenu.contains(e.target)
+        ) {
+          closeDropdown();
+        }
+      });
+
+      // Close on scroll to avoid detached menu
+      window.addEventListener("scroll", closeDropdown, { passive: true });
+      const tabsContainerElement = document.querySelector(
+        ".trips-tabs-container",
+      );
+      if (tabsContainerElement) {
+        tabsContainerElement.addEventListener("scroll", closeDropdown, {
+          passive: true,
+        });
+      }
+      const tabsList = document.querySelector(".trips-tabs");
+      if (tabsList) {
+        tabsList.addEventListener("scroll", closeDropdown, { passive: true });
+      }
+
+      // Update position on resize if open (optional, but good)
+      window.addEventListener("resize", () => {
+        if (dropdownMenu.classList.contains("active")) updatePosition();
+      });
+    }
 
     // Initialize filter on load based on active tab
     const activeTab = document.querySelector(

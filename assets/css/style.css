@@ -1540,3 +1540,83 @@ main {
     transform: translateX(0);
     will-change: transform;
 }
+
+/* Tab Dropdown Styles */
+.tab-dropdown-parent {
+    position: relative;
+    display: inline-block;
+}
+
+.tab-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 160px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 9999;
+    margin-top: 10px; /* Space between button and menu */
+}
+
+/* Arrow for the dropdown menu box */
+.tab-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+.tab-dropdown-menu.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.tab-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-family: var(--font-main);
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab-dropdown-item:hover {
+    background-color: #f9f9f9;
+    color: var(--color-primary);
+}
+
+.tab-dropdown-item.active {
+    color: var(--color-primary);
+    font-weight: 600;
+    background-color: #f5f5f5;
+}
+
+.tab-btn .fa-chevron-down {
+    margin-left: 6px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.tab-btn.dropdown-open .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Ensure overflow doesn't clip the dropdown - REMOVED to restore scroll */
+/* .trips-tabs-container { overflow: visible; } */
+/* .trips-tabs { flex-wrap: wrap; } */
