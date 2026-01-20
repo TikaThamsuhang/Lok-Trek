@@ -46,6 +46,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                      <ul class="dropdown-menu">
                          <li><a href="${root}ascension/island-peak.html" class="dropdown-link">Island Peak</a></li>
                          <li><a href="${root}ascension/mera-peak.html" class="dropdown-link">Mera Peak</a></li>
+                         <li><a href="${root}ascension/lobuche-peak.html" class="dropdown-link">Lobuche Peak</a></li>
                      </ul>
                  </li>
 
@@ -141,6 +142,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                      <ul class="mobile-dropdown-menu">
                          <li><a href="${root}ascension/island-peak.html" class="dropdown-link">Island Peak</a></li>
                          <li><a href="${root}ascension/mera-peak.html" class="dropdown-link">Mera Peak</a></li>
+                         <li><a href="${root}ascension/lobuche-peak.html" class="dropdown-link">Lobuche Peak</a></li>
                      </ul>
                  </li>
 

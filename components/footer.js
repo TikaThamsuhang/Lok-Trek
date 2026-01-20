@@ -23,6 +23,8 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                             <a href="https://www.facebook.com/lok.guidee.francophone/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.instagram.com/lok_guide_fracophone/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                             <a href="https://np.linkedin.com/in/lok-guidee-francophone-a569992b2" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://share.google/iAOspvSpCZdwAR8Th" target="_blank" class="social-link"><span class="iconify" data-icon="simple-icons:tripadvisor"></span></a>
+                            <a href="https://youtube.com/@loktreksnepal?si=PPhW0-FB1AyL1hZr" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
 
