@@ -35,7 +35,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
                              <li><a href="../treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
-                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Peak Trek</a></li>
+                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak Trek</a></li>
                              <li><a href="../treks/trek-detail-poon-hill-abc.html" class="dropdown-link">Poon Hill & ABC</a></li>
                              <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
                         </ul>
@@ -131,7 +131,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                              <li><a href="../treks/trek-detail-everest-gokyo.html" class="dropdown-link">Everest Base Camp</a></li>
                              <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
                              <li><a href="../treks/trek-detail-three-passes.html" class="dropdown-link">Three Passes</a></li>
-                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Peak Trek</a></li>
+                             <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak Trek</a></li>
                              <li><a href="../treks/trek-detail-poon-hill-abc.html" class="dropdown-link">Poon Hill & ABC</a></li>
                              <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
                         </ul>
