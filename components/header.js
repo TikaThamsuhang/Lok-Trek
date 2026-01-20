@@ -114,7 +114,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                     </div>
                 </div>
 
-                <a href="tel:+9779811345073" class="icon-btn" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/9779811345073" target="_blank" class="icon-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <button class="mobile-menu-btn" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
