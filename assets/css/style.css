@@ -181,9 +181,11 @@ main {
 }
 
 .header-container {
+    max-width: 1360px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 3rem;
 }
 
 .logo-img {
@@ -988,21 +990,21 @@ main {
 /* Tablet Breakpoint */
 @media (min-width: 768px) {
     :root {
-        --container-padding: 2rem;
-        --spacing-lg: 3rem;
-        --spacing-xl: 4.5rem;
-        --section-padding-y: 4rem;
+        --container-padding: 1.5rem;   /* Reduced from 2rem */
+        --spacing-lg: 2.5rem;        /* Reduced from 3rem */
+        --spacing-xl: 3.5rem;        /* Reduced from 4.5rem */
+        --section-padding-y: 3rem;   /* Reduced from 4rem */
 
         /* Typography Scale - Tablet */
-        --font-size-h1: 3rem;
-        --font-size-h2: 2rem;
-        --font-size-h3: 1.5rem;
+        --font-size-h1: 2.5rem;      /* Reduced from 3rem */
+        --font-size-h2: 1.75rem;     /* Reduced from 2rem */
+        --font-size-h3: 1.4rem;      /* Reduced from 1.5rem */
         --font-size-body: 1rem;
         --font-size-small: 0.9375rem;
     }
 
     .logo-img {
-        height: 65px;
+        height: 60px; /* Reduced from 65px */
     }
 
     .trust-text {
@@ -1025,18 +1027,18 @@ main {
 /* Desktop Breakpoint */
 @media (min-width: 992px) {
     :root {
-        --container-padding: 2.5rem;
-        --spacing-md: 2rem;
-        --spacing-lg: 4rem;
-        --spacing-xl: 6rem;
-        --section-padding-y: 5rem;
+        --container-padding: 2rem;       /* Reduced from 2.5rem */
+        --spacing-md: 1.5rem;            /* Reduced from 2rem */
+        --spacing-lg: 2.5rem;              /* Reduced from 4rem */
+        --spacing-xl: 4.5rem;            /* Reduced from 6rem */
+        --section-padding-y: 3.5rem;     /* Reduced from 5rem */
 
         /* Typography Scale - Desktop */
-        --font-size-h1: 4.5rem;
-        --font-size-h2: 2.5rem;
-        --font-size-h3: 1.75rem;
-        --font-size-body: 1.0625rem;
-        --font-size-small: 1rem;
+        --font-size-h1: 3rem;            /* Reduced from 4.5rem */
+        --font-size-h2: 2rem;            /* Reduced from 2.5rem */
+        --font-size-h3: 1.5rem;          /* Reduced from 1.75rem */
+        --font-size-body: 1rem;          /* Kept standard */
+        --font-size-small: 0.9375rem;
     }
 
     .mobile-menu-btn {
@@ -1045,28 +1047,26 @@ main {
 
     .desktop-nav {
         display: block;
-        flex: 1;
-        margin-left: var(--spacing-md);
     }
 
     .desktop-nav-list {
         display: flex;
-        gap: 1.75rem;
-        /* Reduced from excessive spacing */
+        gap: 1.5rem;
+        /* Reduced from 1.75rem */
         align-items: center;
         justify-content: flex-end;
     }
 
     .desktop-nav-list .nav-link {
         border: none;
-        font-size: 0.9375rem;
-        /* Slightly smaller, more refined */
+        font-size: 0.9rem;
         padding: 0;
         color: var(--color-white);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        /* text-transform: uppercase; */
+        letter-spacing: 0.2xpx;
         font-weight: var(--font-weight-semibold);
         transition: color var(--transition-speed);
+        gap: .6rem;
     }
 
     .desktop-nav-list .nav-link:hover {
@@ -1074,15 +1074,19 @@ main {
     }
 
     .logo-img {
-        height: 70px;
+        height: 65px; /* Reduced from 70px */
     }
+
+    /* .hero{
+        height: 60vh;
+    } */
 
     .hero h1 {
         letter-spacing: 0.03em;
     }
 
     .stars {
-        font-size: 1.4rem;
+        font-size: 1.25rem; /* Reduced from 1.4rem */
     }
 
     .trust-text {
@@ -1090,23 +1094,48 @@ main {
     }
 
     .hero-breadcrumbs {
-        font-size: 1rem;
+        font-size: 0.9375rem;
         bottom: 8%;
     }
 
     .secondary-nav-content {
+        max-width: var(--container-width);
+        margin: 0 auto;
         flex-direction: row;
-        gap: var(--spacing-lg);
+        justify-content: center; /* Center items on desktop */
+        gap: var(--spacing-md); /* Reduced from --spacing-lg */
     }
 
     .sec-nav-item {
         border-right: 1px solid #ccc;
         padding-right: var(--spacing-md);
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .sec-nav-item:last-child {
         border: none;
+    }
+
+    /* Hide trust bar scroll indicator on desktop */
+    .trust-scroll-indicator {
+        display: none;
+    }
+
+    /* Show all introduction content on desktop */
+    .intro-more-text {
+        max-height: none !important;
+        opacity: 1 !important;
+        padding-top: 18px;
+    }
+
+    /* Hide gradient overlay on desktop */
+    .intro-content::before {
+        display: none;
+    }
+
+    /* Hide read more button on desktop */
+    .read-more-link {
+        display: none;
     }
 
 
@@ -1117,24 +1146,49 @@ main {
     }
 
     .trip-image {
-        height: 240px;
+        height: 220px; /* Reduced from 240px */
     }
 
     .trip-details {
-        flex-direction: row;
         justify-content: space-between;
+    }
+
+    /* Full-width sticky tabs on desktop */
+    .trips-tabs-container {
+        position: sticky;
+        top: 0 !important; /* Override base 55px - stick to top of page */
+        left: 0;
+        right: 0;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%); /* Break out of container */
+        margin-right: calc(-50vw + 50%);
+        background: #f9f9f9 !important; /* Match section background */
+        box-shadow: none !important; /* Remove shadow initially */
+        z-index: 90;
+    }
+
+    /* White background only when stuck */
+    .trips-tabs-container.is-stuck {
+        background: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+    }
+
+    .trips-tabs-container .trips-tabs {
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 0 var(--container-padding);
     }
 }
 
 /* Large Desktop */
 @media (min-width: 1400px) {
     .desktop-nav-list {
-        gap: 2.25rem;
+        gap: 2rem;
     }
 
     :root {
         /* Typography Scale - Large Desktop */
-        --font-size-h1: 5.5rem;
+        --font-size-h1: 3.5rem; /* Reduced significantly from 5.5rem */
     }
 }
 

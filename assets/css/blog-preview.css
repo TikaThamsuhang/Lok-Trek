@@ -3,7 +3,8 @@
    BLOG PREVIEW SECTION (HOME PAGE)
    ======================================== */
 .blog-preview-section {
-    background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
+    /* background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%); */
+    background-color: var(--color-white);
 }
 
 .blog-preview-grid {
@@ -53,6 +54,6 @@
 @media (min-width: 1024px) {
     .blog-preview-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
+        gap: 2.5rem;
     }
 }

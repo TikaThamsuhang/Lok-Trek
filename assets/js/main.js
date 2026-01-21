@@ -104,19 +104,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Detect when tabs become sticky
   if (tabsContainerElement) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When the element is NOT intersecting (i.e., it's stuck), add the class
-        if (!entry.isIntersecting) {
+    if (window.innerWidth >= 992) {
+      // Desktop: Use scroll-based detection
+      const checkSticky = () => {
+        const rect = tabsContainerElement.getBoundingClientRect();
+        const stickyTop = 0;
+
+        // Element is stuck when its top position equals the sticky top value
+        if (rect.top <= stickyTop && rect.top >= stickyTop - 1) {
           tabsContainerElement.classList.add("is-stuck");
-        } else {
+        } else if (rect.top > stickyTop) {
+          // Element is above sticky position (not stuck yet)
           tabsContainerElement.classList.remove("is-stuck");
         }
-      },
-      { threshold: [1], rootMargin: "-1px 0px 0px 0px" }, // Adjust rootMargin based on sticky top value
-    );
+        // Keep is-stuck if scrolled past (rect.top < stickyTop - 1)
+      };
 
-    observer.observe(tabsContainerElement);
+      // Check on scroll
+      window.addEventListener("scroll", checkSticky, { passive: true });
+
+      // Initial check
+      checkSticky();
+    } else {
+      // Mobile: Use IntersectionObserver (original approach)
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) {
+            tabsContainerElement.classList.add("is-stuck");
+          } else {
+            tabsContainerElement.classList.remove("is-stuck");
+          }
+        },
+        {
+          threshold: [1],
+          rootMargin: "-1px 0px 0px 0px",
+        },
+      );
+
+      observer.observe(tabsContainerElement);
+    }
   }
 
   if (tabBtns.length > 0) {
