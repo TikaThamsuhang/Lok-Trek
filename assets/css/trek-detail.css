@@ -28,7 +28,6 @@
     min-height: 400px;
     max-height: 600px;
     overflow: hidden;
-    background: #000;
 }
 
 .trek-overview-section,
@@ -104,8 +103,8 @@
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.95);
     border: none;
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 20;
@@ -121,7 +120,7 @@
 
 .slider-nav i {
     color: var(--color-text);
-    font-size: 1.125rem;
+    font-size: 1.1rem;
 }
 
 .slider-nav.prev {
@@ -778,7 +777,7 @@
 
     .slider-track {
         display: flex; /* Ensure flex layout */
-        gap: .5rem;
+        gap: .25rem;
         /* Desktop: Disable native scroll, use transform */
         overflow-x: visible; 
         scroll-snap-type: none;
@@ -802,27 +801,38 @@
         height: 60vh;
     }
     
+    /* Show Nav Buttons (Same style as Desktop) */
+    .slider-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: auto;
+        bottom: 40px;
+        transform: none;
+    }
+    .slider-nav:hover { transform: scale(1.1); }
+    .slider-nav.prev { left: 40px; right: auto; }
+    .slider-nav.next { left: 100px; right: auto; }
+
+    /* Hide Counter */
+    .slide-counter { display: none; }
+
+    /* Track: JS Loop Mode */
     .slider-track {
         display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        gap: .25rem; /* Match user's desktop preference */
+        overflow-x: visible;
+        scroll-snap-type: none;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-right: 0;
     }
     
     .slide {
         width: 50%; /* 2 images shown */
         min-width: 50%;
         flex: 0 0 50%;
+        opacity: 1 !important;
     }
-
-    /* Hide clones on tablet/mobile to keep native scroll clean */
-    .slide.clone {
-        display: none !important;
-    }
-    
-    /* Hide desktop arrows on tablet/mobile usually, but user asked for them? 
-       Review: existing css hides .slider-nav on mobile/touch usually or relies on native scroll.
-    */
 }
 
 /* Restoring Desktop Layout Overrides */
@@ -1257,7 +1267,7 @@
 
 .comparison-list li {
     display: grid;
-    grid-template-columns: 20px 140px 1fr; /* Icon | Title | Desc */
+    grid-template-columns: 5px 90px 1fr; /* Icon | Title | Desc */
     gap: 1rem;
     align-items: baseline;
     margin-bottom: 1rem;
@@ -1313,7 +1323,7 @@
 
 
 /* Desktop / Tablet Landscape Overrides (Min-Width) */
-@media (min-width: 992px) {
+@media (min-width: 1100px) {
     .comparison-container {
         grid-template-columns: 1fr auto 1fr; /* Side by Side with VS in middle */
         gap: 0;

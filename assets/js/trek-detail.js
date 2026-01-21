@@ -1,73 +1,94 @@
-
 // Trek Detail Page JavaScript
 
 // Image Slider Functionality
 document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slide");
   const sliderTrack = document.querySelector(".slider-track");
-  // Ensure we work with Array for easier manipulation if needed,
-  // but querySelectorAll above refers to original DOM at that moment.
 
   const prevBtn = document.querySelector(".slider-nav.prev");
   const nextBtn = document.querySelector(".slider-nav.next");
   const currentSlideSpan = document.querySelector(".current-slide");
   const totalSlidesSpan = document.querySelector(".total-slides");
 
-  let currentIndex = 0; // Will be offset by clones
+  // Determine active mode
+  let windowWidth = window.innerWidth;
+  let isDesktop = windowWidth >= 992;
+  let isTablet = windowWidth >= 768 && windowWidth < 992;
+  let shouldLoop = windowWidth >= 768; // Enabled for Tablet & Desktop
+
   const originalSlideCount = slides.length;
-  let isDesktop = window.innerWidth >= 992;
+  let currentIndex = 0;
   let autoSlideInterval;
   let isTransitioning = false;
 
-  // We need clones for infinite loop on desktop
-  // Strategy: Prepend last slide, Append first few slides (enough to fill view)
-  // 2.5 view means we need at least 3 clones at end.
+  // Clone Logic (Only if looping is enabled)
+  // We need to support cloning if we want infinite loop
 
-  // Set up clones only once if possible or manage clean up
-  // Ideally we do this structure: [LastClone, Real1, Real2... RealN, FirstClone, SecondClone, ThirdClone]
-
-  // 1. Assign data-index to original slides for lightbox mapping
+  // 1. Assign data-index for lightbox
   slides.forEach((slide, i) => {
     slide.dataset.index = i;
     const img = slide.querySelector("img");
     if (img) img.dataset.index = i;
   });
 
-  // 2. Create Clones
-  const clonesStart = [];
-  const clonesEnd = [];
-
-  // Clone last slide for start
-  const lastSlideClone = slides[originalSlideCount - 1].cloneNode(true);
-  lastSlideClone.classList.add("clone");
-  clonesStart.push(lastSlideClone);
-
-  // Clone first 3 slides for end (to cover 2.5 view)
-  for (let i = 0; i < Math.min(originalSlideCount, 3); i++) {
-    const clone = slides[i].cloneNode(true);
-    clone.classList.add("clone");
-    clonesEnd.push(clone);
-  }
-
-  // Insert Clones
-  clonesStart.forEach((clone) => sliderTrack.insertBefore(clone, sliderTrack.firstChild));
-  clonesEnd.forEach((clone) => sliderTrack.appendChild(clone));
-
-  // Re-query slides to include clones in the list for sizing calculation
+  // 2. Create Clones (Only for Tablet/Desktop)
+  let indexOffset = 0;
   let allSlides = document.querySelectorAll(".slide");
 
-  // Index Offset: because we added 1 clone at start, real slide 0 is now at index 1
-  const indexOffset = 1;
-  let visualIndex = 0; // 0 to N-1 (User facing)
+  if (shouldLoop) {
+    const clonesStart = [];
+    const clonesEnd = [];
 
-  currentIndex = indexOffset; // Start at real first slide
+    // Clone last slide for start
+    if (originalSlideCount > 0) {
+      const lastSlideClone = slides[originalSlideCount - 1].cloneNode(true);
+      lastSlideClone.classList.add("clone");
+      clonesStart.push(lastSlideClone);
+    }
+
+    // Clone first 3 slides for end (cover 2.5 view)
+    for (let i = 0; i < Math.min(originalSlideCount, 3); i++) {
+      const clone = slides[i].cloneNode(true);
+      clone.classList.add("clone");
+      clonesEnd.push(clone);
+    }
+
+    // Insert Clones
+    if (sliderTrack) {
+      clonesStart.forEach((clone) =>
+        sliderTrack.insertBefore(clone, sliderTrack.firstChild),
+      );
+      clonesEnd.forEach((clone) => sliderTrack.appendChild(clone));
+    }
+
+    indexOffset = 1; // We added 1 clone at start
+    currentIndex = indexOffset; // Start at real first slide
+  } else {
+    // Mobile: Start at 0
+    currentIndex = 0;
+  }
+
+  // Re-query if clones added
+  if (shouldLoop) {
+    allSlides = document.querySelectorAll(".slide"); // Update list
+  }
 
   if (totalSlidesSpan) {
     totalSlidesSpan.textContent = originalSlideCount;
   }
 
   function updateSlider(index, useTransition = true) {
-    if (!isDesktop) return; // Mobile uses native scroll
+    // If mobile, use native scroll (do nothing here usually, or custom logic?)
+    if (!shouldLoop) {
+      // Mobile Logic (Optional: sync counter)
+      if (currentSlideSpan) {
+        // Mobile scroll handles its own position, checking scrollLeft in event listener
+        // visualIndex update happens there
+      }
+      return;
+    }
+
+    if (!sliderTrack || allSlides.length === 0) return;
 
     const slideWidth = allSlides[0].offsetWidth;
     const style = window.getComputedStyle(sliderTrack);
@@ -76,40 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const offset = -(slideWidth + gap) * index;
 
     if (useTransition) {
-      sliderTrack.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+      sliderTrack.style.transition =
+        "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
     } else {
       sliderTrack.style.transition = "none";
     }
 
     sliderTrack.style.transform = `translateX(${offset}px)`;
 
-    // Update Counter (Map internal index to visual index)
-    let displayIndex = 0;
-
-    // internal index 0 (clone of Last) -> visual 4
-    // internal index 1 (Real 0) -> visual 1
-    // ...
-    if (index === 0) {
-      displayIndex = originalSlideCount;
-    } else if (index > originalSlideCount) {
-      displayIndex = index - originalSlideCount;
-    } else {
-      displayIndex = index;
-    }
-
-    // Correct bounds
+    // Update Counter
     if (currentSlideSpan) {
-      // Calculate 0-based index relative to real slides
-      let realIdx = index - indexOffset;
-      if (realIdx < 0) realIdx = originalSlideCount - 1;
-      else if (realIdx >= originalSlideCount) realIdx = realIdx % originalSlideCount;
-
-      // Actually, easier map:
-      // index 1 -> Slide 1
-      // index Count -> Slide Count
-      // index Count+1 -> Slide 1
-
-      // Simplest: use data-index from current element
       if (allSlides[index]) {
         const originalIndex = parseInt(allSlides[index].dataset.index || "0");
         currentSlideSpan.textContent = originalIndex + 1;
@@ -118,69 +115,56 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Transition End Listener for Infinite Loop Jump
-  sliderTrack.addEventListener("transitionend", () => {
-    if (!isDesktop) return;
+  if (sliderTrack) {
+    sliderTrack.addEventListener("transitionend", () => {
+      if (!shouldLoop) return;
 
-    // If we reached the clones at the end
-    if (currentIndex >= originalSlideCount + indexOffset) {
-      // Jump back to start (Real Slide 0 is at indexOffset)
-      // But wait, if we are at index (originalCount + indexOffset) which is First Clone
-      // We correspond to Real Slide 0 (indexOffset)
-
-      // Calculate equivalent real index
-      const shift = currentIndex - (originalSlideCount + indexOffset);
-      currentIndex = indexOffset + shift;
-
-      updateSlider(currentIndex, false); // Instant jump
-    }
-
-    // If we reached the clone at the start
-    if (currentIndex < indexOffset) {
-      // Jump to end (Real Last Slide)
-      // Real Last Slide is at (indexOffset + originalSlideCount - 1)
-      currentIndex = indexOffset + originalSlideCount - 1;
-      updateSlider(currentIndex, false);
-    }
-
-    isTransitioning = false;
-  });
+      // Jump Logic
+      if (currentIndex >= originalSlideCount + indexOffset) {
+        // Reached End Clones -> Jump to Start
+        const shift = currentIndex - (originalSlideCount + indexOffset);
+        currentIndex = indexOffset + shift;
+        updateSlider(currentIndex, false);
+      } else if (currentIndex < indexOffset) {
+        // Reached Start Clone -> Jump to End
+        // Real last is at indexOffset + originalSlideCount - 1
+        currentIndex = indexOffset + originalSlideCount - 1;
+        updateSlider(currentIndex, false);
+      }
+      isTransitioning = false;
+    });
+  }
 
   function nextSlide() {
-    if (isDesktop) {
+    if (shouldLoop) {
       if (isTransitioning) return;
       isTransitioning = true;
       currentIndex++;
       updateSlider(currentIndex, true);
     } else {
-      visualIndex = (visualIndex + 1) % originalSlideCount;
-      // Native scroll logic for mobile... handled by CSS mostly but if custom nav used:
-      // Mobile usually ignores this function if buttons hidden
-      // For mobile, we just update the counter based on visualIndex
-      if (currentSlideSpan) {
-        currentSlideSpan.textContent = visualIndex + 1;
-      }
+      // Mobile logic if manual button exists
+      // e.g. scrollBy
     }
   }
 
   function prevSlide() {
-    if (isDesktop) {
+    if (shouldLoop) {
       if (isTransitioning) return;
       isTransitioning = true;
       currentIndex--;
       updateSlider(currentIndex, true);
     } else {
-      visualIndex = (visualIndex - 1 + originalSlideCount) % originalSlideCount;
-      // For mobile, we just update the counter based on visualIndex
-      if (currentSlideSpan) {
-        currentSlideSpan.textContent = visualIndex + 1;
-      }
+      // Mobile logic
     }
   }
 
-  // Auto-slide for mobile (every 4 seconds)
+  // Auto-slide for mobile
   function startAutoSlide() {
-    if (!isDesktop) {
-      autoSlideInterval = setInterval(nextSlide, 4000);
+    if (!shouldLoop) {
+      autoSlideInterval = setInterval(() => {
+        // Mobile auto slide logic?
+        // Using scrollBy?
+      }, 4000);
     }
   }
 
@@ -192,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       nextSlide();
-      if (!isDesktop) {
+      if (!shouldLoop) {
         stopAutoSlide();
-        startAutoSlide(); // Restart auto-slide after manual interaction
+        startAutoSlide();
       }
     });
   }
@@ -202,30 +186,30 @@ document.addEventListener("DOMContentLoaded", function () {
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
       prevSlide();
-      if (!isDesktop) {
+      if (!shouldLoop) {
         stopAutoSlide();
         startAutoSlide();
       }
     });
   }
 
-  // Handle window resize
+  // Handle Window Resize
   function handleResize() {
-    const wasDesktop = isDesktop;
-    isDesktop = window.innerWidth >= 992;
+    const newWidth = window.innerWidth;
+    const newShouldLoop = newWidth >= 768;
 
-    if (wasDesktop !== isDesktop) {
-      if (isDesktop) {
-        // Determine nearest index or reset
-        // Re-read slides size logic
-        allSlides = document.querySelectorAll(".slide");
-        currentIndex = indexOffset;
+    if (newShouldLoop !== shouldLoop) {
+      // Reload to reset clones/layout cleanly (Simplest approach for mode switch)
+      window.location.reload();
+    } else {
+      // Same mode, just update flags
+      windowWidth = newWidth;
+      isDesktop = windowWidth >= 992;
+      isTablet = windowWidth >= 768 && windowWidth < 992;
+
+      // Adjust position if needed
+      if (shouldLoop) {
         updateSlider(currentIndex, false);
-        stopAutoSlide();
-      } else {
-        sliderTrack.style.transform = "none"; // Clear transform for mobile
-        sliderTrack.style.transition = "none";
-        startAutoSlide();
       }
     }
   }
@@ -235,59 +219,42 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mobile: Update counter on scroll
   if (sliderTrack) {
     sliderTrack.addEventListener("scroll", () => {
-      if (!isDesktop) {
+      if (!shouldLoop) {
         const slideWidth = sliderTrack.offsetWidth;
         const index = Math.round(sliderTrack.scrollLeft / slideWidth);
-        if (index !== visualIndex) {
-          visualIndex = index;
-          if (currentSlideSpan) currentSlideSpan.textContent = visualIndex + 1;
-        }
+        const visualIndex = index % originalSlideCount; // Simple mod fallback
+        if (currentSlideSpan) currentSlideSpan.textContent = visualIndex + 1;
       }
     });
   }
 
   // Initialize
-  if (isDesktop) {
-    // Need brief timeout to ensure layout is ready for offsetWidth
+  if (shouldLoop) {
     setTimeout(() => updateSlider(currentIndex, false), 50);
   } else {
     startAutoSlide();
-    if (currentSlideSpan) currentSlideSpan.textContent = visualIndex + 1;
   }
 
   // Stop auto-slide when user leaves page
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       stopAutoSlide();
-    } else if (!isDesktop) {
+    } else if (!shouldLoop) {
       startAutoSlide();
     }
   });
 
   // Itinerary Accordion Functionality
   const itineraryItems = document.querySelectorAll(".itinerary-item");
-
   itineraryItems.forEach((item) => {
     const header = item.querySelector(".itinerary-header");
-
-    header.addEventListener("click", function () {
-      // Toggle active class
-      const isActive = item.classList.contains("active");
-
-      // Close all other items (optional - comment out for multi-open)
-      // itineraryItems.forEach(otherItem => {
-      //     if (otherItem !== item) {
-      //         otherItem.classList.remove('active');
-      //     }
-      // });
-
-      // Toggle current item
-      if (isActive) {
-        item.classList.remove("active");
-      } else {
-        item.classList.add("active");
-      }
-    });
+    if (header) {
+      header.addEventListener("click", function () {
+        const isActive = item.classList.contains("active");
+        if (isActive) item.classList.remove("active");
+        else item.classList.add("active");
+      });
+    }
   });
 
   // Smooth scroll for internal links
@@ -298,10 +265,8 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          // Offset for sub-nav (approx 70px + 10px buffer)
           const offsetPosition =
             target.getBoundingClientRect().top + window.pageYOffset - 80;
-
           window.scrollTo({
             top: offsetPosition,
             behavior: "smooth",
@@ -311,18 +276,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Sub-Nav Auto Active State on Scroll
+  // Sub-Nav Auto Active State on Scroll (Keep as is)
   const sections = document.querySelectorAll(".section[id]");
   const navLinks = document.querySelectorAll(".sub-nav-list a");
 
   function highlightNavLink() {
     let scrollY = window.pageYOffset;
-
     sections.forEach((current) => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 85;
       const sectionId = current.getAttribute("id");
-
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         navLinks.forEach((link) => {
           link.classList.remove("active");
@@ -333,10 +296,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
   window.addEventListener("scroll", highlightNavLink);
 
-  // Lightbox Functionality
+  // Lightbox Functionality (Preserved)
   const lightbox = document.getElementById("image-lightbox");
   if (lightbox) {
     const lightboxImg = lightbox.querySelector(".lightbox-img");
@@ -344,16 +306,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightboxPrev = lightbox.querySelector(".lightbox-nav.prev");
     const lightboxNext = lightbox.querySelector(".lightbox-nav.next");
     const lightboxCounter = lightbox.querySelector(".lightbox-counter");
-    const slideImages = document.querySelectorAll(".slide img");
+    // Re-query images if clones exist, but lightbox should trigger from any
+    // Map click to original index
 
+    // We bind events to whatever is in DOM
+    const slideImages = document.querySelectorAll(".slide img");
     let lightboxIndex = 0;
-    const lightboxTotal = slideImages.length;
+    const lightboxTotal = originalSlideCount; // Total UNIQUE images
 
     function openLightbox(index) {
       lightboxIndex = index;
       updateLightbox();
       lightbox.classList.add("active");
-      document.body.style.overflow = "hidden"; // Prevent scrolling
+      document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
@@ -362,15 +327,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateLightbox() {
-      const src = slideImages[lightboxIndex].getAttribute("src");
-      lightboxImg.src = src;
-      lightboxCounter.textContent = `${lightboxIndex + 1}/${lightboxTotal}`;
+      // Find FIRST occurrence of this index to get src? Or use original array?
+      // We can just query based on data-index
+      const originSlide = document.querySelector(
+        `.slide[data-index="${lightboxIndex}"] img`,
+      );
+      if (originSlide) {
+        lightboxImg.src = originSlide.getAttribute("src");
+        lightboxCounter.textContent = `${lightboxIndex + 1}/${lightboxTotal}`;
+      }
     }
 
-    slideImages.forEach((img, index) => {
+    slideImages.forEach((img) => {
       img.style.cursor = "pointer";
       img.addEventListener("click", () => {
-        openLightbox(index);
+        const idx = parseInt(img.dataset.index || "0");
+        openLightbox(idx);
       });
     });
 
