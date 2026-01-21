@@ -354,7 +354,9 @@ main {
 }
 
 .dropdown-link {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
     color: var(--color-text);
     text-decoration: none;
@@ -378,7 +380,7 @@ main {
 }
 
 .dropdown-submenu .dropdown-menu {
-    top: -10px;        /* Align top with parent item */
+    top: 0;        /* Align top with parent item */
     left: 100%;        /* Fly out to the right */
     margin-top: 0;
     margin-left: 0;    /* Remove gap to prevent mouse-leave */
@@ -1472,7 +1474,56 @@ main {
 .trip-card:hover .card-slide {
     transform: none; 
 }
-/* Apply scale to container instead? No, let's keep it simple for slider */
+
+/* Slider Navigation Buttons */
+.card-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-size: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.card-nav-btn:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+    color: var(--color-primary);
+}
+
+.card-nav-btn.prev {
+    left: 10px;
+}
+
+.card-nav-btn.next {
+    right: 10px;
+}
+
+/* Show buttons on hover only for desktop */
+@media (min-width: 992px) {
+    .trip-card:hover .card-nav-btn {
+        opacity: 1;
+    }
+}
+
+/* Hide navigation buttons on mobile/tablet */
+@media (max-width: 991px) {
+    .card-nav-btn {
+        display: none !important;
+    }
+}
 
 .card-indicators {
     position: absolute;

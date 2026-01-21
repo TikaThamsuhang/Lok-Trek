@@ -28,10 +28,9 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                              <!-- Short Treks Submenu -->
                              <li class="dropdown-submenu">
                                 <a href="javascript:void(0)" class="dropdown-link d-flex justify-content-between align-items-center">
-                                    Short Treks (≤ 8 Days) <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
+                                    Short Treks <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
                                 </a>
                                 <ul class="dropdown-menu submenu-right">
-                                    <li><a href="${root}index.html?tab=short-treks" class="dropdown-link" style="font-weight: 600; color: var(--color-primary);">All Short Treks</a></li>
                                     <li><a href="../treks/trek-detail-langtang-valley.html" class="dropdown-link">Langtang Valley</a></li>
                                     <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak</a></li>
                                     <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
@@ -42,10 +41,9 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                              <!-- Long Treks Submenu -->
                              <li class="dropdown-submenu">
                                 <a href="javascript:void(0)" class="dropdown-link d-flex justify-content-between align-items-center">
-                                    Long Treks (> 8 Days) <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
+                                    Long Treks <i class="fas fa-chevron-right" style="font-size: 0.7em;"></i>
                                 </a>
                                 <ul class="dropdown-menu submenu-right">
-                                    <li><a href="${root}index.html?tab=long-treks" class="dropdown-link" style="font-weight: 600; color: var(--color-primary);">All Long Treks</a></li>
                                     <li><a href="../treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">Annapurna Circuit & Tilicho</a></li>
                                     <li><a href="../treks/trek-detail-manaslu.html" class="dropdown-link">Manaslu Trek</a></li>
                                     <li><a href="../treks/trek-detail-manaslu-tsum.html" class="dropdown-link">Manaslu & Tsum Valley</a></li>

@@ -515,17 +515,113 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================
-  // Card Click Redirection
+  // Card Click Redirection & Slider Navigation
   // =========================================
-  const clickableCards = document.querySelectorAll(".trip-card[data-link]");
+  const clickableCards = document.querySelectorAll(".trip-card");
 
   clickableCards.forEach((card) => {
+    // Inject Navigation Buttons
+    const imageContainer = card.querySelector(".trip-image");
+    if (imageContainer) {
+      const prevBtn = document.createElement("button");
+      prevBtn.className = "card-nav-btn prev";
+      prevBtn.innerHTML = '<i class="fa-solid fa-arrow-left"></i>';
+
+      const nextBtn = document.createElement("button");
+      nextBtn.className = "card-nav-btn next";
+      nextBtn.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+
+      imageContainer.appendChild(prevBtn);
+      imageContainer.appendChild(nextBtn);
+
+      const slidesContainer = imageContainer.querySelector(".card-slides");
+      const indicators = imageContainer.querySelectorAll(".card-indicator");
+
+      // Function to update button visibility
+      const updateButtonVisibility = () => {
+        if (!slidesContainer) return;
+
+        const width = slidesContainer.clientWidth;
+        const scrollLeft = slidesContainer.scrollLeft;
+
+        // Calculate current slide index based on scroll position
+        // Using Math.round handles partial scrolls naturally
+        const currentIndex = Math.round(scrollLeft / width);
+        const totalSlides = slidesContainer.children.length;
+
+        // Start (Index 0): Hide Prev, Show Next
+        if (currentIndex <= 0) {
+          prevBtn.style.display = "none";
+          nextBtn.style.display = "flex";
+        }
+        // End (Last Index): Show Prev, Hide Next
+        else if (currentIndex >= totalSlides - 1) {
+          prevBtn.style.display = "flex";
+          nextBtn.style.display = "none";
+        }
+        // Middle: Show Both
+        else {
+          prevBtn.style.display = "flex";
+          nextBtn.style.display = "flex";
+        }
+      };
+
+      // Handle Previous Click
+      prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (slidesContainer) {
+          slidesContainer.scrollBy({
+            left: -slidesContainer.clientWidth,
+            behavior: "smooth",
+          });
+        }
+      });
+
+      // Handle Next Click
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (slidesContainer) {
+          slidesContainer.scrollBy({
+            left: slidesContainer.clientWidth,
+            behavior: "smooth",
+          });
+        }
+      });
+
+      // Update indicators and buttons on scroll
+      if (slidesContainer) {
+        slidesContainer.addEventListener(
+          "scroll",
+          () => {
+            const scrollLeft = slidesContainer.scrollLeft;
+            const width = slidesContainer.clientWidth;
+
+            // Initial check handles indicators if they exist
+            if (indicators.length > 0) {
+              const index = Math.round(scrollLeft / width);
+              indicators.forEach((ind, i) => {
+                ind.classList.toggle("active", i === index);
+              });
+            }
+
+            updateButtonVisibility();
+          },
+          { passive: true },
+        );
+
+        // Initial Check
+        setTimeout(updateButtonVisibility, 100);
+      }
+    }
+
+    // Handle Card Click (Link Navigation)
     card.addEventListener("click", (e) => {
       // Check if click originated from button or interactive element
       if (
         !e.target.closest("a") &&
         !e.target.closest("button") &&
-        !e.target.closest(".card-indicator")
+        !e.target.closest(".card-indicator") &&
+        !e.target.closest(".card-nav-btn") // Prevents nav buttons from triggering link
       ) {
         const link = card.getAttribute("data-link");
         if (link) {
