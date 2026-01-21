@@ -752,6 +752,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        /* Move to bottom left */
+        top: auto;
+        bottom: 40px;
+        transform: none;
+    }
+
+    .slider-nav:hover {
+        transform: scale(1.1); /* Remove translateY ref */
+    }
+
+    .slider-nav.prev {
+        left: 40px; /* Base left */
+        right: auto;
+    }
+
+    .slider-nav.next {
+        left: 100px; /* Spaced out from prev */
+        right: auto;
     }
 
     .slide-counter {
@@ -759,20 +777,56 @@
     }
 
     .slider-track {
-        gap: 1rem;
+        display: flex; /* Ensure flex layout */
+        gap: .5rem;
         /* Desktop: Disable native scroll, use transform */
         overflow-x: visible; 
         scroll-snap-type: none;
         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-right: 0; /* Clear padding */
     }
 
     .slide {
         position: relative;
-        /* Desktop: Flex flow */
-        width: calc(33.333% - 0.667rem);
+        /* Desktop: 2.5 images = 40% width each */
+        width: 40%;
+        min-width: 40%;
+        flex: 0 0 40%; /* Force strict width */
         opacity: 1 !important;
     }
+}
 
+/* Tablet Overrides (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .trek-hero-slider {
+        height: 60vh;
+    }
+    
+    .slider-track {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .slide {
+        width: 50%; /* 2 images shown */
+        min-width: 50%;
+        flex: 0 0 50%;
+    }
+
+    /* Hide clones on tablet/mobile to keep native scroll clean */
+    .slide.clone {
+        display: none !important;
+    }
+    
+    /* Hide desktop arrows on tablet/mobile usually, but user asked for them? 
+       Review: existing css hides .slider-nav on mobile/touch usually or relies on native scroll.
+    */
+}
+
+/* Restoring Desktop Layout Overrides */
+@media (min-width: 992px) {
     /* Layout overrides */
     .trek-layout {
         grid-template-columns: 2fr 1fr;
