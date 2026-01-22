@@ -140,7 +140,7 @@ const blogData = {
       },
       {
         type: "conclusion",
-        heading: "✅ Conclusion",
+        heading: "✨ Conclusion",
         text: "The Three Passes Trek is not just a hike—it is a human, physical, and spiritual adventure that stays with you forever.",
       },
     ],

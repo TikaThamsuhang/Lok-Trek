@@ -99,7 +99,7 @@
 /* Content Styling */
 .story-content-wrapper {
     background: var(--color-white);
-    padding: var(--spacing-xl);
+    padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     position: relative;
@@ -159,7 +159,7 @@
 
 /* Mission Section */
 .mission-container {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/banner.jpeg'); /* Reuse banner or other image */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/banner.jpeg'); 
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -214,7 +214,7 @@
     .story-row, .story-row.reverse {
         grid-template-columns: 1fr;
         gap: 2rem;
-        /* margin-bottom: 4rem; */
+        margin-bottom: 4rem;
     }
 
     .story-image-wrapper {
@@ -224,11 +224,17 @@
     .story-content-wrapper {
         order: 2 !important;
         margin: 0 !important; /* Remove negative margins */
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
         margin-top: -50px !important; /* Overlap vertically instead */
     }
 
     .story-image {
         height: 350px;
+    }
+}
+
+@media (min-width: 992px) {
+    .story-row {
+        margin-bottom: 3rem;
     }
 }

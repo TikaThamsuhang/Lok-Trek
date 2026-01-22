@@ -145,7 +145,7 @@ button{
 }
 /* Add padding to body when white header is used to prevent overlap */
 main {
-    padding-top: 66px; /* Height of header */
+    padding-top: 71px; /* Height of header */
 }
 
 /* Container */
@@ -1043,6 +1043,10 @@ main {
         --font-size-small: 0.9375rem;
     }
 
+    main {
+        padding-top: 75px; /* Height of header */
+    }
+
     .mobile-menu-btn {
         display: none;
     }
@@ -1063,7 +1067,7 @@ main {
         border: none;
         font-size: 0.9rem;
         padding: 0;
-        color: var(--color-white);
+        /* color: var(--color-white); */
         /* text-transform: uppercase; */
         letter-spacing: 0.2xpx;
         font-weight: var(--font-weight-semibold);
