@@ -1,0 +1,33 @@
+RewriteEngine On
+
+# --------------------------------------------------------------------------
+# 1. Set the logo as the Favicon without HTML link tags
+# --------------------------------------------------------------------------
+# Browsers automatically request "/favicon.ico" by default. 
+# This rule tells the server to silently serve your jpeg image instead.
+RewriteRule ^favicon\.ico$ assets/images/logo-croped.jpeg [L]
+
+# --------------------------------------------------------------------------
+# 2. Redirect /index to /home
+# --------------------------------------------------------------------------
+# External Redirect: Change /index or /index.html in the browser URL to /home
+RewriteCond %{THE_REQUEST} \s/+(index\.html|index)[\s?] [NC]
+RewriteRule ^ /home [R=301,L]
+
+# Internal Rewrite: Serve index.html when /home is requested
+RewriteRule ^home$ index.html [L]
+
+# --------------------------------------------------------------------------
+# 3. Remove .html extensions from URLs
+# --------------------------------------------------------------------------
+# External Redirect: If someone types or clicks a URL ending in .html, 
+# redirect them to the clean URL (without .html)
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Internal Rewrite: If a clean URL is requested, add .html behind the scenes 
+# to serve the actual file from the server
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]

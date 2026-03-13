@@ -68,9 +68,9 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:info@loktreks.com" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
+                                <a href="mailto:info@loktreksnepal.com" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
                                     <i class="fas fa-envelope"></i>
-                                    <span>info@loktreks.com</span>
+                                    <span>info@loktreksnepal.com</span>
                                 </a>
                             </li>
                         </ul>
