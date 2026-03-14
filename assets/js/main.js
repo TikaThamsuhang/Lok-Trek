@@ -875,13 +875,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           // Success
           form.reset();
-          form.innerHTML = `
-            <div class="form-success-msg" style="text-align: center; padding: 2rem 1rem; background: #e8f4f8; border-radius: 8px;">
-              <i class="fas fa-check-circle" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
-              <h4 style="font-size: 1.25rem; font-weight: 700; color: #2c3e50; margin-bottom: 0.5rem;">Thank You!</h4>
-              <p style="color: #555; font-size: 0.95rem;">Your inquiry has been sent successfully. We will get back to you shortly.</p>
-            </div>
-          `;
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
+          showSuccessPopup();
         } else {
           // Error
           const data = await response.json();
@@ -900,6 +896,90 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  function showSuccessPopup() {
+    let popup = document.getElementById('form-success-popup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'form-success-popup';
+      popup.innerHTML = `
+        <div class="popup-backdrop"></div>
+        <div class="popup-content">
+          <button class="popup-close"><i class="fas fa-times"></i></button>
+          <div class="popup-icon-wrapper">
+            <i class="fas fa-check"></i>
+          </div>
+          <h4>Message Sent!</h4>
+          <p>Thank you for reaching out.<br>We will get back to you within 24 hours.</p>
+        </div>
+      `;
+      document.body.appendChild(popup);
+
+      const style = document.createElement('style');
+      style.textContent = `
+        #form-success-popup {
+          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+          display: flex; align-items: center; justify-content: center;
+          z-index: 99999; opacity: 0; visibility: hidden;
+          transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #form-success-popup.show { opacity: 1; visibility: visible; }
+        #form-success-popup .popup-backdrop {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px);
+        }
+        #form-success-popup .popup-content {
+          background: #fff; padding: 2.5rem 2rem; border-radius: 16px;
+          text-align: center; max-width: 400px; width: 90%; position: relative;
+          transform: translateY(30px) scale(0.95);
+          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        #form-success-popup.show .popup-content { transform: translateY(0) scale(1); }
+        #form-success-popup .popup-close {
+          position: absolute; top: 15px; right: 15px; background: #f5f5f5;
+          border: none; width: 32px; height: 32px; border-radius: 50%;
+          font-size: 1rem; color: #777; cursor: pointer; transition: all 0.3s;
+          display: flex; align-items: center; justify-content: center;
+        }
+        #form-success-popup .popup-close:hover { background: #fee; color: #e74c3c; transform: rotate(90deg); }
+        #form-success-popup .popup-icon-wrapper {
+          width: 80px; height: 80px; background: #e8f8f5; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          margin: 0 auto 1.5rem; color: #27ae60; font-size: 2.5rem;
+          box-shadow: 0 0 0 10px rgba(39, 174, 96, 0.1);
+          transform: scale(0); opacity: 0;
+        }
+        #form-success-popup.show .popup-icon-wrapper {
+          animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation-delay: 0.15s;
+        }
+        @keyframes popIn {
+          0% { opacity: 0; transform: scale(0.5); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        #form-success-popup h4 { font-size: 1.6rem; color: #2c3e50; margin-bottom: 0.5rem; font-weight: 800; }
+        #form-success-popup p { color: #555; font-size: 1.05rem; margin: 0; line-height: 1.5; }
+      `;
+      document.head.appendChild(style);
+
+      popup.querySelector('.popup-close').addEventListener('click', () => { popup.classList.remove('show'); });
+      popup.querySelector('.popup-backdrop').addEventListener('click', () => { popup.classList.remove('show'); });
+    }
+
+    // Reset animation by removing class and forcing reflow so it animates every time it opens
+    const iconWrapper = popup.querySelector('.popup-icon-wrapper');
+    if (iconWrapper) {
+      iconWrapper.style.animation = 'none';
+      iconWrapper.offsetHeight; 
+      iconWrapper.style.animation = null; 
+    }
+
+    setTimeout(() => { popup.classList.add('show'); }, 10);
+    
+    if (popup.timeoutId) clearTimeout(popup.timeoutId);
+    popup.timeoutId = setTimeout(() => { popup.classList.remove('show'); }, 6000);
+  }
 
 });
 
