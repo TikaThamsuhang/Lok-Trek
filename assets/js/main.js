@@ -850,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================
   // Custom Formspree Submission Handler
   // =========================================
-  const inquiryForms = document.querySelectorAll(".inquiry-form");
+  const inquiryForms = document.querySelectorAll(".inquiry-form, .contact-form");
   
   inquiryForms.forEach(form => {
     form.addEventListener("submit", async function(e) {

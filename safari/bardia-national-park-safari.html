@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -579,7 +579,7 @@
                 <span class="amount">Inquire</span>
               </div>
               <span class="per-person">per person</span>
-            </div>
+            </div><!-- 
 
             <div class="booking-usps">
               <div class="usp">
@@ -591,13 +591,14 @@
               <div class="usp">
                 <i class="fas fa-check-circle"></i> Walking Safari
               </div>
-            </div>
+            </div> -->
 
             <form
               class="inquiry-form"
               action="https://formspree.io/f/xkoqzkoo"
               method="POST"
             >
+              <input type="hidden" name="interested_in" value="Bardia National Park Safari" />
               <input
                 type="text"
                 name="name"
@@ -618,9 +619,15 @@
                 placeholder="Phone Number"
                 class="form-input"
               />
+                            <input
+                type="date"
+                name="preferred_date"
+                class="form-input"
+                style="color: #555"
+              />
               <textarea
                 name="message"
-                placeholder="Message / Preferred Dates"
+                placeholder="Message"
                 rows="3"
                 class="form-input"
               ></textarea>
