@@ -35,6 +35,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                                     <li><a href="../treks/trek-detail-pikey-peak.html" class="dropdown-link">Pikey Everest View Peak</a></li>
                                     <li><a href="../treks/trek-detail-mardi-himal.html" class="dropdown-link">Mardi Himal</a></li>
                                     <li><a href="../treks/trek-detail-poon-hill.html" class="dropdown-link">Poon Hill</a></li>
+                                    <li><a href="../treks/trek-detail-abc.html" class="dropdown-link">Annapurna Base Camp</a></li>
                                 </ul>
                              </li>
 
@@ -82,6 +83,15 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                         </ul>
                     </li>
 
+                    <li class="dropdown-item-parent">
+                        <a href="javascript:void(0)" class="nav-link" data-i18n="nav_fixed_departures">Fixed Departures <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
+                         <ul class="dropdown-menu">
+                             <li><a href="${root}treks/trek-detail-abc.html" class="dropdown-link">Apr 5 – Apr 16: Annapurna Circuit</a></li>
+                             <li><a href="${root}ascension/mera-peak.html" class="dropdown-link">Apr  20 – May 2: Mera Peak</a></li>
+                             <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">May 3 – May 13: Annapurna via Tilicho</a></li>
+                             <li><a href="${root}treks/trek-detail-everest-gokyo.html" class="dropdown-link">Aug 12 – Aug 25: Everest Base Camp</a></li>
+                        </ul>
+                    </li>
                     <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
                       "who-we-are.html",
                     )}" data-i18n="nav_who_we_are">Who We Are</a></li>
@@ -146,6 +156,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                                     <li><a href="../treks/trek-detail-pikey-peak.html" class="mobile-dropdown-link">Pikey Everest View</a></li>
                                     <li><a href="../treks/trek-detail-mardi-himal.html" class="mobile-dropdown-link">Mardi Himal</a></li>
                                     <li><a href="../treks/trek-detail-poon-hill.html" class="mobile-dropdown-link">Poon Hill</a></li>
+                                    <li><a href="../treks/trek-detail-abc.html" class="mobile-dropdown-link">Annapurna Base Camp</a></li>
                                 </ul>
                              </li>
 
@@ -191,6 +202,15 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                     </ul>
                 </li>
                 
+                <li class="mobile-dropdown-parent">
+                    <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_fixed_departures">Fixed Departures <i class="fas fa-chevron-right rotate-icon"></i></a>
+                    <ul class="mobile-dropdown-menu">
+                         <li><a href="${root}treks/trek-detail-abc.html" class="mobile-dropdown-link">Apr 5 – Apr 16: Annapurna Circuit</a></li>
+                         <li><a href="${root}ascension/mera-peak.html" class="mobile-dropdown-link">Apr  20 – May 2: Mera Peak</a></li>
+                         <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html" class="mobile-dropdown-link">May 3 – May 13: Annapurna via Tilicho</a></li>
+                         <li><a href="${root}treks/trek-detail-everest-gokyo.html" class="mobile-dropdown-link">Aug 12 – Aug 25: Everest Base Camp</a></li>
+                    </ul>
+                </li>
                 <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
                   "who-we-are.html",
                 )}" data-i18n="nav_who_we_are">Who We Are </a></li>
