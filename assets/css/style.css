@@ -181,7 +181,7 @@ main {
 }
 
 .header-container {
-    max-width: 1360px;
+    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1065,7 +1065,7 @@ main {
 
     .desktop-nav-list .nav-link {
         border: none;
-        font-size: 0.9rem;
+        font-size: 0.86rem;
         padding: 0;
         /* color: var(--color-white); */
         /* text-transform: uppercase; */
@@ -1189,7 +1189,7 @@ main {
 /* Large Desktop */
 @media (min-width: 1400px) {
     .desktop-nav-list {
-        gap: 2rem;
+        gap: 1.6rem;
     }
 
     :root {

@@ -655,6 +655,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (lang === "fr") {
       cookieValue = "/en/fr";
+    } else if (lang === "zh-CN") {
+      cookieValue = "/en/zh-CN";
     } else {
       cookieValue = "/en/en"; // Reset to English
     }
@@ -677,14 +679,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cookieVal) {
       if (cookieVal.includes("/fr")) currentLang = "fr";
+      else if (cookieVal.includes("/zh-CN")) currentLang = "zh-CN";
     } else {
       const saved = localStorage.getItem("preferredLanguage");
       if (saved) currentLang = saved;
     }
 
     // Update UI Text
-    if (currentLangSpan)
-      currentLangSpan.textContent = currentLang.toUpperCase();
+    if (currentLangSpan) {
+      if (currentLang === "zh-CN") {
+        currentLangSpan.textContent = "ZH";
+      } else {
+        currentLangSpan.textContent = currentLang.toUpperCase();
+      }
+    }
 
     // Update Active States
     langOptions.forEach((opt) => {
@@ -988,7 +996,7 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
       pageLanguage: "en",
-      includedLanguages: "en,fr",
+      includedLanguages: "en,fr,zh-CN",
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false,
     },

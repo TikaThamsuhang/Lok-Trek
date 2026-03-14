@@ -119,6 +119,9 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                         <a href="javascript:void(0)" class="lang-option" data-lang="fr">
                             Français
                         </a>
+                        <a href="javascript:void(0)" class="lang-option" data-lang="zh-CN">
+                            中文
+                        </a>
                     </div>
                 </div>
 
