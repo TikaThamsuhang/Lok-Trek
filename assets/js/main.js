@@ -846,6 +846,61 @@ document.addEventListener("DOMContentLoaded", () => {
       homeBlogGrid.appendChild(blogCard);
     });
   }
+
+  // =========================================
+  // Custom Formspree Submission Handler
+  // =========================================
+  const inquiryForms = document.querySelectorAll(".inquiry-form");
+  
+  inquiryForms.forEach(form => {
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalBtnText = btn.innerHTML;
+      btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+      btn.disabled = true;
+
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: form.method || 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          form.reset();
+          form.innerHTML = `
+            <div class="form-success-msg" style="text-align: center; padding: 2rem 1rem; background: #e8f4f8; border-radius: 8px;">
+              <i class="fas fa-check-circle" style="font-size: 3rem; color: #27ae60; margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: #2c3e50; margin-bottom: 0.5rem;">Thank You!</h4>
+              <p style="color: #555; font-size: 0.95rem;">Your inquiry has been sent successfully. We will get back to you shortly.</p>
+            </div>
+          `;
+        } else {
+          // Error
+          const data = await response.json();
+          let errorMsg = 'Oops! There was a problem submitting your form.';
+          if (Object.hasOwn(data, 'errors')) {
+            errorMsg = data["errors"].map(error => error["message"]).join(", ");
+          }
+          alert(errorMsg);
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
+        }
+      } catch (error) {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+        btn.innerHTML = originalBtnText;
+        btn.disabled = false;
+      }
+    });
+  });
+
 });
 
 // Global function for Google Translate Script

@@ -162,16 +162,53 @@
             </div>
 
             <!-- Fixed Departures Alert -->
-            <div style="margin-top: 2.5rem; background: #e8f4f8; border-left: 4px solid var(--primary-color, #e67e22); padding: 1.5rem; border-radius: 8px;">
-              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #2c3e50;">
-                <i class="far fa-calendar-alt" style="color: var(--primary-color, #e67e22); margin-right: 8px;"></i> Next Fixed Departure
+            <div
+              style="
+                margin-top: 2.5rem;
+                background: #e8f4f8;
+                border-left: 4px solid var(--primary-color, #e67e22);
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h3
+                style="
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  margin-bottom: 1rem;
+                  color: #2c3e50;
+                "
+              >
+                <i
+                  class="far fa-calendar-alt"
+                  style="
+                    color: var(--primary-color, #e67e22);
+                    margin-right: 8px;
+                  "
+                ></i>
+                Next Fixed Departure
               </h3>
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem;">
-                <li style="display: flex; align-items: flex-start; gap: 10px;">
-                  <i class="fas fa-check-circle" style="color: #27ae60; margin-top: .45rem;"></i>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                "
+              >
+                <li style="display: flex; align-items: flex-start; gap: 10px">
+                  <i
+                    class="fas fa-check-circle"
+                    style="color: #27ae60; margin-top: 0.45rem"
+                  ></i>
                   <div>
-                    <strong style="display: block; color: #2c3e50; font-size: 1.1rem;">April 20 – May 2</strong>
-                    <span style="color: #555;">Mera Peak Climb</span>
+                    <strong
+                      style="display: block; color: #2c3e50; font-size: 1.1rem"
+                      >April 20 – May 2</strong
+                    >
+                    <span style="color: #555">Mera Peak Climb</span>
                   </div>
                 </li>
               </ul>
@@ -580,21 +617,33 @@
               </div>
             </div>
 
-            <form class="inquiry-form">
+            <form
+              class="inquiry-form"
+              action="https://formspree.io/f/xkoqzkoo"
+              method="POST"
+            >
               <input
                 type="text"
+                name="name"
                 placeholder="Full Name"
                 required
                 class="form-input"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email Address"
                 required
                 class="form-input"
               />
-              <input type="tel" placeholder="Phone Number" class="form-input" />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                class="form-input"
+              />
               <textarea
+                name="message"
                 placeholder="Message / Preferred Dates"
                 rows="3"
                 class="form-input"
