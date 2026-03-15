@@ -999,8 +999,8 @@ if (homeBlogGrid) {
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
-      pageLanguage: "en",
-      includedLanguages: "en,fr,zh-CN",
+      pageLanguage: "fr",
+      includedLanguages: "fr,en,zh-CN",
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
       autoDisplay: false,
     },
