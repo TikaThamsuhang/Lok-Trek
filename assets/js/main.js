@@ -755,75 +755,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================================
-  // Load Blog Cards on Home Page
-  // =========================================
-  const homeBlogGrid = document.getElementById("homeBlogGrid");
+// =========================================
+// Load Blog Cards on Home Page
+// =========================================
+const homeBlogGrid = document.getElementById("homeBlogGrid");
 
-  if (homeBlogGrid) {
-    // Blog data for home page preview
-    const blogPosts = [
-      {
-        id: "blog-1",
-        title:
-          "The Trek to Everest Base Camp: A Glorified Myth or an Adventure Full of Untold Secrets?",
-        slug: "everest-base-camp-untold-secrets",
-        excerpt:
-          "When people talk about trekking to a base camp—especially Everest Base Camp—images immediately come to mind: breathtaking landscapes, prayer flags fluttering in the wind, smiling adventurers standing before snow-covered peaks. But is the reality really as perfect as it sounds?",
-        author: "Lok Treks Nepal",
-        date: "2026-01-15",
-        readTime: "8 min read",
-        category: "Trekking Insights",
-        featured: true,
-        image: "assets/images/Blog-1/blog-1.jpeg",
-      },
-      {
-        id: "blog-2",
-        title:
-          "The Three Passes Trek in Nepal: Difficulty, Itinerary, Budget & Complete Guide 🏔️",
-        slug: "three-passes-trek-nepal-guide",
-        excerpt:
-          "The Three Passes Trek is considered one of the most beautiful and complete treks in Nepal. It crosses spectacular landscapes, authentic Sherpa villages, and iconic locations such as Gokyo Lake, Everest Base Camp, and Kala Patthar.",
-        author: "Lok Treks Nepal",
-        date: "2026-01-20",
-        readTime: "12 min read",
-        category: "Trekking Guides",
-        featured: true,
-        image: "assets/images/Blog-2/blog-1.jpeg",
-      },
-      {
-        id: "blog-3",
-        title: "Short Treks in Nepal: Perfect Adventures for 4–7 Days",
-        slug: "short-treks-nepal-guide",
-        excerpt:
-          "Nepal is world-famous for legendary treks such as Everest Base Camp or the Annapurna Circuit. However, many travelers do not have the time—or the desire—to commit to long expeditions. Short treks of 4 to 7 days offer the perfect solution.",
-        author: "Lok Treks Nepal",
-        date: "2026-01-22",
-        readTime: "15 min read",
-        category: "Trekking Guides",
-        featured: true,
-        image: "assets/images/Blog-3/blog-1.jpeg",
-      },
-    ];
+if (homeBlogGrid) {
+  // Blog data for home page preview
+  const blogPosts = [
+    {
+      id: "blog-1",
+      title:
+        "Le trek vers le camp de base de l’Everest : mythe glorifié ou aventure pleine de secrets méconnus ?",
+      slug: "everest-base-camp-untold-secrets",
+      excerpt:
+        "Lorsque l’on parle de trekking vers un camp de base—en particulier celui de l’Everest—des images viennent immédiatement à l’esprit : paysages à couper le souffle, drapeaux de prière flottant dans le vent, aventuriers souriants devant des sommets enneigés. Mais la réalité est-elle vraiment aussi parfaite qu’elle en a l’air ?",
+      author: "Lok Treks Nepal",
+      date: "2026-01-15",
+      readTime: "8 min de lecture",
+      category: "Aperçus du Trekking",
+      featured: true,
+      image: "assets/images/Blog-1/blog-1.jpeg",
+    },
+    {
+      id: "blog-2",
+      title:
+        "Le trek des Trois Cols au Népal : difficulté, itinéraire, budget et guide complet 🏔️",
+      slug: "three-passes-trek-nepal-guide",
+      excerpt:
+        "Le trek des Trois Cols est considéré comme l’un des treks les plus beaux et les plus complets du Népal. Il traverse des paysages spectaculaires, des villages sherpas authentiques et des lieux emblématiques comme le lac Gokyo, le camp de base de l’Everest et Kala Patthar.",
+      author: "Lok Treks Nepal",
+      date: "2026-01-20",
+      readTime: "12 min de lecture",
+      category: "Guides de Trekking",
+      featured: true,
+      image: "assets/images/Blog-2/blog-1.jpeg",
+    },
+    {
+      id: "blog-3",
+      title: "Treks courts au Népal : aventures parfaites de 4 à 7 jours",
+      slug: "short-treks-nepal-guide",
+      excerpt:
+        "Le Népal est mondialement célèbre pour des treks légendaires comme le camp de base de l’Everest ou le circuit de l’Annapurna. Cependant, de nombreux voyageurs n’ont pas le temps—ou l’envie—de s’engager dans de longues expéditions. Les treks courts de 4 à 7 jours offrent une solution parfaite.",
+      author: "Lok Treks Nepal",
+      date: "2026-01-22",
+      readTime: "15 min de lecture",
+      category: "Guides de Trekking",
+      featured: true,
+      image: "assets/images/Blog-3/blog-1.jpeg",
+    },
+  ];
 
-    function formatDate(dateString) {
-      const options = { year: "numeric", month: "long", day: "numeric" };
-      const date = new Date(dateString);
-      return date.toLocaleDateString("en-US", options);
-    }
+  function formatDate(dateString) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString("fr-FR", options);
+  }
 
-    function createBlogCard(post) {
-      const card = document.createElement("div");
-      card.className = "blog-card";
-      card.onclick = () => {
-        window.location.href = `blogs/blog-detail.html?id=${post.id}`;
-      };
+  function createBlogCard(post) {
+    const card = document.createElement("div");
+    card.className = "blog-card";
+    card.onclick = () => {
+      window.location.href = `blogs/blog-detail.html?id=${post.id}`;
+    };
 
-      card.innerHTML = `
+    card.innerHTML = `
         <div class="blog-card-image">
           <img src="${post.image}" alt="${post.title}" loading="lazy" />
           <span class="blog-category">${post.category}</span>
-          ${post.featured ? '<div class="blog-featured-badge"><i class="fas fa-star"></i> Featured</div>' : ""}
+          ${
+            post.featured
+              ? '<div class="blog-featured-badge"><i class="fas fa-star"></i> À la une</div>'
+              : ""
+          }
         </div>
         <div class="blog-card-content">
           <div class="blog-card-meta">
@@ -839,21 +843,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="blog-card-title">${post.title}</h3>
           <p class="blog-card-excerpt">${post.excerpt}</p>
           <a href="blogs/blog-detail.html?id=${post.id}" class="blog-read-more">
-            Read Full Story
+            Lire l'article complet
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       `;
 
-      return card;
-    }
-
-    // Load blog cards
-    blogPosts.forEach((post) => {
-      const blogCard = createBlogCard(post);
-      homeBlogGrid.appendChild(blogCard);
-    });
+    return card;
   }
+
+  // Load blog cards
+  blogPosts.forEach((post) => {
+    const blogCard = createBlogCard(post);
+    homeBlogGrid.appendChild(blogCard);
+  });
+}
 
   // =========================================
   // Custom Formspree Submission Handler

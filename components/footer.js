@@ -18,7 +18,7 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                         <a href="${root}index.html" class="footer-logo">
                             <img src="${root}assets/images/logo-1-removebg.png" alt="Lok Treks Nepal">
                         </a>
-                        <p class="footer-desc">Your trusted partner for Himalayan adventures. We specialize in authentic trekking experiences, safety, and cultural immersion.</p>
+                        <p class="footer-desc">Votre partenaire de confiance pour les aventures himalayennes. Nous sommes spécialisés dans les expériences de trekking authentiques, la sécurité et l'immersion culturelle.</p>
                         <div class="social-links">
                             <a href="https://www.facebook.com/lok.guidee.francophone/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.instagram.com/lok_guide_fracophone/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -30,11 +30,11 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
 
                     <!-- Quick Links -->
                     <div class="footer-widget">
-                        <h3>Quick Links</h3>
+                        <h3>Liens Rapides</h3>
                         <ul class="footer-links">
 
-                            <li><a href="${root}index.html" class="${isActive("index.html") ? "highlight-text" : ""}">Home</a></li>
-                            <li><a href="${root}who-we-are.html" class="${isActive("who-we-are.html") ? "highlight-text" : ""}">Who We Are</a></li>
+                            <li><a href="${root}index.html" class="${isActive("index.html") ? "highlight-text" : ""}">Accueil</a></li>
+                            <li><a href="${root}who-we-are.html" class="${isActive("who-we-are.html") ? "highlight-text" : ""}">Qui Sommes-Nous</a></li>
                             <li><a href="${root}blog.html" class="${isActive("blog.html") ? "highlight-text" : ""}">Blog</a></li>
                             <li><a href="${root}contact.html" class="${isActive("contact.html") ? "highlight-text" : ""}">Contact</a></li>
                         </ul>
@@ -42,24 +42,24 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
 
                     <!-- Popular Treks -->
                     <div class="footer-widget">
-                        <h3>Popular Treks</h3>
+                        <h3>Treks Populaires</h3>
                         <ul class="footer-links">
-                            <li><a href="${root}treks/trek-detail-everest-gokyo.html">Everest Base Camp</a></li>
-                            <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html">Annapurna Circuit</a></li>
-                            <li><a href="${root}treks/trek-detail-manaslu.html">Manaslu Circuit</a></li>
-                            <li><a href="${root}treks/trek-detail-langtang-valley.html">Langtang Valley</a></li>
-                            <li><a href="${root}treks/trek-detail-mustang.html">Upper Mustang</a></li>
-                            <li><a href="${root}treks/trek-detail-three-passes.html">Three Passes Trek</a></li>
+                            <li><a href="${root}treks/trek-detail-everest-gokyo.html">Camp de Base de l'Everest</a></li>
+                            <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html">Circuit des Annapurnas</a></li>
+                            <li><a href="${root}treks/trek-detail-manaslu.html">Circuit du Manaslu</a></li>
+                            <li><a href="${root}treks/trek-detail-langtang-valley.html">Vallée du Langtang</a></li>
+                            <li><a href="${root}treks/trek-detail-mustang.html">Haut Mustang</a></li>
+                            <li><a href="${root}treks/trek-detail-three-passes.html">Trek des Trois Cols</a></li>
                         </ul>
                     </div>
 
                     <!-- Contact -->
                     <div class="footer-widget">
-                        <h3>Contact Us</h3>
+                        <h3>Contactez-Nous</h3>
                         <ul class="contact-info">
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Budhanilkantha-11, Kathmandu, Nepal</span>
+                                <span>Budhanilkantha-11, Katmandou, Népal</span>
                             </li>
                             <li>
                                 <a href="tel:+9779811345073" style="color: inherit; text-decoration: none; display: flex; gap: 1rem;">
@@ -78,7 +78,7 @@ function renderFooter(containerId, options = { rootPath: "./" }) {
                 </div>
             </div>
             <div class="footer-bottom">
-                 <p>&copy; 2025 Lok Treks Nepal. All rights reserved. | <a href="#">Privacy Policy</a></p>
+                 <p>&copy; 2025 Lok Treks Nepal. Tous droits réservés. | <a href="#">Politique de Confidentialité</a></p>
             </div>
         </div>
     </footer>

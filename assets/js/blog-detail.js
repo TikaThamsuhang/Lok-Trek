@@ -8,12 +8,12 @@ const blogData = {
   "blog-1": {
     id: "blog-1",
     title:
-      "The Trek to Everest Base Camp: A Glorified Myth or an Adventure Full of Untold Secrets?",
+      "Le Trek du Camp de Base de l'Everest : Un mythe glorifié ou une aventure pleine de secrets enfouis ?",
     slug: "everest-base-camp-untold-secrets",
     author: "Lok Treks Nepal",
     date: "2026-01-15",
-    readTime: "8 min read",
-    category: "Trekking Insights",
+    readTime: "8 min de lecture",
+    category: "Aperçus de Trek",
     featured: true,
     images: [
       "../assets/images/Blog-1/blog-1.jpeg",
@@ -26,44 +26,44 @@ const blogData = {
     content: [
       {
         type: "intro",
-        text: "When people talk about trekking to a base camp—especially Everest Base Camp—images immediately come to mind: breathtaking landscapes, prayer flags fluttering in the wind, smiling adventurers standing before snow-covered peaks. Stories speak of self-discovery, majestic silence, and an almost spiritual experience.\n\nBut is the reality really as perfect as it sounds?\nOr are there lesser-known truths that only reveal themselves once you're actually on the trail?",
+        text: "Quand on parle de trek jusqu'à un camp de base, surtout celui de l'Everest, des images viennent tout de suite en tête : des paysages grandioses, des drapeaux de prière flottant au vent, des aventuriers souriants devant des sommets enneigés. Les récits parlent de découverte de soi, de silence majestueux et d'une expérience presque spirituelle.\n\nMais la réalité est-elle vraiment aussi parfaite qu'elle n'y paraît ?\nOu y a-t-il des vérités moins connues qui ne se révèlent qu'une fois sur le sentier ?",
       },
       {
         type: "section",
-        heading: "🌄 What You're Told (And What's True)",
-        text: "Yes, the landscapes are absolutely stunning. Every day of walking reveals scenery that feels unreal: deep valleys, massive glaciers, and mountain villages where time seems to stand still.\n\nYes, the experience is deeply human. You walk for hours, share simple meals, and exchange smiles with strangers from all over the world. A trek to a base camp is often a lesson in humility, faced with the sheer power and beauty of nature.\n\nBut that's only the visible part of the iceberg.",
+        heading: "🌄 Ce qu'on vous dit (et ce qui est vrai)",
+        text: "Oui, les paysages sont absolument époustouflants. Chaque jour de marche révèle un décor qui semble irréel : des vallées profondes, des glaciers massifs et des villages de montagne où le temps semble s'être arrêté.\n\nOui, l'expérience est profondément humaine. On marche pendant des heures, on partage des repas simples et on échange des sourires avec des inconnus du monde entier. Un trek vers un camp de base est souvent une leçon d'humilité, face à la puissance et à la beauté pure de la nature.\n\nMais ce n'est que la partie visible de l'iceberg.",
       },
       {
         type: "section",
-        heading: "🥾 The Truths People Talk About Less",
-        text: "Behind the perfect social media photos lie much rawer realities.\n\n**The fatigue is real—and sometimes overwhelming.**\nWalking for several days in a row, often at high altitude, pushes the body to its limits. Breathing becomes harder, legs burn, and even the most motivated trekkers experience moments of doubt.\n\n**Comfort is limited.**\nCold nights, basic beds, and sometimes very simple hygiene. Hot showers become a luxury, and electricity a rare privilege.\n\n**Altitude shows no mercy.**\nHeadaches, nausea, loss of appetite… altitude sickness is unpredictable. It reminds you that no matter how prepared you are, the mountains always set the rules.",
+        heading: "🥾 Les vérités dont on parle moins",
+        text: "Derrière les photos parfaites des réseaux sociaux se cachent des réalités beaucoup plus crues.\n\n**La fatigue est réelle—et parfois écrasante.**\nMarcher plusieurs jours de suite, souvent en haute altitude, pousse le corps dans ses retranchements. La respiration devient plus difficile, les jambes brûlent, et même les trekkeurs les plus motivés connaissent des moments de doute.\n\n**Le confort est limité.**\nNuits froides, lits basiques, et parfois une hygiène très rudimentaire. Les douches chaudes deviennent un luxe, et l'électricité un privilège rare.\n\n**L'altitude ne fait pas de cadeaux.**\nMaux de tête, nausées, perte d'appétit… le mal aigu des montagnes est imprévisible. Il rappelle que, peu importe votre préparation, c'est toujours la montagne qui fixe les règles.",
       },
       {
         type: "section",
-        heading: "🤫 The Untold Secrets of the Trek",
-        text: "There are, however, more subtle aspects—rarely mentioned, yet deeply transformative.\n\n**🔹 The mental challenge**\nThe trek isn't just physical. The silence, the rhythm of walking, and the distance from modern life force you to face yourself. Some find peace; others confront questions they've avoided for years.\n\n**🔹 Inner transformation**\nMany trekkers return changed, without always knowing how to explain it. Life's simplicity at altitude reshapes priorities and challenges our relationship with comfort and time.\n\n**🔹 The unseen human side**\nPorters, guides, local villagers—their lives are inseparable from these mountains. Behind every successful trek are stories of courage, resilience, and sometimes sacrifice that few travelers truly take the time to understand.",
+        heading: "🤫 Les secrets enfouis du trek",
+        text: "Il y a cependant des aspects plus subtils—rarement mentionnés, mais profondément transformateurs.\n\n**🔹 Le défi mental**\nLe trek n'est pas seulement physique. Le silence, le rythme de la marche et l'éloignement de la vie moderne vous obligent à vous retrouver face à vous-même. Certains y trouvent la paix ; d'autres affrontent des questions qu'ils évitaient depuis des années.\n\n**🔹 La transformation intérieure**\nBeaucoup de trekkeurs en reviennent changés, sans toujours savoir l'expliquer. La simplicité de la vie en altitude redéfinit les priorités et remet en question notre rapport au confort et au temps.\n\n**🔹 Le côté humain invisible**\nPorteurs, guides, villageois locaux—leurs vies sont indissociables de ces montagnes. Derrière chaque trek réussi se cachent des histoires de courage, de résilience, et parfois de sacrifices que peu de voyageurs prennent vraiment le temps de comprendre.",
       },
       {
         type: "section",
-        heading: "🏔️ So, Should You Go?",
-        text: "A trek to a base camp is neither a fairy tale nor an impossible ordeal. It's a genuine adventure, filled with moments of grace and moments of doubt.\n\nThose who go seeking only beautiful photos may be surprised.\nBut those who accept discomfort, effort, and the unexpected discover something far more valuable: an experience that stays with them for life.\n\n👉 The real secret of a base camp trek isn't what you see…\n👉 It's what you feel along the way.",
+        heading: "🏔️ Alors, faut-il y aller ?",
+        text: "Un trek jusqu'à un camp de base n'est ni un conte de fées ni une épreuve impossible. C'est une aventure authentique, faite de moments de grâce et de moments de doute.\n\nCeux qui n'y vont que pour chercher de belles photos pourraient être surpris.\nMais ceux qui acceptent l'inconfort, l'effort et l'imprévu découvrent quelque chose de bien plus précieux : une expérience qui les marque à vie.\n\n👉 Le vrai secret d'un trek au camp de base n'est pas ce que vous voyez…\n👉 C'est ce que vous ressentez en chemin.",
       },
       {
         type: "conclusion",
-        heading: "✨ Conclusion: An Adventure for Those Who Truly Dare",
-        text: "A base camp trek isn't for everyone—and that's exactly what makes it special.\n\nThose seeking luxury or ease may be disappointed.\nBut those who embrace effort, uncertainty, and the unknown will discover an experience that leaves a lasting mark.\n\n👉 It's not just a journey to a base camp…\n👉 It's a journey toward yourself.",
+        heading: "✨ Conclusion : Une aventure pour ceux qui osent vraiment",
+        text: "Un trek au camp de base n'est pas pour tout le monde—et c'est exactement ce qui le rend si spécial.\n\nCeux qui recherchent le luxe ou la facilité pourraient être déçus.\nMais ceux qui embrassent l'effort, l'incertitude et l'inconnu découvriront une aventure qui laisse une trace indélébile.\n\n👉 Ce n'est pas juste un voyage vers un camp de base…\n👉 C'est un voyage vers vous-même.",
       },
     ],
   },
   "blog-2": {
     id: "blog-2",
     title:
-      "The Three Passes Trek in Nepal: Difficulty, Itinerary, Budget & Complete Guide 🏔️",
+      "Le Trek des Trois Cols au Népal : Difficulté, Itinéraire, Budget et Guide Complet 🏔️",
     slug: "three-passes-trek-nepal-guide",
     author: "Lok Treks Nepal",
     date: "2026-01-20",
-    readTime: "12 min read",
-    category: "Trekking Guides",
+    readTime: "12 min de lecture",
+    category: "Guides de Trek",
     featured: true,
     images: [
       "../assets/images/Blog-2/blog-1.jpeg",
@@ -76,83 +76,83 @@ const blogData = {
     content: [
       {
         type: "intro",
-        text: "The Three Passes Trek is considered one of the most beautiful and complete treks in Nepal. It crosses spectacular landscapes, authentic Sherpa villages, and iconic locations such as Gokyo Lake, Everest Base Camp, and Kala Patthar.\n\nIt is a demanding trek, but accessible to anyone who is motivated and well prepared.",
+        text: "Le Trek des Trois Cols est considéré comme l'un des treks les plus beaux et les plus complets du Népal. Il traverse des paysages spectaculaires, des villages sherpas authentiques et des lieux emblématiques tels que le lac Gokyo, le camp de base de l'Everest et le Kala Patthar.\n\nC'est un trek exigeant, mais accessible à toute personne motivée et bien préparée.",
       },
       {
         type: "section",
-        heading: "📍 What Is the Three Passes Trek?",
-        text: "👉 The Three Passes Trek involves crossing three high Himalayan passes, all above 5,300 meters:\n\n**Renjo La (5,360 m)**\n**Cho La (5,420 m)**\n**Kongma La (5,535 m)**\n\nThis trek links the Gokyo Valley and the Everest (Khumbu) Valley, offering a complete and immersive view of the Everest region.",
+        heading: "📍 Qu'est-ce que le Trek des Trois Cols ?",
+        text: "👉 Le Trek des Trois Cols consiste à franchir trois hauts cols himalayens, tous situés à plus de 5 300 mètres :\n\n**Renjo La (5 360 m)**\n**Cho La (5 420 m)**\n**Kongma La (5 535 m)**\n\nCe trek relie la vallée de Gokyo et la vallée de l'Everest (Khumbu), offrant une vue complète et immersive sur la région de l'Everest.",
       },
       {
         type: "section",
-        heading: "⛰️ Difficulty Level",
-        text: "👉 **Challenging, but not technical**\n\n**Long walking days** (5–7 hours)\n**High altitude** (consistent time above 4,000m)\n**Cold and windy conditions** at the passes\n**No mountaineering skills or ropes required**\n\n💡 This trek is not recommended as a first trek, but it is perfectly achievable for:\n- Regular hikers\n- People in good physical condition\n- Patient and motivated travelers\n\nWith Lok Treks Nepal, the pace is gradual and acclimatization is carefully respected 😀.",
+        heading: "⛰️ Niveau de Difficulté",
+        text: "👉 **Exigeant, mais non technique**\n\n**Longues journées de marche** (5–7 heures)\n**Haute altitude** (temps passé constamment au-dessus de 4 000 m)\n**Conditions froides et ventées** aux niveaux des cols\n**Aucune compétence en alpinisme ni utilisation de cordes n'est requise**\n\n💡 Ce trek n'est pas recommandé pour un premier trek, mais il est parfaitement réalisable pour :\n- Les randonneurs réguliers\n- Les personnes en bonne condition physique\n- Les voyageurs patients et motivés\n\nAvec Lok Treks Nepal, le rythme est progressif et l'acclimatation est soigneusement respectée 😀.",
       },
       {
         type: "section",
-        heading: "🗓️ How Many Days Are Needed?",
-        text: "On average: **17 to 21 days**, depending on pace and itinerary.\n\nThis includes:\n- Acclimatization days\n- Rest days\n- Visits to key sites",
+        heading: "🗓️ Combien de jours sont nécessaires ?",
+        text: "En moyenne : **17 à 21 jours**, selon le rythme et l'itinéraire.\n\nCela inclut :\n- Les journées d'acclimatation\n- Les jours de repos\n- Les visites des sites clés",
       },
       {
         type: "section",
-        heading: "🌄 Landscapes: A Constant Spectacle",
-        text: "The Three Passes Trek offers an exceptional variety of scenery:\n\n**Turquoise Gokyo Lakes**\n**Impressive glaciers** (Ngozumpa, Khumbu)\n**Legendary peaks:** Everest, Lhotse, Makalu, Cho Oyu\n**Wild and remote valleys**\n**Sunrise or sunset views** from Kala Patthar\n\n👉 Every day is different, and every pass is a reward.",
+        heading: "🌄 Paysages : Un spectacle constant",
+        text: "Le Trek des Trois Cols offre une variété exceptionnelle de paysages :\n\n**Lacs turquoise de Gokyo**\n**Glaciers impressionnants** (Ngozumpa, Khumbu)\n**Sommets légendaires :** Everest, Lhotse, Makalu, Cho Oyu\n**Vallées sauvages et reculées**\n**Vues au lever ou au coucher du soleil** depuis Kala Patthar\n\n👉 Chaque jour est différent, et chaque col est une récompense.",
       },
       {
         type: "section",
-        heading: "🏞️ Does the Trek Include Gokyo, EBC, and Kala Patthar?",
-        text: "✅ **YES** — this is what makes the trek unique:\n\n✔️ **Gokyo Lakes and ascent of Gokyo Ri**\n✔️ **Everest Base Camp (5,364 m)**\n✔️ **Kala Patthar (5,545 m)** for the best view of Mount Everest\n\nIt is the most complete trek in the Everest region.",
+        heading: "🏞️ Le Trek inclut-il Gokyo, l'EBC et Kala Patthar ?",
+        text: "✅ **OUI** — c'est ce qui rend ce trek unique :\n\n✔️ **Lacs de Gokyo et ascension du Gokyo Ri**\n✔️ **Camp de Base de l'Everest (5 364 m)**\n✔️ **Kala Patthar (5 545 m)** pour la meilleure vue sur le Mont Everest\n\nC'est le trek le plus complet de la région de l'Everest.",
       },
       {
         type: "section",
-        heading: "🏡 Culture and Encounters",
-        text: "The trek passes through Sherpa country, famous for:\n\n**Buddhist monasteries** (Tengboche)\n**Prayer flags** fluttering in the wind\n**Traditional villages** (Namche Bazaar, Thame)\n\nThe locals are warm, welcoming, and proud of their culture.\nOvernight stays in tea houses (lodges) allow for genuine cultural exchanges.",
+        heading: "🏡 Culture et Rencontres",
+        text: "Le trek traverse le pays Sherpa, célèbre pour :\n\n**Ses monastères bouddhistes** (Tengboche)\n**Ses drapeaux de prière** flottant au vent\n**Ses villages traditionnels** (Namche Bazaar, Thame)\n\nLes habitants y sont chaleureux, accueillants et fiers de leur culture.\nLes nuits dans les maisons de thé (lodges) permettent de véritables échanges culturels.",
       },
       {
         type: "section",
-        heading: "🎒 What to Bring (Essentials)",
-        text: "- Good trekking boots\n- Warm clothing (temperatures down to –15°C)\n- Down jacket, hat, gloves\n- Warm sleeping bag\n- Trekking poles\n- Good physical condition and a positive mindset\n\n👉 Equipment can be rented or purchased in Kathmandu with advice from Lok Treks Nepal.",
+        heading: "🎒 Que faut-il apporter (Les Incontournables)",
+        text: "- De bonnes chaussures de trekking\n- Des vêtements chauds (températures descendant jusqu'à –15°C)\n- Doudoune, bonnet, gants\n- Sac de couchage chaud\n- Bâtons de marche\n- Bonne condition physique et état d'esprit positif\n\n👉 L'équipement peut être loué ou acheté à Katmandou grâce aux conseils de Lok Treks Nepal.",
       },
       {
         type: "section",
-        heading: "❌ What NOT to Expect",
-        text: "❌ **Luxury or hotel-style comfort**\n❌ **Hot showers every day**\n❌ **Fast Wi-Fi everywhere**\n❌ **Easy trails every day**\n\n👉 This is a true adventure trek—simple, raw, and authentic.",
+        heading: "❌ Ce à quoi il ne faut PAS s'attendre",
+        text: "❌ **Luxe ou confort de type hôtel**\n❌ **Des douches chaudes tous les jours**\n❌ **Du Wi-Fi rapide partout**\n❌ **Des sentiers faciles tous les jours**\n\n👉 C'est un véritable trek d'aventure—simple, brut et authentique.",
       },
       {
         type: "section",
-        heading: "💰 Estimated Budget",
-        text: "On average: **€1,600 to €2,200 per person**, depending on included services.\n\nUsually included:\n- Experienced guide from Lok Treks Nepal (English or French speaking)\n- Lodge accommodation\n- Meals during the trek\n- Permits and government taxes\n- Internal transportation",
+        heading: "💰 Budget Estimé",
+        text: "En moyenne : **1 600 € à 2 200 € par personne**, selon les services inclus.\n\nHabituellement inclus :\n- Guide expérimenté de Lok Treks Nepal (francophone ou anglophone)\n- Hébergement en lodge\n- Repas pendant le trek\n- Permis et taxes gouvernementales\n- Transports internes",
       },
       {
         type: "section",
-        heading: "📅 Best Season",
-        text: "**Spring:** March to May\n**Autumn:** September to November\n\nThese are the best periods for weather and mountain views.",
+        heading: "📅 Meilleure Saison",
+        text: "**Printemps :** Mars à Mai\n**Automne :** Septembre à Novembre\n\nCe sont les meilleures périodes pour la météo et les vues sur la montagne.",
       },
       {
         type: "section",
-        heading: "🇫🇷 Who Is This Trek For?",
-        text: "The Three Passes Trek is ideal for:\n- Experienced hikers\n- Lovers of wide open spaces\n- Travelers seeking a personal challenge\n- Those who want to see the best of the Everest region in a single trek",
+        heading: "🇫🇷 Pour qui est ce trek ?",
+        text: "Le Trek des Trois Cols est idéal pour :\n- Les randonneurs expérimentés\n- Les amoureux des grands espaces\n- Les voyageurs à la recherche d'un défi personnel\n- Ceux qui veulent voir le meilleur de la région de l'Everest en un seul trek",
       },
       {
         type: "section",
-        heading: "🌟 Why Do the Three Passes Trek with Lok Treks Nepal?",
-        text: "Because Lok Treks Nepal offers:\n- Excellent acclimatization planning\n- Highly experienced local guides\n- A well-balanced pace\n- Serious organization\n- Strong focus on safety",
+        heading: "🌟 Pourquoi faire le Trek des Trois Cols avec Lok Treks Nepal ?",
+        text: "Parce que Lok Treks Nepal offre :\n- Une excellente planification de l'acclimatation\n- Des guides locaux très expérimentés\n- Un rythme bien équilibré\n- Une organisation sérieuse\n- Un accent fort sur la sécurité",
       },
       {
         type: "conclusion",
         heading: "✨ Conclusion",
-        text: "The Three Passes Trek is not just a hike—it is a human, physical, and spiritual adventure that stays with you forever.",
+        text: "Le Trek des Trois Cols n'est pas qu'une simple randonnée—c'est une aventure humaine, physique et spirituelle qui reste gravée en vous pour toujours.",
       },
     ],
   },
   "blog-3": {
     id: "blog-3",
-    title: "Short Treks in Nepal: Perfect Adventures for 4–7 Days",
+    title: "Treks Courts au Népal : Des aventures parfaites pour 4–7 Jours",
     slug: "short-treks-nepal-guide",
     author: "Lok Treks Nepal",
     date: "2026-01-22",
-    readTime: "15 min read",
-    category: "Trekking Guides",
+    readTime: "15 min de lecture",
+    category: "Guides de Trek",
     featured: true,
     images: [
       "../assets/images/Blog-3/blog-1.jpeg",
@@ -165,72 +165,72 @@ const blogData = {
     content: [
       {
         type: "intro",
-        text: "Nepal is world-famous for legendary treks such as Everest Base Camp or the Annapurna Circuit, often associated with several weeks of walking and a high physical challenge. However, many travelers do not have the time—or the desire—to commit to long and demanding expeditions.\n\nThis is exactly where short treks of 4 to 7 days make perfect sense. They allow you to discover Himalayan landscapes, experience lodge (tea house) trekking, and meet local communities—all without extreme time, budget, or altitude constraints.",
+        text: "Le Népal est mondialement connu pour ses treks légendaires tels que le camp de base de l'Everest ou le circuit de l'Annapurna, souvent associés à plusieurs semaines de marche et un défi physique élevé. Cependant, de nombreux voyageurs n'ont pas le temps—ou l'envie—de s'engager dans de longues et exigeantes expéditions.\n\nC'est exactement ici que les treks courts de 4 à 7 jours prennent tout leur sens. Ils vous permettent de découvrir les paysages himalayens, d'expérimenter le trekking en lodge (maison de thé) et de rencontrer les communautés locales—le tout sans contraintes extrêmes de temps, de budget ou d'altitude.",
       },
       {
         type: "section",
-        heading: "🏔️ Why Choose a Short Trek in Nepal?",
-        text: "**1. Exceptional Accessibility**\n\nUnlike many trekking destinations, Nepal offers well-maintained trails, regular accommodation along the routes, and a population deeply accustomed to welcoming travelers. Even with only one week in Nepal, it is possible to enjoy a true Himalayan adventure.\n\n**2. More Reasonable Altitude**\n\nShort treks usually stay below 3,500 meters, which significantly reduces the risk of acute mountain sickness, makes them ideal for beginners, and allows a more comfortable and enjoyable pace.\n\n**3. Great Diversity in a Short Distance**\n\nIn just a few days, trekkers pass through terraced rice fields, rhododendron forests, Gurung or Tamang villages, and spectacular viewpoints over snow-capped peaks.",
+        heading: "🏔️ Pourquoi choisir un Trek Court au Népal ?",
+        text: "**1. Accessibilité Exceptionnelle**\n\nContrairement à de nombreuses destinations de trekking, le Népal offre des sentiers bien entretenus, des hébergements réguliers le long des itinéraires, et une population profondément habituée à accueillir les voyageurs. Même avec une seule semaine au Népal, il est possible de vivre une véritable aventure himalayenne.\n\n**2. Altitude Plus Raisonnable**\n\nLes treks courts restent généralement en dessous de 3 500 mètres, ce qui réduit considérablement le risque de mal des montagnes, les rend idéaux pour les débutants, et permet un rythme plus confortable et agréable.\n\n**3. Une Grande Diversité sur une Courte Distance**\n\nEn seulement quelques jours, les trekkeurs traversent des rizières en terrasses, des forêts de rhododendrons, des villages Gurung ou Tamang, et découvrent des points de vue spectaculaires sur les sommets enneigés.",
       },
       {
         type: "section",
-        heading: "🌸 Best Seasons for Short Treks",
-        text: "**🌸 Spring (March–May)**\n- Blooming rhododendrons\n- Mild temperatures\n- Excellent visibility\n\n**🍂 Autumn (September–November)**\n- Most popular season\n- Clear skies\n- Stable weather\n\n**⚠️ Summer (June–August):** Monsoon season, slippery trails, but still possible\n\n**❄️ Winter (December–February):** Cold at altitude, but suitable for lower treks",
+        heading: "🌸 Meilleures Saisons pour les Treks Courts",
+        text: "**🌸 Printemps (Mars–Mai)**\n- Rhododendrons en fleurs\n- Températures douces\n- Excellente visibilité\n\n**🍂 Automne (Septembre–Novembre)**\n- Saison la plus populaire\n- Ciel dégagé\n- Météo stable\n\n**⚠️ Été (Juin–Août) :** Saison de la mousson, sentiers glissants, mais toujours possible\n\n**❄️ Hiver (Décembre–Février) :** Froid en altitude, mais adapté aux treks plus bas",
       },
       {
         type: "section",
-        heading: "⛰️ Best Short Treks in Nepal (4–7 Days)",
-        text: "**1. Ghorepani – Poon Hill Trek (4–6 Days)**\n\nLocated in the Annapurna region, this trek is often considered the best first trek in Nepal.\n\n**Why is it so popular?**\n- Easy access from Pokhara\n- Excellent infrastructure\n- Spectacular sunrise views from Poon Hill (3,210 m)\n\n**Experience on the trail:** The trek alternates between steady climbs (the Ulleri stone steps) and peaceful forests. At dawn, the Annapurna and Dhaulagiri ranges gradually light up—a moment often described as one of the highlights of a Nepal trip.\n\n**2. Everest View / Peaky Peak Trek (4–6–10 Days)**\n\nThis trek is a gentler and shorter version of the classic Everest region routes.\n- Moderate altitude\n- Traditional villages such as Tamang settlements\n- Continuous views of Everest, Lhotse, Gaurishankar, Numbur, and sometimes Kanchenjunga\n\n👉 Ideal for families, senior travelers, or those looking for a relaxed pace.\n\n**3. Langtang Valley Trek (5–7 Days)**\n\nLocated north of Kathmandu, this trek is often underestimated.\n\n**What makes it unique?**\n- Strong Tibetan cultural influence\n- Spectacular glacial valley\n- Less crowded than Annapurna or Everest\n\nIt offers a wild and peaceful atmosphere while remaining very accessible.\n\n**4. Sarangkot & Pokhara Surroundings (2–5 Days)**\n\nNot a demanding trek, but a perfect panoramic hike for travelers with limited time, those who want to combine nature and relaxation, and a first introduction to Nepal.\n\n**Bonus:** sunrise views, paragliding, Phewa Lake.\n\n**5. Cultural Trek in the Kathmandu Valley (4–7 Days)**\n\nNot all travelers seek altitude. This trek focuses on UNESCO World Heritage sites, Newari culture, and hills surrounding the Kathmandu Valley.\n\n👉 Perfect for a slow and cultural discovery of Nepal.",
+        heading: "⛰️ Les Meilleurs Treks Courts au Népal (4–7 Jours)",
+        text: "**1. Trek Ghorepani – Poon Hill (4–6 Jours)**\n\nSitué dans la région de l'Annapurna, ce trek est souvent considéré comme le meilleur premier trek au Népal.\n\n**Pourquoi est-il si populaire ?**\n- Accès facile depuis Pokhara\n- Excellentes infrastructures\n- Vues spectaculaires au lever du soleil depuis Poon Hill (3 210 m)\n\n**Expérience sur le sentier :** Le trek alterne entre montées constantes (les marches en pierre d'Ulleri) et forêts paisibles. À l'aube, les chaînes de l'Annapurna et du Dhaulagiri s'illuminent progressivement—un moment souvent décrit comme l'un des points forts d'un voyage au Népal.\n\n**2. Trek Vue Everest / Peaky Peak (4–6–10 Jours)**\n\nCe trek est une version plus douce et plus courte des itinéraires classiques de la région de l'Everest.\n- Altitude modérée\n- Villages traditionnels tels que les colonies Tamang\n- Vues continues sur l'Everest, le Lhotse, le Gaurishankar, le Numbur, et parfois le Kanchenjunga\n\n👉 Idéal pour les familles, les voyageurs seniors ou ceux qui recherchent un rythme détendu.\n\n**3. Trek de la Vallée du Langtang (5–7 Jours)**\n\nSitué au nord de Katmandou, ce trek est souvent sous-estimé.\n\n**Ce qui le rend unique ?**\n- Forte influence culturelle tibétaine\n- Vallée glaciaire spectaculaire\n- Moins fréquenté que l'Annapurna ou l'Everest\n\nIl offre une atmosphère sauvage et paisible tout en restant très accessible.\n\n**4. Sarangkot & Environs de Pokhara (2–5 Jours)**\n\nPas un trek exigeant, mais une randonnée panoramique parfaite pour les voyageurs ayant peu de temps, ceux qui veulent combiner nature et détente, et une première introduction au Népal.\n\n**Bonus :** vues au lever du soleil, parapente, lac Phewa.\n\n**5. Trek Culturel dans la Vallée de Katmandou (4–7 Jours)**\n\nTous les voyageurs ne recherchent pas l'altitude. Ce trek se concentre sur les sites du patrimoine mondial de l'UNESCO, la culture Newari, et les collines entourant la vallée de Katmandou.\n\n👉 Parfait pour une découverte lente et culturelle du Népal.",
       },
       {
         type: "section",
-        heading: "🛡️ Is Nepal Safe for Trekking?",
-        text: "👉 **Yes.** Nepal is known for the hospitality of its people. Serious problems on trekking trails are rare.",
+        heading: "🛡️ Le Népal est-il Sûr pour le Trekking ?",
+        text: "👉 **Oui.** Le Népal est connu pour l'hospitalité de ses habitants. Les problèmes graves sur les sentiers de trekking sont rares.",
       },
       {
         type: "section",
-        heading: "🧭 Do You Need a Guide?",
-        text: "👉 Not always mandatory, but **strongly recommended** for:\n- Safety\n- Cultural understanding\n- Supporting the local economy\n\nLok Treks Nepal offers both French- and English-speaking guides.",
+        heading: "🧭 Avez-vous besoin d'un Guide ?",
+        text: "👉 Pas toujours obligatoire, mais **fortement recommandé** pour :\n- La sécurité\n- La compréhension culturelle\n- Soutenir l'économie locale\n\nLok Treks Nepal propose des guides francophones et anglophones.",
       },
       {
         type: "section",
-        heading: "💊 Health & Altitude",
-        text: "Key principles:\n- Slow progression\n- Good hydration\n- Listening to your body\n\nShort treks carry low medical risk, and your guide constantly monitors your condition.",
+        heading: "💊 Santé & Altitude",
+        text: "Principes clés :\n- Progression lente\n- Bonne hydratation\n- Écouter son corps\n\nLes treks courts comportent un faible risque médical, et votre guide surveille constamment votre état.",
       },
       {
         type: "section",
-        heading: "🎒 Practical Tips for a Successful Trek",
-        text: "- Light backpack (max 10 kg)\n- Well-broken-in hiking boots\n- Layered clothing\n- Respect local customs\n- Travel insurance covering trekking\n\n👉 Most equipment can be rented or bought in Kathmandu or Pokhara.",
+        heading: "🎒 Conseils Pratiques pour un Trek Réussi",
+        text: "- Sac à dos léger (max 10 kg)\n- Chaussures de randonnée bien rodées\n- Vêtements en couches\n- Respecter les coutumes locales\n- Assurance voyage couvrant le trekking\n\n👉 La plupart des équipements peuvent être loués ou achetés à Katmandou ou à Pokhara.",
       },
       {
         type: "section",
-        heading: "🏃 Do You Need to Be Athletic for a Short Trek?",
-        text: "👉 **No.** Most short treks are accessible to people in good health who are used to walking.\n\nWith Lok Treks Nepal, the trek is adapted to your pace:\n- 4–6 hours of walking per day\n- Relaxed rhythm\n- Frequent breaks\n\n👉 No high-mountain experience required.",
+        heading: "🏃 Faut-il être Sportif pour un Trek Court ?",
+        text: "👉 **Non.** La plupart des treks courts sont accessibles aux personnes en bonne santé et habituées à marcher.\n\nAvec Lok Treks Nepal, le trek est adapté à votre rythme :\n- 4–6 heures de marche par jour\n- Rythme détendu\n- Pauses fréquentes\n\n👉 Aucune expérience de la haute montagne n'est requise.",
       },
       {
         type: "section",
-        heading: "⛰️ Is There an Altitude Risk?",
-        text: "Short treks generally range between 2,000 and 3,500 meters. The risk of altitude sickness is low with proper acclimatization and a suitable pace.\n\nYour guide monitors you throughout the trek.",
+        heading: "⛰️ Y a-t-il un Risque d'Altitude ?",
+        text: "Les treks courts s'étagent généralement entre 2 000 et 3 500 mètres. Le risque de mal des montagnes est faible avec une bonne acclimatation et un rythme adapté.\n\nVotre guide vous surveille tout au long du trek.",
       },
       {
         type: "section",
-        heading: "🏠 Comfort Level During the Trek",
-        text: "**Lodge (tea house) accommodation:**\n- Simple but clean rooms\n- Hot meals\n- Hot showers (sometimes extra charge)\n- Electricity and Wi-Fi (depending on location)\n\nComfort is basic but friendly and welcoming.",
+        heading: "🏠 Niveau de Confort Pendant le Trek",
+        text: "**Hébergement en lodge (maison de thé) :**\n- Chambres simples mais propres\n- Repas chauds\n- Douches chaudes (parfois en supplément)\n- Électricité et Wi-Fi (selon l'emplacement)\n\nLe confort est basique mais convivial et accueillant.",
       },
       {
         type: "section",
-        heading: "💰 Budget for a Short Trek",
-        text: "👉 **On average: €40–70 per day**, depending on the program\n\n**Including:**\n- Guide\n- Porter\n- Accommodation\n- Meals\n- Permits\n- Transportation",
+        heading: "💰 Budget pour un Trek Court",
+        text: "👉 **En moyenne : 40–70 € par jour**, selon le programme\n\n**Comprend :**\n- Guide\n- Porteur\n- Hébergement\n- Repas\n- Permis\n- Transports",
       },
       {
         type: "section",
-        heading: "🚐 Where Do Short Treks Start?",
-        text: "**From Pokhara** (Annapurna region)\n**From Kathmandu** (Langtang, Everest View / Peaky Peak treks)\n\nTransfers are arranged by private vehicle or local bus.",
+        heading: "🚐 D'où partent les Treks Courts ?",
+        text: "**De Pokhara** (Région de l'Annapurna)\n**De Katmandou** (Langtang, treks Vue Everest / Peaky Peak)\n\nLes transferts sont organisés en véhicule privé ou en bus local.",
       },
       {
         type: "conclusion",
         heading: "✨ Conclusion",
-        text: "Short treks in Nepal offer the perfect balance between adventure and accessibility. Whether you have 4 days or a full week, you can experience the magic of the Himalayas without the extreme commitment of longer expeditions.\n\n👉 With Lok Treks Nepal, every trek is tailored to your pace, interests, and comfort level.",
+        text: "Les treks courts au Népal offrent l'équilibre parfait entre aventure et accessibilité. Que vous ayez 4 jours ou une semaine complète, vous pouvez vivre la magie de l'Himalaya sans l'engagement extrême des expéditions plus longues.\n\n👉 Avec Lok Treks Nepal, chaque trek est adapté à votre rythme, à vos intérêts et à votre niveau de confort.",
       },
     ],
   },
@@ -347,7 +347,7 @@ function loadLatestPosts(currentBlogId) {
   latestPostsGrid.innerHTML = "";
 
   if (latestPosts.length === 0) {
-    latestPostsGrid.innerHTML = "<p>More stories coming soon!</p>";
+    latestPostsGrid.innerHTML = "<p>D'autres histoires arrivent bientôt !</p>";
     return;
   }
 
@@ -383,7 +383,7 @@ function createBlogCard(post) {
       <h3 class="blog-card-title">${post.title}</h3>
       <p class="blog-card-excerpt">${post.excerpt}</p>
       <a href="blog-detail.html?id=${post.id}" class="blog-read-more">
-        Read Full Story
+        Lire l'Histoire Complète
         <i class="fas fa-arrow-right"></i>
       </a>
     </div>
@@ -404,7 +404,7 @@ function formatText(text) {
 function formatDate(dateString) {
   const options = { year: "numeric", month: "long", day: "numeric" };
   const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", options);
+  return date.toLocaleDateString("fr-FR", options);
 }
 
 // Scroll to Top Button Functionality

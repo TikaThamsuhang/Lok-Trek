@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Lok Treks Nepal</title>
+    <title>Contactez-nous | Lok Treks Nepal</title>
 
     <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,13 +33,13 @@
         <!-- Page Header -->
         <section class="hero">
             <div class="hero-bg">
-                <img src="assets/images/banner.jpeg" alt="Contact Us" class="hero-img">
+                <img src="assets/images/banner.jpeg" alt="Contactez-nous" class="hero-img">
                 <div class="hero-overlay"></div>
             </div>
             <div class="container hero-content">
-                <h1>Contact Us</h1>
+                <h1 data-i18n="contact_hero_title">Contactez-nous</h1>
                 <div class="hero-breadcrumbs">
-                    <span class="breadcrumb-link"><a href="index.html">Home</a></span> / <span>Contact</span>
+                    <span class="breadcrumb-link"><a href="index.html" data-i18n="breadcrumb_home">Accueil</a></span> / <span data-i18n="breadcrumb_contact">Contact</span>
                 </div>
             </div>
         </section>
@@ -52,8 +52,8 @@
                     <!-- Left Panel: Contact Info (Dark Theme) -->
                     <div class="contact-info-panel">
                         <div class="info-header">
-                            <h2>Contact Information</h3>
-                            <p>Fill up the form and our team will get back to you within 24 hours.</p>
+                            <h2 data-i18n="contact_info_title">Coordonnées</h2>
+                            <p data-i18n="contact_info_desc">Remplissez le formulaire et notre équipe vous répondra dans les 24 heures.</p>
                         </div>
                         
                         <div class="info-items">
@@ -62,7 +62,7 @@
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="item-details">
-                                    <span>Call Us</span>
+                                    <span data-i18n="contact_call_us">Appelez-nous</span>
                                     <a href="tel:+9779811345073">+977 981-1345073</a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="item-details">
-                                    <span>Email Us</span>
+                                    <span data-i18n="contact_email_us">Envoyez-nous un e-mail</span>
                                     <a href="mailto:info@loktreksnepal.com">info@loktreksnepal.com</a>
                                 </div>
                             </div>
@@ -82,8 +82,8 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="item-details">
-                                    <span>Visit Us</span>
-                                    <p>Budhanilkantha-11, Kathmandu, Nepal</p>
+                                    <span data-i18n="contact_visit_us">Rendez-nous visite</span>
+                                    <p>Budhanilkantha-11, Kathmandu, Népal</p>
                                 </div>
                             </div>
                         </div>
@@ -102,33 +102,33 @@
                         <form class="contact-form" action="https://formspree.io/f/xkoqzkoo" method="POST">
                             <input type="hidden" name="interested_in" value="General Contact Form" />
                             <div class="form-heading">
-                                <h2>Get in Touch</h2>
-                                <p>We'd love to hear from you! Send us a message.</p>
+                                <h2 data-i18n="form_heading_title">Entrer en Contact</h2>
+                                <p data-i18n="form_heading_desc">Nous serions ravis d'avoir de vos nouvelles ! Envoyez-nous un message.</p>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                                    <label for="name" data-i18n="form_label_name">Votre Nom</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Jean Dupont" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                                    <label for="email" data-i18n="form_label_email">Adresse E-mail</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="jean@exemple.com" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone (Optional)</label>
+                                <label for="phone" data-i18n="form_label_phone">Téléphone (Optionnel)</label>
                                 <input type="tel" id="phone" name="phone" class="form-control" placeholder="+977 ...">
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" class="form-control" placeholder="Tell us about your trek plans..." required></textarea>
+                                <label for="message" data-i18n="form_label_message">Message</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Parlez-nous de vos projets de trek..." required></textarea>
                             </div>
 
                             <button type="submit" class="btn-submit">
-                                Send Message <i class="fas fa-paper-plane"></i>
+                                <span data-i18n="form_btn_submit">Envoyer le Message</span> <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
