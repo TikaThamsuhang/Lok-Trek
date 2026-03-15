@@ -620,8 +620,11 @@
                 class="form-input"
               />
                             <input
-                type="date"
+                type="text"
                 name="preferred_date"
+                placeholder="Preferred Date"
+                onfocus="(this.type='date')"
+                onblur="(this.value == '' ? this.type='text' : this.type='date')"
                 class="form-input"
                 style="color: #555"
               />
