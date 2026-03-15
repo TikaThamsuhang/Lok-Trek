@@ -20,7 +20,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 <ul class="desktop-nav-list">
                     <li><a href="${root}index.html" class="nav-link ${isActive(
                       "index.html",
-                    )}" data-i18n="nav_home">Accueil</a></li>
+                    )}" data-i18n="nav_home">Maison</a></li>
                     
                      <li class="dropdown-item-parent">
                         <a href="javascript:void(0)" class="nav-link" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
@@ -146,7 +146,7 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                 <!-- Mobile nav items -->
                 <li><a href="${root}index.html" class="nav-link ${isActive(
                   "index.html",
-                )}" data-i18n="nav_home">Accueil </a></li>
+                )}" data-i18n="nav_home">Maison </a></li>
                 
                 <li class="mobile-dropdown-parent">
                     <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_trekking">Trekking <i class="fas fa-chevron-right rotate-icon"></i></a>

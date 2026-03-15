@@ -650,16 +650,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function setGoogleLanguage(lang) {
     // Google Translate uses the 'googtrans' cookie
     // Format: /source_lang/target_lang
-    // We assume source is always 'en'
-    let cookieValue = "";
-
-    if (lang === "fr") {
-      cookieValue = "/en/fr";
-    } else if (lang === "zh-CN") {
-      cookieValue = "/en/zh-CN";
-    } else {
-      cookieValue = "/en/en"; // Reset to English
-    }
+    // pageLanguage is "fr", so source is always "fr"
+    const cookieValue = `/fr/${lang}`; // e.g. /fr/en, /fr/zh-CN, /fr/fr
 
     document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname}`;
     document.cookie = `googtrans=${cookieValue}; path=/;`; // Fallback for localhost
@@ -673,14 +665,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sync UI with current state
   function syncLanguageUI() {
-    // Check cookie first, then localStorage
+    // Parse the exact target language from the googtrans cookie (/source/target)
     const cookieVal = getCookie("googtrans");
-    let currentLang = "en";
+    let currentLang = "fr"; // Default is French (the site's native language)
 
     if (cookieVal) {
-      if (cookieVal.includes("/fr")) currentLang = "fr";
-      else if (cookieVal.includes("/zh-CN")) currentLang = "zh-CN";
+      // Cookie format: /fr/en  or  /fr/zh-CN  or  /fr/fr
+      const parts = cookieVal.split("/").filter(Boolean); // ["fr", "en"]
+      if (parts.length >= 2) {
+        currentLang = parts[parts.length - 1]; // last segment is the target
+      }
     } else {
+      // No cookie — check localStorage, fallback to "fr"
       const saved = localStorage.getItem("preferredLanguage");
       if (saved) currentLang = saved;
     }
