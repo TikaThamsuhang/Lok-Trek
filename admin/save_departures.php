@@ -21,28 +21,30 @@ try {
     // First, set all to inactive and empty dates (reset)
     $conn->query("UPDATE fixed_departures SET is_active = 0");
     
-    // Process the POST arrays (dates and active states)
-    $stmt = $conn->prepare("UPDATE fixed_departures SET departure_date = ?, is_active = ? WHERE id = ?");
+    // Process the POST arrays
+    $stmt = $conn->prepare("UPDATE fixed_departures SET start_date = ?, end_date = ?, is_active = ? WHERE id = ?");
     
-    // The form sends two arrays: dates[id] and active[id]
-    $dates = $_POST['dates'] ?? [];
+    // The form sends arrays
+    $start_dates = $_POST['start_dates'] ?? [];
+    $end_dates = $_POST['end_dates'] ?? [];
     $active = $_POST['active'] ?? [];
     
-    foreach ($dates as $id => $dateStr) {
+    foreach ($start_dates as $id => $startStr) {
         $id = (int)$id;
-        $dateStr = trim($dateStr);
+        $startStr = trim($startStr);
+        $endStr = isset($end_dates[$id]) ? trim($end_dates[$id]) : '';
+        
         $isActive = isset($active[$id]) ? 1 : 0;
         
-        // If a valid date string exists and the toggle switch is ON
-        if (!empty($dateStr) && $isActive) {
-            $stmt->bind_param("sii", $dateStr, $isActive, $id);
-            $stmt->execute();
-        } else if (!empty($dateStr)) {
-            // Date is typed but switch is OFF (save the string but don't activate)
-            $inactive = 0;
-            $stmt->bind_param("sii", $dateStr, $inactive, $id);
-            $stmt->execute();
+        // If either date is missing, it should not be active, and we set them to NULL in database
+        if (empty($startStr) || empty($endStr)) {
+            $isActive = 0;
+            $startStr = null;
+            $endStr = null;
         }
+        
+        $stmt->bind_param("ssii", $startStr, $endStr, $isActive, $id);
+        $stmt->execute();
     }
     
     $stmt->close();

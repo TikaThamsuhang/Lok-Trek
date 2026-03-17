@@ -59,21 +59,23 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
         .trek-name { font-weight: 600; color: #333; margin-bottom: 5px; }
         .trek-meta { font-size: 0.8rem; color: #777; }
         
-        .trek-controls { display: flex; align-items: center; gap: 15px; }
-        .date-input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 250px; font-family: inherit; }
+        .trek-controls { display: flex; align-items: center; gap: 10px; }
+        .date-input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 140px; font-family: inherit; }
         
         /* Toggle Switch */
-        .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+        .switch { position: relative; display: inline-block; width: 44px; height: 22px; margin-left: 10px;}
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
-        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 22px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: #2ecc71; }
-        input:checked + .slider:before { transform: translateX(26px); }
+        input:checked + .slider:before { transform: translateX(22px); }
+        input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
         
         .save-btn { display: block; width: 100%; padding: 15px; background: var(--secondary-color); color: white; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 30px; transition: 0.3s; }
         .save-btn:hover { background: #d35400; }
         .toast { position: fixed; bottom: 20px; right: 20px; background: #2ecc71; color: white; padding: 15px 25px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: 0.3s; z-index: 1000; }
         .toast.show { transform: translateY(0); opacity: 1; }
+        .date-group { display: flex; flex-direction: column; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
@@ -105,7 +107,7 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
         
         <div class="admin-body">
             <p style="margin-bottom: 30px; color: #555;">
-                Activez ou désactivez les départs fixes pour chaque itinéraire. Remplissez la date (ex: <strong>5 Avr – 16 Avr 2026</strong>) et activez le bouton vert pour l'afficher sur le site.
+                Sélectionnez la date de début et de fin. L'interrupteur d'activation ne fonctionnera que si les deux dates sont remplies. Mettre à jour et enregistrer affichera automatiquement le format "5 Avr – 16 Avr 2026" sur le site.
             </p>
             
             <form id="departuresForm">
@@ -129,24 +131,39 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
                         <h2 class="category-title"><?php echo htmlspecialchars($categoryName); ?></h2>
                         <div class="treks-list">
                             <?php foreach ($treks as $trek): ?>
-                                <div class="trek-row">
+                                <div class="trek-row" id="row-<?php echo $trek['id']; ?>">
                                     <img src="../<?php echo htmlspecialchars($trek['image_url']); ?>" alt="Trek Image" class="trek-image" onerror="this.src='../assets/images/placeholder.jpg'">
                                     <div class="trek-info">
                                         <div class="trek-name"><?php echo htmlspecialchars($trek['trek_name']); ?></div>
                                         <div class="trek-meta"><i class="far fa-clock"></i> <?php echo htmlspecialchars($trek['duration']); ?></div>
                                     </div>
                                     <div class="trek-controls">
-                                        <input type="text" 
-                                               name="dates[<?php echo $trek['id']; ?>]" 
-                                               class="date-input" 
-                                               placeholder="Ex: 5 Avr – 16 Avr 2026"
-                                               value="<?php echo htmlspecialchars($trek['departure_date'] ?? ''); ?>">
+                                        <div class="date-group">
+                                            <label>Date de début</label>
+                                            <input type="date" 
+                                                   name="start_dates[<?php echo $trek['id']; ?>]" 
+                                                   id="start-<?php echo $trek['id']; ?>"
+                                                   class="date-input" 
+                                                   value="<?php echo htmlspecialchars($trek['start_date'] ?? ''); ?>"
+                                                   onchange="validateRow(<?php echo $trek['id']; ?>)">
+                                        </div>
+                                        <div class="date-group">
+                                            <label>Date de fin</label>
+                                            <input type="date" 
+                                                   name="end_dates[<?php echo $trek['id']; ?>]" 
+                                                   id="end-<?php echo $trek['id']; ?>"
+                                                   class="date-input" 
+                                                   value="<?php echo htmlspecialchars($trek['end_date'] ?? ''); ?>"
+                                                   onchange="validateRow(<?php echo $trek['id']; ?>)">
+                                        </div>
                                                
                                         <label class="switch" title="Activer/Désactiver sur le site">
                                             <input type="checkbox" 
+                                                   id="toggle-<?php echo $trek['id']; ?>"
                                                    name="active[<?php echo $trek['id']; ?>]" 
                                                    value="1" 
-                                                   <?php echo ($trek['is_active'] == 1) ? 'checked' : ''; ?>>
+                                                   <?php echo ($trek['is_active'] == 1) ? 'checked' : ''; ?>
+                                                   onchange="forceValidate(this, <?php echo $trek['id']; ?>)">
                                             <span class="slider"></span>
                                         </label>
                                     </div>
@@ -173,6 +190,46 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
     </div>
 
     <script>
+        // On page load, validate all rows to set correct initial disabled states
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('.trek-row');
+            rows.forEach(row => {
+                const id = row.id.split('-')[1];
+                validateRow(id);
+            });
+        });
+
+        // Function to check if a row has both dates. If not, disable the toggle and uncheck it.
+        function validateRow(id) {
+            const startStr = document.getElementById('start-' + id).value;
+            const endStr = document.getElementById('end-' + id).value;
+            const toggle = document.getElementById('toggle-' + id);
+            
+            if (!startStr || !endStr) {
+                toggle.checked = false;
+                // Add a visual cue to the row so they know it's not active
+                document.getElementById('row-' + id).style.opacity = '0.7';
+            } else {
+                document.getElementById('row-' + id).style.opacity = '1';
+            }
+        }
+        
+        // Function tied directly to the click of the toggle switch
+        function forceValidate(checkbox, id) {
+            const startStr = document.getElementById('start-' + id).value;
+            const endStr = document.getElementById('end-' + id).value;
+            
+            if (checkbox.checked) {
+                if (!startStr || !endStr) {
+                    alert("Veuillez sélectionner à la fois une date de début et de fin complètes avant d'activer cet itinéraire.");
+                    checkbox.checked = false;
+                } else if (new Date(startStr) > new Date(endStr)) {
+                    alert("La date de fin ne peut pas précéder la date de début.");
+                    checkbox.checked = false;
+                }
+            }
+        }
+
         function saveDepartures() {
             const form = document.getElementById('departuresForm');
             const saveBtn = document.querySelector('.save-btn');
@@ -194,9 +251,10 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
                 
                 if(data.status === 'success') {
                     toast.classList.add('show');
+                    // Reload the page to reflect true saved state from DB after 1.5s
                     setTimeout(() => {
-                        toast.classList.remove('show');
-                    }, 3000);
+                        window.location.reload();
+                    }, 1500);
                 } else {
                     alert('Erreur: ' + data.message);
                 }
