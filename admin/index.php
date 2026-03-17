@@ -250,11 +250,29 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
                 saveBtn.disabled = false;
                 
                 if(data.status === 'success') {
+                    // Build a detailed message based on stats
+                    let msg = "<strong>Modifications enregistrées avec succès !</strong><br>";
+                    if (data.stats) {
+                        msg += `<ul style="margin: 5px 0 0 20px; text-align: left; font-size: 0.9rem;">`;
+                        if (data.stats.activated > 0) msg += `<li>${data.stats.activated} itinéraire(s) activé(s)</li>`;
+                        if (data.stats.deactivated > 0) msg += `<li>${data.stats.deactivated} itinéraire(s) désactivé(s)</li>`;
+                        if (data.stats.updated > 0) msg += `<li>${data.stats.updated} itinéraire(s) mis à jour</li>`;
+                        if (data.stats.unchanged > 0) msg += `<li>${data.stats.unchanged} itinéraire(s) inchangé(s)</li>`;
+                        msg += `</ul>`;
+                        
+                        // If absolutely nothing changed, say so
+                        if (data.stats.activated === 0 && data.stats.deactivated === 0 && data.stats.updated === 0) {
+                            msg = "<strong>Aucune modification détectée.</strong>";
+                        }
+                    }
+                    
+                    toast.innerHTML = '<i class="fas fa-info-circle"></i> ' + msg;
                     toast.classList.add('show');
-                    // Reload the page to reflect true saved state from DB after 1.5s
+                    
+                    // Reload the page to reflect true saved state from DB
                     setTimeout(() => {
                         window.location.reload();
-                    }, 1500);
+                    }, 3500);
                 } else {
                     alert('Erreur: ' + data.message);
                 }

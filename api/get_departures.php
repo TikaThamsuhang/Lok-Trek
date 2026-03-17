@@ -54,8 +54,9 @@ try {
     
     $conn->close();
     
-    // Cache headers pour améliorer les performances (cache 5 minutes côté client)
-    header("Cache-Control: max-age=300, public");
+    // Send immediate, un-cached response
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
     
     sendJsonResponse([
         'status' => 'success',
