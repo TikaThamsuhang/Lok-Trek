@@ -34,48 +34,231 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f4f7f6; padding-top: 40px; }
-        .admin-container { max-width: 1000px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; }
-        .admin-header { background: var(--primary-color); color: white; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; }
-        .admin-header h1 { margin: 0; font-size: 1.5rem; color: white; }
-        .admin-header .logout-btn { color: white; text-decoration: none; font-size: 0.9rem; background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
-        .admin-header .logout-btn:hover { background: rgba(255,255,255,0.3); }
+        /* === Global Variables === */
+        :root {
+            --color-primary: #FCB600;
+            --color-text: #424242;
+            --color-text-light: #757575;
+            --color-bg: #FFFFFF;
+            --color-bg-secondary: #F5EEDC;
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --font-main: 'Montserrat', sans-serif;
+            --border-radius: 4px;
+            --transition-speed: 0.3s;
+        }
+        
+        body { 
+            background-color: var(--color-bg-secondary); 
+            padding-top: 40px; 
+            font-family: var(--font-main);
+            color: var(--color-text);
+        }
+        
+        .admin-container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: var(--color-bg); 
+            border-radius: calc(var(--border-radius) * 2); 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08); 
+            overflow: hidden; 
+            margin-bottom: 100px; /* Space for mobile sticky button */
+        }
+        
+        .admin-header { 
+            background: var(--color-primary); 
+            color: var(--color-black); 
+            padding: 20px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .admin-header h1 { 
+            margin: 0; 
+            font-size: 1.5rem; 
+            color: var(--color-black); 
+            font-weight: 700;
+        }
+        
+        .admin-header .logout-btn { 
+            color: var(--color-black); 
+            text-decoration: none; 
+            font-weight: 600;
+            font-size: 0.9rem; 
+            background: rgba(0,0,0,0.1); 
+            padding: 8px 15px; 
+            border-radius: var(--border-radius); 
+            transition: var(--transition-speed); 
+        }
+        
+        .admin-header .logout-btn:hover { 
+            background: rgba(0,0,0,0.2); 
+        }
+        
         .admin-body { padding: 30px; }
         
-        /* Login Form */
-        .login-wrapper { max-width: 400px; margin: 100px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        /* === Login Form === */
+        .login-wrapper { 
+            max-width: 400px; 
+            margin: 100px auto; 
+            background: var(--color-bg); 
+            padding: 40px; 
+            border-radius: calc(var(--border-radius) * 2); 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12); 
+            text-align: center; 
+            border-top: 5px solid var(--color-primary);
+        }
+        
         .login-wrapper img { max-width: 150px; margin-bottom: 20px; }
-        .login-wrapper input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
-        .login-wrapper button { width: 100%; padding: 12px; background: var(--primary-color); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
-        .error-msg { color: #e74c3c; margin-bottom: 15px; font-size: 0.9rem; }
+        .login-wrapper h2 { color: var(--color-text); font-weight: 700; margin-bottom: 5px; }
         
-        /* Dashboard Dashboard */
+        .password-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .password-container input { 
+            width: 100%; 
+            padding: 14px 45px 14px 15px; 
+            border: 2px solid #eee; 
+            border-radius: var(--border-radius); 
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition-speed);
+        }
+        
+        .password-container input:focus {
+            border-color: var(--color-primary);
+            outline: none;
+        }
+        
+        .password-container .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-light);
+            cursor: pointer;
+            transition: var(--transition-speed);
+        }
+        
+        .password-container .toggle-password:hover { color: var(--color-primary); }
+        
+        .login-wrapper button { 
+            width: 100%; 
+            padding: 14px; 
+            background: var(--color-primary); 
+            color: var(--color-black); 
+            border: none; 
+            border-radius: var(--border-radius); 
+            font-weight: 700; 
+            font-size: 1.05rem;
+            cursor: pointer; 
+            transition: var(--transition-speed);
+        }
+        
+        .login-wrapper button:hover { 
+            background: var(--color-black); 
+            color: var(--color-primary);
+        }
+        
+        .error-msg { color: #e74c3c; margin-bottom: 15px; font-weight: 600; font-size: 0.95rem; }
+        
+        /* === Dashboard elements === */
         .category-section { margin-bottom: 40px; }
-        .category-title { border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 20px; color: var(--primary-color); }
-        .trek-row { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #eee; transition: 0.2s; }
-        .trek-row:hover { background-color: #f9f9f9; }
-        .trek-image { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; margin-right: 15px; }
-        .trek-info { flex: 1; }
-        .trek-name { font-weight: 600; color: #333; margin-bottom: 5px; }
-        .trek-meta { font-size: 0.8rem; color: #777; }
+        .category-title { 
+            border-bottom: 3px solid var(--color-primary); 
+            padding-bottom: 10px; 
+            margin-bottom: 20px; 
+            color: var(--color-text);
+            font-weight: 700;
+        }
         
-        .trek-controls { display: flex; align-items: center; gap: 10px; }
-        .date-input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 140px; font-family: inherit; }
+        .trek-row { 
+            display: flex; 
+            align-items: center; 
+            padding: 15px; 
+            border-bottom: 1px solid #eee; 
+            transition: var(--transition-speed); 
+        }
+        
+        .trek-row:hover { background-color: #fafafa; }
+        .trek-image { width: 60px; height: 60px; object-fit: cover; border-radius: var(--border-radius); margin-right: 15px; }
+        .trek-info { flex: 1; }
+        .trek-name { font-weight: 700; color: var(--color-text); margin-bottom: 5px; }
+        .trek-meta { font-size: 0.85rem; color: var(--color-text-light); }
+        .trek-meta i { color: var(--color-primary); margin-right: 4px; }
+        
+        .trek-controls { display: flex; align-items: center; gap: 15px; }
+        .date-input { 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: var(--border-radius); 
+            width: 150px; 
+            font-family: inherit; 
+            font-size: 0.9rem;
+        }
+        .date-input:focus { border-color: var(--color-primary); outline: none; }
         
         /* Toggle Switch */
-        .switch { position: relative; display: inline-block; width: 44px; height: 22px; margin-left: 10px;}
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; margin-left: 10px; flex-shrink: 0;}
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 22px; }
-        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: #2ecc71; }
-        input:checked + .slider:before { transform: translateX(22px); }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ddd; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        input:checked + .slider { background-color: var(--color-primary); }
+        input:checked + .slider:before { transform: translateX(20px); }
         input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
         
-        .save-btn { display: block; width: 100%; padding: 15px; background: var(--secondary-color); color: white; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 30px; transition: 0.3s; }
-        .save-btn:hover { background: #d35400; }
+        .date-group { display: flex; flex-direction: column; font-size: 0.8rem; color: var(--color-text-light); font-weight: 600; }
+        
+        /* Save Button */
+        .save-btn { 
+            display: block; 
+            width: 100%; 
+            padding: 16px; 
+            background: var(--color-primary); 
+            color: var(--color-black); 
+            border: none; 
+            border-radius: var(--border-radius); 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            cursor: pointer; 
+            margin-top: 30px; 
+            transition: var(--transition-speed); 
+            box-shadow: 0 4px 15px rgba(252, 182, 0, 0.3);
+        }
+        
+        .save-btn:hover { 
+            background: var(--color-black); 
+            color: var(--color-primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
         .toast { position: fixed; bottom: 20px; right: 20px; background: #2ecc71; color: white; padding: 15px 25px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transform: translateY(100px); opacity: 0; transition: 0.3s; z-index: 1000; }
         .toast.show { transform: translateY(0); opacity: 1; }
-        .date-group { display: flex; flex-direction: column; font-size: 0.8rem; color: #666; }
+        
+        /* === MOBILE RESPONSIVENESS === */
+        @media (max-width: 768px) {
+            .trek-row { flex-direction: column; align-items: flex-start; position: relative; padding: 20px 15px;}
+            .trek-image { margin-bottom: 15px; }
+            .trek-controls { flex-wrap: wrap; width: 100%; margin-top: 15px; }
+            .date-input { width: 140px; }
+            .switch { position: absolute; right: 15px; top: 25px; }
+            
+            /* Sticky Save Button for Mobile */
+            .save-btn {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                padding: 18px;
+                z-index: 999;
+                box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+            }
+        }
     </style>
 </head>
 <body>
@@ -85,7 +268,7 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
     <div class="login-wrapper">
         <img src="../assets/images/logo-1-removebg.png" alt="Lok Treks Nepal">
         <h2>Administration</h2>
-        <p style="color: #666; margin-bottom: 20px;">Gestion des départs fixes</p>
+        <p style="color: var(--color-text-light); margin-bottom: 25px;">Gestion des départs fixes</p>
         
         <?php if (isset($login_error)): ?>
             <div class="error-msg"><i class="fas fa-exclamation-circle"></i> <?php echo $login_error; ?></div>
@@ -93,10 +276,27 @@ $is_authenticated = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === tr
         
         <form method="POST" action="">
             <input type="hidden" name="action" value="login">
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <button type="submit">Se connecter</button>
+            <div class="password-container">
+                <input type="password" id="adminPassword" name="password" placeholder="Mot de passe" required>
+                <i class="fas fa-eye toggle-password" id="togglePasswordBtn"></i>
+            </div>
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
         </form>
     </div>
+    
+    <script>
+        // Toggle Password Visibility Eye Icon
+        const togglePassword = document.getElementById('togglePasswordBtn');
+        const passwordInput = document.getElementById('adminPassword');
+        
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            // Toggle the eye / eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
 <?php else: ?>
     <!-- Dashboard Screen -->
     <div class="admin-container">

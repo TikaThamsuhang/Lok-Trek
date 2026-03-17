@@ -1,261 +1,413 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez tous les départs fixes de Lok Treks Nepal. Rejoignez un groupe pour trekker vers l'Everest, l'Annapurna ou d'autres régions mythiques à des dates précises avec notre agence francophone.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Découvrez tous les départs fixes de Lok Treks Nepal. Rejoignez un groupe pour trekker vers l'Everest, l'Annapurna ou d'autres régions mythiques à des dates précises avec notre agence francophone."
+    />
     <link rel="canonical" href="https://www.loktreksnepal.com/departures" />
     <title>Départs Fixes & Groupes | Lok Treks Nepal</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="assets/css/style.css">
-    
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('assets/images/heroes/hero3.jpg') center/cover;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 80px; /* Offset header */
-        }
-        
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards ease-out;
-        }
+      /* === Local page design tokens (mirrors global variables) === */
+      :root {
+        --color-primary: #fcb600;
+        --color-text: #424242;
+        --color-text-light: #757575;
+        --color-bg: #ffffff;
+        --color-bg-secondary: #f5eedc;
+        --color-white: #ffffff;
+        --color-black: #000000;
+        --font-main: "Montserrat", sans-serif;
+        --transition-speed: 0.3s;
+      }
 
-        .departures-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
+      /* === Hero === */
+      .hero {
+        position: relative;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.62)),
+          url("assets/images/banner.jpeg") center / cover no-repeat;
+        min-height: 380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--color-white);
+        font-family: var(--font-main);
+      }
 
-        .departures-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
+      .hero-title {
+        font-family: var(--font-main);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: -0.5px;
+        margin-bottom: var(--spacing-sm);
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeUp 0.9s forwards ease-out;
+      }
 
-        .departure-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 0.6s forwards ease-out;
-        }
+      .hero-subtitle {
+        font-family: var(--font-main);
+        font-size: var(--font-size-body);
+        font-weight: 400;
+        max-width: 580px;
+        margin: 0 auto;
+        line-height: 1.7;
+        opacity: 0;
+        animation: fadeUp 0.9s 0.25s forwards ease-out;
+      }
 
-        .departure-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
+      /* === Section === */
+      .departures-section {
+        padding: calc(var(--section-padding-y) * 2) 0;
+        background: var(--color-bg-secondary);
+        font-family: var(--font-main);
+      }
 
-        .card-image-wrapper {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
-        }
+      /* === Grid === */
+      .departures-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 0 var(--spacing-sm);
+      }
 
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+      /* === Card === */
+      .departure-card {
+        background: var(--color-bg);
+        border-radius: calc(var(--border-radius) * 2);
+        overflow: hidden;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+        transition:
+          transform var(--transition-speed) ease,
+          box-shadow var(--transition-speed) ease;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fadeUp 0.6s forwards ease-out;
+        border-bottom: 3px solid var(--color-primary);
+      }
 
-        .departure-card:hover .card-image {
-            transform: scale(1.05);
-        }
+      .departure-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      }
 
-        .category-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--primary-color);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+      .card-image-wrapper {
+        position: relative;
+        height: 210px;
+        overflow: hidden;
+        background: #eee;
+      }
 
-        .date-badge {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 12px 0 0 0;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: -4px -4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform calc(var(--transition-speed) * 1.5) ease;
+      }
 
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+      .departure-card:hover .card-image {
+        transform: scale(1.06);
+      }
 
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
+      /* Category badge — golden on dark */
+      .category-badge {
+        position: absolute;
+        top: var(--spacing-sm);
+        left: var(--spacing-sm);
+        background: var(--color-primary);
+        color: var(--color-black);
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-family: var(--font-main);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
 
-        .card-meta {
-            display: flex;
-            gap: 20px;
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
+      /* Date badge — dark with golden text */
+      .date-badge {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--color-black);
+        color: var(--color-primary);
+        padding: 8px 16px;
+        border-radius: calc(var(--border-radius) * 2) 0 0 0;
+        font-family: var(--font-main);
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-small);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
 
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+      .card-content {
+        padding: var(--spacing-md);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .meta-item i {
-            color: var(--secondary-color);
-        }
+      .card-title {
+        font-family: var(--font-main);
+        font-size: var(--font-size-h3);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text);
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.35;
+      }
 
-        .btn-view {
-            display: inline-block;
-            width: 100%;
-            padding: 12px 0;
-            text-align: center;
-            background: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: auto;
-        }
+      .card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        color: var(--color-text-light);
+        font-family: var(--font-main);
+        font-size: var(--font-size-small);
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-sm);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
 
-        .btn-view:hover {
-            background: var(--primary-color);
-            color: white;
-        }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
 
-        .loading-state, .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            grid-column: 1 / -1;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+      .meta-item i {
+        color: var(--color-primary);
+      }
 
-        .loading-spinner {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
+      /* === CTA Button — golden primary ===  */
+      .btn-view {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 13px 0;
+        background: var(--color-primary);
+        color: var(--color-black) !important;
+        border: 2px solid var(--color-primary);
+        border-radius: var(--border-radius);
+        font-family: var(--font-main);
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-body);
+        letter-spacing: 0.4px;
+        text-decoration: none;
+        transition:
+          background var(--transition-speed) ease,
+          border-color var(--transition-speed) ease,
+          transform var(--transition-speed) ease;
+        margin-top: auto;
+      }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+      .btn-view:hover {
+        background: var(--color-black);
+        border-color: var(--color-black);
+        color: var(--color-primary) !important;
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      /* === States === */
+      .loading-state,
+      .empty-state {
+        text-align: center;
+        padding: var(--spacing-xl) var(--spacing-md);
+        grid-column: 1 / -1;
+        background: var(--color-bg);
+        border-radius: calc(var(--border-radius) * 2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        font-family: var(--font-main);
+        color: var(--color-text);
+      }
+
+      .loading-spinner {
+        font-size: 3rem;
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      /* === WhatsApp Floating Button === */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        background: #25d366;
+        color: var(--color-white);
+        padding: 13px 20px;
+        border-radius: 100px;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+        font-family: var(--font-main);
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-small);
+        transition: all var(--transition-speed) ease;
+        animation: pulse-wa 2.5s infinite;
+      }
+
+      .whatsapp-float:hover {
+        background: #1da851;
+        color: var(--color-white);
+        transform: scale(1.06);
+        box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6);
+        text-decoration: none;
+      }
+
+      .whatsapp-float i {
+        font-size: 1.4rem;
+      }
+      .whatsapp-float .wa-label {
+        white-space: nowrap;
+      }
+
+      @keyframes pulse-wa {
+        0%,
+        100% {
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
         }
+        50% {
+          box-shadow: 0 6px 28px rgba(37, 211, 102, 0.75);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .whatsapp-float .wa-label {
+          display: none;
+        }
+        .whatsapp-float {
+          padding: 15px;
+          border-radius: 50%;
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display: none"></div>
 
     <!-- Header Container -->
     <div id="header-container"></div>
 
-    <section class="hero">
+    <main>
+      <section class="hero">
         <div class="container">
-            <h1 class="hero-title" data-i18n="departs_fixes_title">Départs Fixes & Groupes</h1>
-            <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0; animation: fadeUp 1s 0.3s forwards ease-out;" data-i18n="departs_fixes_subtitle">Rejoignez un groupe existant et vivez l'aventure himalayenne aux meilleures dates sélectionnées par nos experts.</p>
+          <h2 class="hero-title" data-i18n="departs_fixes_title">
+            Départs Fixes &amp; Groupes
+          </h2>
+          <p class="hero-subtitle" data-i18n="departs_fixes_subtitle">
+            Rejoignez un groupe existant et vivez l'aventure himalayenne aux
+            meilleures dates sélectionnées par nos experts.
+          </p>
         </div>
-    </section>
+      </section>
 
-    <section class="departures-section">
+      <section class="departures-section">
         <div class="container">
-            <div class="departures-grid" id="departures-container">
-                
-                <!-- Loading State -->
-                <div class="loading-state" id="loading-state">
-                    <i class="fas fa-circle-notch fa-spin loading-spinner"></i>
-                    <h3 data-i18n="chargement_departs">Chargement des départs actuels...</h3>
-                </div>
-
-                <!-- Active departures will be injected here via JavaScript -->
+          <div class="departures-grid" id="departures-container">
+            <div class="loading-state" id="loading-state">
+              <i class="fas fa-circle-notch fa-spin loading-spinner"></i>
+              <h3 data-i18n="chargement_departs">
+                Chargement des départs actuels...
+              </h3>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/9779811345073?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20d%C3%A9parts%20fixes%20au%20N%C3%A9pal!"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="wa-float"
+    >
+      <i class="fab fa-whatsapp"></i>
+      <span class="wa-label" data-i18n="wa_inquiry"
+        >Demander un renseignement</span
+      >
+    </a>
 
     <!-- Footer Container -->
     <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
     <script src="components/header.js"></script>
     <script src="components/footer.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            renderHeader("header-container", { rootPath: "./" });
-            renderFooter("footer-container", { rootPath: "./" });
-            
-            // Wait a tiny bit for translation scripts to initialize if needed
-            setTimeout(loadDepartures, 100);
-        });
+      renderHeader("header-container", { rootPath: "./" });
+      renderFooter("footer-container", { rootPath: "./" });
+    </script>
+    <script src="assets/js/main.js"></script>
 
-        function loadDepartures() {
-            const container = document.getElementById('departures-container');
-            
-            fetch('./api/get_departures.php')
-                .then(response => {
-                    if (!response.ok) throw new Error("Erreur réseau");
-                    return response.json();
-                })
-                .then(result => {
-                    container.innerHTML = ''; // Clear loading
-                    
-                    if (result.status === 'success' && result.data.length > 0) {
-                        result.data.forEach((item, index) => {
-                            // Convert standard duration format (assuming it's in French) for generic output
-                            const durationText = item.duration;
-                            
-                            const card = document.createElement('div');
-                            card.className = 'departure-card';
-                            card.style.animationDelay = `${index * 0.1}s`;
-                            
-                            card.innerHTML = `
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(loadDepartures, 150);
+      });
+
+      function loadDepartures() {
+        const container = document.getElementById("departures-container");
+
+        fetch("./api/get_departures.php")
+          .then((res) => {
+            if (!res.ok) throw new Error("Network error");
+            return res.json();
+          })
+          .then((result) => {
+            container.innerHTML = "";
+
+            if (result.status === "success" && result.data.length > 0) {
+              result.data.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.className = "departure-card";
+                card.style.animationDelay = `${index * 0.1}s`;
+
+                card.innerHTML = `
                                 <div class="card-image-wrapper">
                                     <span class="category-badge">${item.category}</span>
-                                    <img src="${item.image_url}" alt="${item.trek_name}" class="card-image" onerror="this.src='assets/images/placeholder.jpg'">
+                                    <img src="${item.image_url}" alt="${item.trek_name}" class="card-image"
+                                         onerror="this.src='assets/images/placeholder.jpg'">
                                     <div class="date-badge">
                                         <i class="far fa-calendar-alt"></i> ${item.departure_date}
                                     </div>
@@ -265,41 +417,50 @@
                                     <div class="card-meta">
                                         <div class="meta-item">
                                             <i class="far fa-clock"></i>
-                                            <span>${durationText}</span>
+                                            <span>${item.duration}</span>
                                         </div>
                                         <div class="meta-item">
                                             <i class="fas fa-map-marker-alt"></i>
-                                            <span>Népal</span>
+                                            <span data-i18n="nepal_label">Népal</span>
                                         </div>
                                     </div>
-                                    <a href="${item.trek_url}" class="btn-view" data-i18n="voir_programme">Voir le programme</a>
+                                    <a href="${item.trek_url}" class="btn-view">
+                                        <i class="fas fa-route"></i>
+                                        <span data-i18n="voir_programme">Voir le programme</span>
+                                    </a>
                                 </div>
                             `;
-                            container.appendChild(card);
-                        });
-                    } else {
-                        // Empty State
-                        container.innerHTML = `
+                container.appendChild(card);
+              });
+            } else {
+              container.innerHTML = `
                             <div class="empty-state">
-                                <i class="far fa-calendar-times" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
+                                <i class="far fa-calendar-times" style="font-size:3rem;color:#ccc;margin-bottom:20px;"></i>
                                 <h3 data-i18n="aucun_depart_titre">Aucun départ fixe prévu pour le moment.</h3>
-                                <p style="color: #666; margin-top: 10px;" data-i18n="aucun_depart_desc">Mais nous pouvons organiser un trek privé à vos dates idéales !</p>
-                                <a href="contact.html" class="btn-view" style="max-width: 250px; margin: 30px auto 0;" data-i18n="contactez_nous">Contactez-nous</a>
+                                <p style="color:#666;margin-top:10px;" data-i18n="aucun_depart_desc">Mais nous pouvons organiser un trek privé à vos dates idéales !</p>
+                                <a href="contact.html" class="btn-view" style="max-width:250px;margin:30px auto 0;" data-i18n="contactez_nous">Contactez-nous</a>
                             </div>
                         `;
-                    }
-                })
-                .catch(error => {
-                    console.error("Erreur:", error);
-                    container.innerHTML = `
+            }
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+            container.innerHTML = `
                         <div class="empty-state">
-                            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e74c3c; margin-bottom: 20px;"></i>
+                            <i class="fas fa-exclamation-triangle" style="font-size:3rem;color:#e74c3c;margin-bottom:20px;"></i>
                             <h3>Une erreur est survenue</h3>
-                            <p style="color: #666; margin-top: 10px;">Impossible de charger les départs pour le moment. Veuillez réessayer plus tard.</p>
+                            <p style="color:#666;margin-top:10px;">Impossible de charger les départs. Veuillez réessayer plus tard.</p>
                         </div>
                     `;
-                });
-        }
+          });
+      }
     </script>
-</body>
+
+    <!-- Google Translate Script -->
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  </body>
 </html>
