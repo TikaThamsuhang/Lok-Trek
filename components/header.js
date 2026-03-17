@@ -83,14 +83,8 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                         </ul>
                     </li>
 
-                    <li class="dropdown-item-parent">
-                        <a href="javascript:void(0)" class="nav-link" data-i18n="nav_fixed_departures">Départs Fixes <i class="fas fa-chevron-down ml-1" style="font-size: 0.7em;"></i></a>
-                         <ul class="dropdown-menu">
-                             <li><a href="${root}treks/trek-detail-abc.html" class="dropdown-link">5 Avr – 16 Avr : Circuit des Annapurnas</a></li>
-                             <li><a href="${root}ascension/mera-peak.html" class="dropdown-link">20 Avr – 2 Mai : Mera Peak</a></li>
-                             <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html" class="dropdown-link">3 Mai – 13 Mai : Annapurna via Tilicho</a></li>
-                             <li><a href="${root}treks/trek-detail-everest-gokyo.html" class="dropdown-link">12 Août – 25 Août : Camp de Base de l'Everest</a></li>
-                        </ul>
+                    <li>
+                        <a href="${root}departures.html" class="nav-link" data-i18n="nav_fixed_departures">Départs Fixes</a>
                     </li>
                     <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
                       "who-we-are.html",
@@ -205,14 +199,8 @@ function renderHeader(containerId, options = { rootPath: "./" }) {
                     </ul>
                 </li>
                 
-                <li class="mobile-dropdown-parent">
-                    <a href="javascript:void(0)" class="nav-link mobile-dropdown-toggle" data-i18n="nav_fixed_departures">Départs Fixes <i class="fas fa-chevron-right rotate-icon"></i></a>
-                    <ul class="mobile-dropdown-menu">
-                         <li><a href="${root}treks/trek-detail-abc.html" class="mobile-dropdown-link">5 Avr – 16 Avr : Circuit des Annapurnas</a></li>
-                         <li><a href="${root}ascension/mera-peak.html" class="mobile-dropdown-link">20 Avr – 2 Mai : Mera Peak</a></li>
-                         <li><a href="${root}treks/trek-detail-annapurna-circuit-tilicho.html" class="mobile-dropdown-link">3 Mai – 13 Mai : Annapurna via Tilicho</a></li>
-                         <li><a href="${root}treks/trek-detail-everest-gokyo.html" class="mobile-dropdown-link">12 Août – 25 Août : Camp de Base de l'Everest</a></li>
-                    </ul>
+                <li>
+                    <a href="${root}departures.html" class="nav-link" data-i18n="nav_fixed_departures">Départs Fixes</a>
                 </li>
                 <li><a href="${root}who-we-are.html" class="nav-link ${isActive(
                   "who-we-are.html",
