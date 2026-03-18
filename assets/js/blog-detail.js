@@ -3,6 +3,59 @@ document.addEventListener("DOMContentLoaded", function () {
   loadBlogDetail();
 });
 
+// Inject BlogPosting JSON-LD schema for SEO (Google Rich Results)
+function injectBlogSchema(blog) {
+  // Remove any existing blog schema
+  const existing = document.getElementById("blog-json-ld");
+  if (existing) existing.remove();
+
+  // Build description from first content block
+  const descriptionText = blog.content[0]
+    ? blog.content[0].text.replace(/\*\*(.*?)\*\*/g, "$1").substring(0, 200) + "..."
+    : blog.title;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": descriptionText,
+    "author": {
+      "@type": "Organization",
+      "name": blog.author,
+      "url": "https://www.loktreksnepal.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lok Treks Nepal",
+      "url": "https://www.loktreksnepal.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.loktreksnepal.com/assets/images/logo-croped.jpeg"
+      }
+    },
+    "datePublished": blog.date,
+    "dateModified": blog.date,
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.loktreksnepal.com/" + blog.images[0].replace("../", "")
+    },
+    "url": "https://www.loktreksnepal.com/blogs/blog-detail?id=" + blog.id,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.loktreksnepal.com/blogs/blog-detail?id=" + blog.id
+    },
+    "articleSection": blog.category,
+    "inLanguage": "fr",
+    "keywords": "trek Népal, Himalaya, trekking, guide francophone, Lok Treks Nepal"
+  };
+
+  const script = document.createElement("script");
+  script.id = "blog-json-ld";
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(schema, null, 2);
+  document.head.appendChild(script);
+}
+
 // Blog data
 const blogData = {
   "blog-1": {
@@ -246,6 +299,9 @@ function loadBlogDetail() {
     window.location.href = "../blog.html";
     return;
   }
+
+  // Inject SEO schema for Google Rich Results
+  injectBlogSchema(blog);
 
   // Update page title
   document.getElementById("blog-title").textContent =
